@@ -64,6 +64,8 @@ function dealRound(
       activePlayerIndex: 0,
       turnStep: "picking",
       swapUsed: false,
+      pendingIndex: null,
+      pendingKind: "pick",
       revealCursor: 0,
     },
     usedScandalIds: [...carriedUsed, ...dealtIds],
@@ -101,6 +103,8 @@ function advanceTurn(state: GameState, round: RoundState): GameState {
         activePlayerIndex: nextIndex,
         turnStep: "picking",
         swapUsed: false,
+        pendingIndex: null,
+        pendingKind: "pick",
       },
     };
   }
@@ -144,18 +148,54 @@ export function reducer(state: GameState, action: Action): GameState {
       return { ...state, phase: "round-turn", current: round, usedScandalIds };
     }
 
+    case "CONSIDER_BRIEFCASE": {
+      const round = state.current;
+      if (state.phase !== "round-turn" || !round) return state;
+      const from = round.turnStep;
+      if (from !== "picking" && from !== "swapping" && from !== "considering") return state;
+      const target = round.briefcases[action.index];
+      if (!target || target.opened || target.heldBy !== null) return state;
+      const pendingKind =
+        from === "swapping" ? "swap" : from === "considering" ? round.pendingKind : "pick";
+      return {
+        ...state,
+        current: { ...round, turnStep: "considering", pendingIndex: action.index, pendingKind },
+      };
+    }
+
+    case "CANCEL_CONSIDER": {
+      const round = state.current;
+      if (state.phase !== "round-turn" || !round || round.turnStep !== "considering") return state;
+      return {
+        ...state,
+        current: {
+          ...round,
+          turnStep: round.pendingKind === "swap" ? "swapping" : "picking",
+          pendingIndex: null,
+        },
+      };
+    }
+
     case "TAKE_BRIEFCASE": {
       const round = state.current;
-      if (state.phase !== "round-turn" || !round || round.turnStep !== "picking") return state;
-      const target = round.briefcases[action.index];
+      if (state.phase !== "round-turn" || !round) return state;
+      if (round.turnStep !== "considering" || round.pendingKind !== "pick") return state;
+      const index = round.pendingIndex ?? action.index;
+      const target = round.briefcases[index];
       if (!target || target.opened) return state;
       const player = activePlayerId(round);
       const briefcases = round.briefcases.map((b, i) =>
-        i === action.index ? { ...b, opened: true, heldBy: player } : b,
+        i === index ? { ...b, opened: true, heldBy: player } : b,
       );
       return {
         ...state,
-        current: { ...round, briefcases, turnStep: "deciding", swapUsed: false },
+        current: {
+          ...round,
+          briefcases,
+          turnStep: "deciding",
+          swapUsed: false,
+          pendingIndex: null,
+        },
       };
     }
 
@@ -182,21 +222,29 @@ export function reducer(state: GameState, action: Action): GameState {
 
     case "BLIND_SWAP": {
       const round = state.current;
-      if (state.phase !== "round-turn" || !round || round.turnStep !== "swapping") return state;
-      const target = round.briefcases[action.index];
+      if (state.phase !== "round-turn" || !round) return state;
+      if (round.turnStep !== "considering" || round.pendingKind !== "swap") return state;
+      const index = round.pendingIndex ?? action.index;
+      const target = round.briefcases[index];
       if (!target || target.opened || target.heldBy !== null) return state;
       const player = activePlayerId(round);
       const oldIndex = heldIndex(round);
       const briefcases = round.briefcases.map((b, i) => {
         if (i === oldIndex) return { ...b, heldBy: null }; // stays opened -> discarded
-        if (i === action.index) return { ...b, opened: true, heldBy: player };
+        if (i === index) return { ...b, opened: true, heldBy: player };
         return b;
       });
       // Back to "deciding" so the player sees what they got, but their swap is
       // spent: the panel now only offers "Lock it in".
       return {
         ...state,
-        current: { ...round, briefcases, turnStep: "deciding", swapUsed: true },
+        current: {
+          ...round,
+          briefcases,
+          turnStep: "deciding",
+          swapUsed: true,
+          pendingIndex: null,
+        },
       };
     }
 

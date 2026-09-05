@@ -12,6 +12,8 @@ interface Props {
   highlight?: boolean;
   /** Politician name of the holder, shown on a held case. */
   holderName?: string;
+  /** Shared-layout id, so the case can morph between the grid and an overlay. */
+  layoutId?: string;
   onClick?: () => void;
 }
 
@@ -21,6 +23,7 @@ export default function Briefcase({
   interactive,
   highlight = false,
   holderName,
+  layoutId,
   onClick,
 }: Props) {
   const isOpen = visual !== "closed";
@@ -28,6 +31,7 @@ export default function Briefcase({
   return (
     <motion.button
       type="button"
+      layoutId={layoutId}
       disabled={!interactive}
       onClick={onClick}
       aria-label={
@@ -41,18 +45,14 @@ export default function Briefcase({
         "relative aspect-[4/3] w-full select-none rounded-lg p-3 text-left transition-shadow",
         "briefcase-skin shadow-case",
         interactive ? "cursor-pointer" : "cursor-default",
-        highlight ? "ring-4 ring-brass ring-offset-2 ring-offset-gop-blue" : "",
+        highlight ? "swap-target ring-4 ring-brass ring-offset-2 ring-offset-gop-blue" : "",
         visual === "discarded" ? "opacity-40 grayscale" : "",
       ].join(" ")}
       initial={false}
       whileHover={interactive ? { y: -6, scale: 1.02 } : undefined}
       whileTap={interactive ? { scale: 0.97 } : undefined}
-      animate={highlight ? { y: [0, -4, 0] } : { y: 0 }}
-      transition={
-        highlight
-          ? { duration: 1.1, repeat: Infinity, ease: "easeInOut" }
-          : { type: "spring", stiffness: 300, damping: 22 }
-      }
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
     >
       {/* Handle */}
       <span className="absolute left-1/2 top-1 h-3 w-14 -translate-x-1/2 rounded-t-md border-2 border-brass/70" />

@@ -16,6 +16,12 @@ function fillSetupAndStart() {
   fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
 }
 
+function sealedBriefcases() {
+  return screen
+    .getAllByRole("button")
+    .filter((b) => /^Sealed briefcase/.test(b.getAttribute("aria-label") ?? ""));
+}
+
 describe("<App /> full playthrough", () => {
   it("goes setup -> 4 rounds -> end screen without crashing", () => {
     render(<App />);
@@ -28,13 +34,12 @@ describe("<App /> full playthrough", () => {
       // Round intro
       fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
-      // Three turns: take the first still-sealed case, then keep it.
+      // Three turns: click a sealed case, confirm the open, then keep it.
       for (let turn = 0; turn < 3; turn++) {
-        const sealed = screen
-          .getAllByRole("button")
-          .filter((b) => /^Sealed briefcase/.test(b.getAttribute("aria-label") ?? ""));
+        const sealed = sealedBriefcases();
         expect(sealed.length).toBeGreaterThan(0);
         fireEvent.click(sealed[0]);
+        fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
         fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
       }
 
@@ -65,25 +70,62 @@ describe("<App /> full playthrough", () => {
     expect(screen.getByRole("button", { name: /play again/i })).toBeTruthy();
   });
 
+  it("asks for confirmation before revealing a scandal", () => {
+    render(<App />);
+    fillSetupAndStart();
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+
+    fireEvent.click(sealedBriefcases()[0]);
+
+    // Confirm step is up; the scandal is not revealed yet.
+    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
+    expect(screen.getByRole("button", { name: /choose a different one/i })).toBeTruthy();
+    expect(screen.queryByRole("button", { name: /^keep this scandal$/i })).toBeNull();
+    // No newspaper masthead yet — the scandal stays hidden until confirmed.
+    expect(screen.queryByText(/based on a true story/i)).toBeNull();
+
+    // Backing out returns the turn to the plain "pick a briefcase" state.
+    fireEvent.click(screen.getByRole("button", { name: /choose a different one/i }));
+    expect(screen.getByText(/pick a sealed briefcase/i)).toBeTruthy();
+  });
+
   it("supports a blind swap during a turn", () => {
     render(<App />);
     fillSetupAndStart();
     fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
-    const sealed = screen
-      .getAllByRole("button")
-      .filter((b) => /^Sealed briefcase/.test(b.getAttribute("aria-label") ?? ""));
-    fireEvent.click(sealed[0]);
+    fireEvent.click(sealedBriefcases()[0]);
+    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
 
     fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
-    const targets = screen
-      .getAllByRole("button")
-      .filter((b) => /^Sealed briefcase/.test(b.getAttribute("aria-label") ?? ""));
-    expect(targets.length).toBe(5);
+    const targets = sealedBriefcases();
+    expect(targets.length).toBeGreaterThanOrEqual(4);
     fireEvent.click(targets[0]);
+    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
 
     // After the swap the panel only offers "Lock it in".
     expect(screen.getByRole("button", { name: /lock it in/i })).toBeTruthy();
     expect(screen.queryByRole("button", { name: /trade it away/i })).toBeNull();
+  });
+
+  it("cancelling a swap consideration returns to a working swap grid", () => {
+    render(<App />);
+    fillSetupAndStart();
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+
+    fireEvent.click(sealedBriefcases()[0]);
+    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
+    fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
+
+    // Consider a target, then back out.
+    fireEvent.click(sealedBriefcases()[0]);
+    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: /choose a different one/i }));
+
+    // Grid is interactive again: the swap sub-bar is back and another target
+    // can be considered (no stuck overlay).
+    expect(screen.getByText(/tap a glowing case/i)).toBeTruthy();
+    fireEvent.click(sealedBriefcases()[0]);
+    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
   });
 });

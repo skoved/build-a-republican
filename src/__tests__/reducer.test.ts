@@ -19,11 +19,23 @@ function firstSwapTargetIndex(state: GameState): number {
   return round.briefcases.findIndex((b) => !b.opened && b.heldBy === null);
 }
 
+/** Consider + open a briefcase as a fresh pick (the two-step confirm flow). */
+function take(state: GameState, index: number): GameState {
+  const considered = reducer(state, { type: "CONSIDER_BRIEFCASE", index });
+  return reducer(considered, { type: "TAKE_BRIEFCASE", index });
+}
+
+/** Consider + commit a blind swap into a sealed briefcase. */
+function blindSwap(state: GameState, index: number): GameState {
+  const considered = reducer(state, { type: "CONSIDER_BRIEFCASE", index });
+  return reducer(considered, { type: "BLIND_SWAP", index });
+}
+
 /** Play one round where every player just keeps their first pick. */
 function playRoundKeepingPicks(state: GameState): GameState {
   let next = reducer(state, { type: "BEGIN_ROUND" });
   for (let p = 0; p < 3; p++) {
-    next = reducer(next, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(next) });
+    next = take(next, firstClosedIndex(next));
     next = reducer(next, { type: "KEEP_SCANDAL" });
   }
   // Keeping every pick leaves 3 briefcases unopened -> board recap, then reveal.
@@ -60,20 +72,75 @@ describe("setup", () => {
   });
 });
 
+describe("considering a briefcase (confirm step)", () => {
+  it("CONSIDER_BRIEFCASE lifts the case without opening or locking anything", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 2 });
+    const round = state.current!;
+    expect(round.turnStep).toBe("considering");
+    expect(round.pendingIndex).toBe(2);
+    expect(round.pendingKind).toBe("pick");
+    expect(round.briefcases[2].opened).toBe(false);
+    expect(round.briefcases[2].heldBy).toBe(null);
+  });
+
+  it("TAKE_BRIEFCASE is ignored straight from picking (must consider first)", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
+    expect(state.current?.turnStep).toBe("picking");
+    expect(state.current?.briefcases[0].opened).toBe(false);
+  });
+
+  it("CONSIDER then TAKE_BRIEFCASE opens the case and moves to the decide step", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = take(state, 0);
+    expect(state.current?.turnStep).toBe("deciding");
+    expect(state.current?.briefcases[0].opened).toBe(true);
+    expect(state.current?.briefcases[0].heldBy).toBe(0);
+    expect(state.current?.pendingIndex).toBe(null);
+  });
+
+  it("CANCEL_CONSIDER returns to picking with nothing changed", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 1 });
+    state = reducer(state, { type: "CANCEL_CONSIDER" });
+    expect(state.current?.turnStep).toBe("picking");
+    expect(state.current?.pendingIndex).toBe(null);
+    expect(state.current?.briefcases.every((b) => !b.opened)).toBe(true);
+  });
+
+  it("re-targeting moves the pending index and still opens nothing", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 0 });
+    state = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 4 });
+    expect(state.current?.turnStep).toBe("considering");
+    expect(state.current?.pendingIndex).toBe(4);
+    expect(state.current?.briefcases.every((b) => !b.opened)).toBe(true);
+  });
+
+  it("a blind-swap consideration cancels back to swapping, scandal untouched", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    state = take(state, 0);
+    const heldScandal = state.current!.briefcases[0].scandalId;
+    state = reducer(state, { type: "REQUEST_SWAP" });
+    state = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 3 });
+    expect(state.current?.turnStep).toBe("considering");
+    expect(state.current?.pendingKind).toBe("swap");
+
+    state = reducer(state, { type: "CANCEL_CONSIDER" });
+    expect(state.current?.turnStep).toBe("swapping");
+    expect(state.current?.briefcases[0]).toMatchObject({ opened: true, heldBy: 0 });
+    expect(state.current?.briefcases[0].scandalId).toBe(heldScandal);
+    expect(state.current?.briefcases[3].opened).toBe(false);
+  });
+});
+
 describe("round turn flow", () => {
   it("deals 6 briefcases and records them as used", () => {
     const state = reducer(startedGame(), { type: "BEGIN_ROUND" });
     expect(state.phase).toBe("round-turn");
     expect(state.current?.briefcases).toHaveLength(BRIEFCASES_PER_ROUND);
     expect(state.usedScandalIds).toHaveLength(BRIEFCASES_PER_ROUND);
-  });
-
-  it("TAKE_BRIEFCASE opens the case and moves to the decide step", () => {
-    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
-    state = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
-    expect(state.current?.turnStep).toBe("deciding");
-    expect(state.current?.briefcases[0].opened).toBe(true);
-    expect(state.current?.briefcases[0].heldBy).toBe(0);
   });
 
   it("KEEP_SCANDAL advances players and ends the round after the third", () => {
@@ -88,11 +155,11 @@ describe("round turn flow", () => {
 
   it("BLIND_SWAP discards the old scandal, keeps the new one, and spends the swap", () => {
     let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
-    state = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
+    state = take(state, 0);
     const firstScandal = state.current!.briefcases[0].scandalId;
     state = reducer(state, { type: "REQUEST_SWAP" });
     expect(state.current?.turnStep).toBe("swapping");
-    state = reducer(state, { type: "BLIND_SWAP", index: 3 });
+    state = blindSwap(state, 3);
 
     const round = state.current!;
     expect(round.turnStep).toBe("deciding");
@@ -108,15 +175,15 @@ describe("round turn flow", () => {
 
   it("a discarded scandal cannot be chosen by a later player", () => {
     let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
-    state = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
+    state = take(state, 0);
     state = reducer(state, { type: "REQUEST_SWAP" });
-    state = reducer(state, { type: "BLIND_SWAP", index: 1 });
+    state = blindSwap(state, 1);
     state = reducer(state, { type: "KEEP_SCANDAL" }); // player 0 locks in
 
-    // player 1 tries to take the discarded case 0
-    const attempt = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
-    expect(attempt.current?.briefcases[0].heldBy).toBe(null);
+    // player 1 tries to consider the discarded case 0
+    const attempt = reducer(state, { type: "CONSIDER_BRIEFCASE", index: 0 });
     expect(attempt.current?.turnStep).toBe("picking");
+    expect(attempt.current?.pendingIndex).toBe(null);
   });
 });
 
@@ -124,7 +191,7 @@ describe("end-of-round reveal", () => {
   function lockInThreeKeepingPicks(): GameState {
     let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
     for (let p = 0; p < 3; p++) {
-      state = reducer(state, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(state) });
+      state = take(state, firstClosedIndex(state));
       state = reducer(state, { type: "KEEP_SCANDAL" });
     }
     return state;
@@ -156,9 +223,9 @@ describe("end-of-round reveal", () => {
   it("skips the recap and reveal when every briefcase was opened", () => {
     let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
     for (let p = 0; p < 3; p++) {
-      state = reducer(state, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(state) });
+      state = take(state, firstClosedIndex(state));
       state = reducer(state, { type: "REQUEST_SWAP" });
-      state = reducer(state, { type: "BLIND_SWAP", index: firstSwapTargetIndex(state) });
+      state = blindSwap(state, firstSwapTargetIndex(state));
       state = reducer(state, { type: "KEEP_SCANDAL" });
     }
     // 3 taken + 3 swapped-into = all 6 opened.

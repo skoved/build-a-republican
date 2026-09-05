@@ -65,6 +65,25 @@ body {
   pointer-events: none;
 }
 
+/*
+ * Swap-target "pick me" pulse. Uses `filter` only — never `transform` — so it
+ * cannot fight framer-motion's transform-based shared-layout projection when a
+ * highlighted case is also morphing between the grid and the confirm overlay.
+ */
+@keyframes swap-target-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(179, 137, 63, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(179, 137, 63, 0.8));
+  }
+}
+
+.swap-target {
+  animation: swap-target-glow 1.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -12,6 +12,8 @@ function hint(turnStep: TurnStep, swapUsed: boolean): string {
   switch (turnStep) {
     case "picking":
       return "Pick a sealed briefcase.";
+    case "considering":
+      return "Take a closer look — open it, or pick a different one.";
     case "deciding":
       return swapUsed
         ? "Your swap is spent — lock in what you got."
@@ -30,7 +32,7 @@ export default function TurnBanner({
 }: Props) {
   return (
     <div className="sticky top-0 z-20 border-b-2 border-brass/40 bg-leather/95 px-4 py-3 text-center text-paper backdrop-blur">
-      <p className="dateline text-[0.65rem] uppercase tracking-[0.3em] text-brass">
+      <p className="dateline text-base uppercase tracking-[0.2em] text-brass sm:text-xl">
         Round {roundNumber} of 4 · {categoryName}
       </p>
       <p className="mt-1 font-display text-xl font-bold sm:text-2xl">
