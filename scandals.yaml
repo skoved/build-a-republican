@@ -1,0 +1,487 @@
+# =============================================================================
+# Build a Republican — scandal content
+# =============================================================================
+# This file is the ONLY thing you need to edit to change the game's content.
+# It is parsed and validated at build time (see scripts/validate-scandals.mjs);
+# a malformed file fails `npm run build` before it can deploy.
+#
+# Structure:
+#   categories: exactly 4, in this order — the game plays them as rounds 1-4:
+#     1. Personal Conduct
+#     2. Finance and Fraud
+#     3. Conflict of Interest
+#     4. October Surprise
+#
+#   Each category needs at least 6 scandals. Each game randomly draws 6 of them
+#   as the briefcases for that round. Scandals shown in a completed game are not
+#   reused in later games in the same browser session, so give each category
+#   roughly 6 * (number of back-to-back games you want) scandals. Once a
+#   category runs dry it starts recycling from the top.
+#
+#   Per scandal:
+#     id            unique across the whole file, kebab-case
+#     headline      short, ALL-CAPS-ish tabloid headline
+#     text          the body paragraph printed on the newspaper
+#     politician    the real-life person the scandal is based on
+#     position      that person's current political position
+#     articleUrl    http(s) link to a real news article
+#     articleSource (optional) label for the link, e.g. the outlet name
+#
+# The names/links below are PLACEHOLDERS. Replace them with your real research.
+# =============================================================================
+
+categories:
+  # ---------------------------------------------------------------------------
+  - id: personal-conduct
+    name: Personal Conduct
+    scandals:
+      - id: pc-yacht-week
+        headline: "CONGRESSMAN BILLED TAXPAYERS FOR 'FACT-FINDING' YACHT WEEK"
+        text: >
+          A week aboard a campaign donor's 90-foot yacht was filed as official
+          travel, complete with a per-diem claim for sunscreen and a jet-ski
+          the member described in the paperwork as "mobile constituent outreach."
+        politician: "Placeholder A. Exampleton"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/yacht-week"
+        articleSource: "The Placeholder Post"
+      - id: pc-country-club-tab
+        headline: "SENATOR'S $40,000 COUNTRY-CLUB TAB PAID FROM 'OFFICE FUND'"
+        text: >
+          Green fees, a steakhouse minimum, and a members-only cigar locker were
+          all covered by an account that staff were told never to itemize.
+        politician: "Placeholder B. Exampleton"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/country-club"
+        articleSource: "Placeholder Wire"
+      - id: pc-ghosted-hearing
+        headline: "SKIPPED 200 VOTES, ATTENDED 60 GALA DINNERS"
+        text: >
+          A year of the legislative calendar shows a near-perfect inverse
+          relationship between roll-call attendance and black-tie fundraisers.
+        politician: "Placeholder C. Exampleton"
+        position: "State Governor (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/ghosted-hearing"
+        articleSource: "The Placeholder Ledger"
+      - id: pc-staffer-nda
+        headline: "FORMER STAFFERS DESCRIBE NDAS SIGNED 'AT THE DOOR'"
+        text: >
+          Multiple ex-employees say routine onboarding included a sweeping
+          non-disparagement agreement presented minutes before their first shift.
+        politician: "Placeholder D. Exampleton"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/staffer-nda"
+        articleSource: "Placeholder Investigations"
+      - id: pc-fake-degree
+        headline: "'HARVARD FELLOWSHIP' ON BIO WAS A WEEKEND WORKSHOP"
+        text: >
+          The campaign website listed an Ivy League fellowship for six years;
+          the university has no record beyond a two-day continuing-education
+          seminar held in a hotel ballroom.
+        politician: "Placeholder E. Exampleton"
+        position: "Lieutenant Governor (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/fake-degree"
+        articleSource: "The Placeholder Times"
+      - id: pc-road-rage
+        headline: "DASHCAM SHOWS OFFICIAL SUV RUNNING MOTORCADE OF ONE"
+        text: >
+          A state vehicle assigned for security was filmed doing 95 in a school
+          zone with flashers on, reportedly to make a tee time.
+        politician: "Placeholder F. Exampleton"
+        position: "State Attorney General (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/road-rage"
+        articleSource: "Placeholder Local News"
+      - id: pc-charity-gala-noshow
+        headline: "KEYNOTED A CHARITY HE NEVER DONATED TO"
+        text: >
+          Tax filings show zero contributions to the veterans' fund the member
+          has headlined for nine consecutive years, each time collecting a
+          five-figure speaking fee.
+        politician: "Placeholder G. Exampleton"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/charity-gala"
+        articleSource: "The Placeholder Observer"
+      - id: pc-townhall-actors
+        headline: "TOWN HALL 'CONSTITUENTS' WERE PAID EXTRAS"
+        text: >
+          A casting call surfaced online seeking "enthusiastic supporters, ages
+          30-65" for a televised event billed as an unscripted community forum.
+        politician: "Placeholder H. Exampleton"
+        position: "State Senator (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/townhall-actors"
+        articleSource: "Placeholder Broadcasting"
+      - id: pc-residency
+        headline: "'HOME DISTRICT' ADDRESS IS A UPS STORE MAILBOX"
+        text: >
+          Utility records place the member's actual residence three states away
+          in a gated community; the district address receives only forwarded mail.
+        politician: "Placeholder I. Exampleton"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/residency"
+        articleSource: "The Placeholder Dispatch"
+      - id: pc-plagiarized-book
+        headline: "MEMOIR SHARES 14 PAGES WITH A 1998 SELF-HELP BOOK"
+        text: >
+          Side-by-side comparisons show whole anecdotes, including a childhood
+          story, lifted nearly verbatim from an out-of-print paperback.
+        politician: "Placeholder J. Exampleton"
+        position: "State Governor (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/plagiarized-book"
+        articleSource: "Placeholder Review of Books"
+      - id: pc-parking-fines
+        headline: "IGNORED 312 PARKING TICKETS, THEN VOTED TO CUT ENFORCEMENT"
+        text: >
+          The unpaid balance on official and personal vehicles topped $28,000
+          weeks before the member sponsored a bill slashing the meter-patrol budget.
+        politician: "Placeholder K. Exampleton"
+        position: "City Mayor (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/parking-fines"
+        articleSource: "Placeholder City Paper"
+      - id: pc-campaign-credit-card
+        headline: "CAMPAIGN CARD USED AT THEME PARKS DURING OFF-YEAR"
+        text: >
+          Disclosure reports list season passes, a churro stand, and a plush
+          mascot among "voter engagement materials" purchased in a non-election summer.
+        politician: "Placeholder L. Exampleton"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/personal-conduct/campaign-card"
+        articleSource: "The Placeholder Post"
+
+  # ---------------------------------------------------------------------------
+  - id: finance-and-fraud
+    name: Finance and Fraud
+    scandals:
+      - id: ff-shell-consulting
+        headline: "PAID 'CONSULTING FEES' TO A COMPANY WITH NO EMPLOYEES"
+        text: >
+          Nearly $600,000 in campaign funds went to an LLC registered to the
+          member's brother-in-law at a strip-mall address that houses a nail salon.
+        politician: "Placeholder A. Fundwell"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/shell-consulting"
+        articleSource: "Placeholder Financial Times"
+      - id: ff-stock-timing
+        headline: "SOLD AIRLINE STOCK TWO DAYS BEFORE CLOSED-DOOR BRIEFING"
+        text: >
+          Trading records show a well-timed exit from three travel-sector
+          positions immediately preceding a classified committee session.
+        politician: "Placeholder B. Fundwell"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/stock-timing"
+        articleSource: "The Placeholder Exchange"
+      - id: ff-ppp-loan
+        headline: "FAMILY BUSINESS TOOK RELIEF LOAN, LAID OFF STAFF ANYWAY"
+        text: >
+          A forgivable pandemic loan of $1.9M was followed within a month by
+          the closure of two locations and no rehiring.
+        politician: "Placeholder C. Fundwell"
+        position: "State Governor (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/relief-loan"
+        articleSource: "Placeholder Business Journal"
+      - id: ff-inaugural-fund
+        headline: "INAUGURAL COMMITTEE SPENT $200K AT DONOR'S OWN HOTEL"
+        text: >
+          Room blocks, ballroom rental, and catering all flowed back to a
+          property owned by the committee's finance chair.
+        politician: "Placeholder D. Fundwell"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/inaugural-fund"
+        articleSource: "Placeholder Watchdog"
+      - id: ff-double-billing
+        headline: "BILLED MILEAGE TO BOTH THE STATE AND THE CAMPAIGN"
+        text: >
+          An audit found 40,000 miles reimbursed twice over three years, always
+          for the same district-to-capital drive.
+        politician: "Placeholder E. Fundwell"
+        position: "State Senator (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/double-billing"
+        articleSource: "The Placeholder Auditor"
+      - id: ff-crypto-token
+        headline: "PROMOTED A MEME COIN, DUMPED HIS BAG AT THE PEAK"
+        text: >
+          On-chain data ties a wallet that sold near the all-time high to the
+          member's disclosed holdings, days after a promotional livestream.
+        politician: "Placeholder F. Fundwell"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/crypto-token"
+        articleSource: "Placeholder Crypto Desk"
+      - id: ff-nonprofit-salary
+        headline: "'CHARITABLE FOUNDATION' PAID SPOUSE $240K, GAVE AWAY $11K"
+        text: >
+          Four years of filings show the family foundation spending most of its
+          budget on salaries, travel, and a leased SUV.
+        politician: "Placeholder G. Fundwell"
+        position: "State Attorney General (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/nonprofit-salary"
+        articleSource: "Placeholder Nonprofit Monitor"
+      - id: ff-land-flip
+        headline: "BOUGHT SCRUBLAND, VOTED FOR THE HIGHWAY, SOLD FOR 9X"
+        text: >
+          A parcel acquired quietly through a trust tripled in assessed value
+          after an interchange the member championed was funded.
+        politician: "Placeholder H. Fundwell"
+        position: "County Commissioner (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/land-flip"
+        articleSource: "The Placeholder Ledger"
+      - id: ff-straw-donors
+        headline: "DONORS SAY THEY WERE REIMBURSED FOR 'THEIR' CONTRIBUTIONS"
+        text: >
+          Several maxed-out contributors told investigators an aide handed them
+          cash to cover checks written to the campaign.
+        politician: "Placeholder I. Fundwell"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/straw-donors"
+        articleSource: "Placeholder Investigations"
+      - id: ff-per-diem
+        headline: "CLAIMED CAPITAL LODGING WHILE SLEEPING IN THE OFFICE"
+        text: >
+          The member collected a nightly housing per diem for years while a
+          Murphy bed in the committee suite went unreported.
+        politician: "Placeholder J. Fundwell"
+        position: "State Representative (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/per-diem"
+        articleSource: "The Placeholder Capitol Report"
+      - id: ff-book-bulk-buy
+        headline: "CAMPAIGN BOUGHT 50,000 COPIES OF THE CANDIDATE'S BOOK"
+        text: >
+          The bulk purchase, routed through the publisher, generated royalties
+          paid personally to the candidate.
+        politician: "Placeholder K. Fundwell"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/book-bulk-buy"
+        articleSource: "Placeholder Media Desk"
+      - id: ff-vendor-kickback
+        headline: "MAIL VENDOR KICKED BACK 12% TO A 'STRATEGY' FIRM"
+        text: >
+          The strategy firm shares a P.O. box with the campaign treasurer and
+          filed no other clients.
+        politician: "Placeholder L. Fundwell"
+        position: "State Senator (fictional placeholder)"
+        articleUrl: "https://example.com/finance-fraud/vendor-kickback"
+        articleSource: "Placeholder Watchdog"
+
+  # ---------------------------------------------------------------------------
+  - id: conflict-of-interest
+    name: Conflict of Interest
+    scandals:
+      - id: ci-committee-holdings
+        headline: "CHAIRS THE ENERGY PANEL, OWNS THE PIPELINE STOCK"
+        text: >
+          Disclosure forms show six-figure positions in three firms with
+          business directly before the subcommittee the member leads.
+        politician: "Placeholder A. Interbrook"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/committee-holdings"
+        articleSource: "Placeholder Policy Wire"
+      - id: ci-spouse-lobbyist
+        headline: "SPOUSE LOBBIES THE VERY AGENCY THE MEMBER FUNDS"
+        text: >
+          The member sits on the appropriations panel that sets the budget for
+          a department where their spouse is a registered outside lobbyist.
+        politician: "Placeholder B. Interbrook"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/spouse-lobbyist"
+        articleSource: "The Placeholder Beacon"
+      - id: ci-earmark-client
+        headline: "STEERED A $30M EARMARK TO A FORMER LAW CLIENT"
+        text: >
+          The recipient nonprofit was represented by the member's old firm, and
+          the grant application named the member as a reference.
+        politician: "Placeholder C. Interbrook"
+        position: "State Governor (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/earmark-client"
+        articleSource: "Placeholder Investigations"
+      - id: ci-regulator-jet
+        headline: "FLEW ON A REGULATED COMPANY'S JET, THEN SOFTENED THE RULE"
+        text: >
+          Flight logs place the member on a corporate aircraft the week before
+          a markup that stripped the penalty the company had opposed.
+        politician: "Placeholder D. Interbrook"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/regulator-jet"
+        articleSource: "The Placeholder Exchange"
+      - id: ci-university-contract
+        headline: "UNIVERSITY GAVE SON A JOB; WEEK LATER, A GRANT LANDED"
+        text: >
+          The timing of a no-interview hire and a competitive research award
+          has prompted an inspector-general referral.
+        politician: "Placeholder E. Interbrook"
+        position: "State Senator (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/university-contract"
+        articleSource: "Placeholder Campus News"
+      - id: ci-blind-trust
+        headline: "'BLIND TRUST' EMAILED HIM ABOUT WHICH STOCKS TO BUY"
+        text: >
+          Messages obtained in discovery show the trustee seeking the member's
+          sign-off on individual trades.
+        politician: "Placeholder F. Interbrook"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/blind-trust"
+        articleSource: "Placeholder Watchdog"
+      - id: ci-zoning-vote
+        headline: "VOTED TO REZONE THE BLOCK WHERE HE OWNS THREE LOTS"
+        text: >
+          The council member did not recuse, and the upzoning roughly doubled
+          the appraised value of the parcels.
+        politician: "Placeholder G. Interbrook"
+        position: "City Council Member (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/zoning-vote"
+        articleSource: "Placeholder City Paper"
+      - id: ci-defense-supplier
+        headline: "PUSHED A WEAPONS PROGRAM HIS FAMILY TRUST SUPPLIES BOLTS FOR"
+        text: >
+          A machine-parts firm partly held by a family trust is a subcontractor
+          on the exact platform the member added money for.
+        politician: "Placeholder H. Interbrook"
+        position: "U.S. Senator (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/defense-supplier"
+        articleSource: "Placeholder Defense Report"
+      - id: ci-insurance-bill
+        headline: "WROTE THE INSURANCE BILL, KEPT THE INSURANCE BROKERAGE"
+        text: >
+          The member's privately held agency stood to gain from a mandate in
+          legislation the member personally drafted.
+        politician: "Placeholder I. Interbrook"
+        position: "State Representative (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/insurance-bill"
+        articleSource: "The Placeholder Ledger"
+      - id: ci-foreign-consulting
+        headline: "CONSULTED FOR A FOREIGN STATE-OWNED FIRM WHILE IN OFFICE"
+        text: >
+          A quietly renewed advisory contract paid a monthly retainer from an
+          overseas government's energy company.
+        politician: "Placeholder J. Interbrook"
+        position: "U.S. Representative (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/foreign-consulting"
+        articleSource: "Placeholder Foreign Affairs Desk"
+      - id: ci-hospital-board
+        headline: "SITS ON THE HOSPITAL BOARD, SET ITS MEDICAID RATES"
+        text: >
+          The member holds a paid board seat at the hospital system most
+          affected by a reimbursement formula they sponsored.
+        politician: "Placeholder K. Interbrook"
+        position: "State Senator (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/hospital-board"
+        articleSource: "Placeholder Health Wire"
+      - id: ci-broadband-grant
+        headline: "AWARDED BROADBAND MONEY TO A CO-OP HE'S A MEMBER OF"
+        text: >
+          The rural cooperative that won the grant lists the official among its
+          voting members and lease-paying landowners.
+        politician: "Placeholder L. Interbrook"
+        position: "County Commissioner (fictional placeholder)"
+        articleUrl: "https://example.com/conflict/broadband-grant"
+        articleSource: "Placeholder Rural Report"
+
+  # ---------------------------------------------------------------------------
+  - id: october-surprise
+    name: October Surprise
+    scandals:
+      - id: os-sealed-divorce
+        headline: "SEALED DIVORCE FILE UNSEALED 19 DAYS BEFORE THE ELECTION"
+        text: >
+          A judge released records the campaign had fought for months to keep
+          closed, citing overwhelming public interest.
+        politician: "Placeholder A. Lastminute"
+        position: "U.S. Senate candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/sealed-divorce"
+        articleSource: "The Placeholder Times"
+      - id: os-warehouse-tape
+        headline: "WAREHOUSE SECURITY TAPE CONTRADICTS THE ALIBI"
+        text: >
+          Footage timestamped the night in question surfaced in late October,
+          showing a vehicle registered to the campaign at the site.
+        politician: "Placeholder B. Lastminute"
+        position: "Gubernatorial candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/warehouse-tape"
+        articleSource: "Placeholder Broadcasting"
+      - id: os-whistleblower-memo
+        headline: "STAFF WHISTLEBLOWER RELEASES A DATED INTERNAL MEMO"
+        text: >
+          A former scheduler provided reporters a memo appearing to show the
+          candidate was briefed on the problem a year earlier than claimed.
+        politician: "Placeholder C. Lastminute"
+        position: "U.S. House candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/whistleblower-memo"
+        articleSource: "Placeholder Investigations"
+      - id: os-foreign-wire
+        headline: "BANK FLAGGED A LATE-OCTOBER WIRE FROM OVERSEAS"
+        text: >
+          A compliance report leaked days before the vote describes a transfer
+          from an offshore account tied to a foreign business partner.
+        politician: "Placeholder D. Lastminute"
+        position: "U.S. Senate candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/foreign-wire"
+        articleSource: "Placeholder Financial Times"
+      - id: os-old-radio-clip
+        headline: "1990s RADIO CLIP RESURFACES, CAMPAIGN CALLS IT 'A JOKE'"
+        text: >
+          Audio from a call-in show circulated widely in the final week, drawing
+          condemnations from both parties.
+        politician: "Placeholder E. Lastminute"
+        position: "Gubernatorial candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/old-radio-clip"
+        articleSource: "Placeholder Media Desk"
+      - id: os-indictment-unsealed
+        headline: "GRAND JURY INDICTMENT OF A TOP AIDE UNSEALED OCT. 28"
+        text: >
+          Prosecutors said the timing was dictated by the calendar of the court,
+          not the campaign; the aide resigned within hours.
+        politician: "Placeholder F. Lastminute"
+        position: "U.S. House candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/indictment-unsealed"
+        articleSource: "The Placeholder Ledger"
+      - id: os-donor-raid
+        headline: "FEDERAL AGENTS RAID THE CAMPAIGN'S BIGGEST DONOR"
+        text: >
+          Search warrants executed at a bundler's offices in late October name
+          the campaign's compliance filings among the materials sought.
+        politician: "Placeholder G. Lastminute"
+        position: "U.S. Senate candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/donor-raid"
+        articleSource: "Placeholder Watchdog"
+      - id: os-deposition-video
+        headline: "DEPOSITION VIDEO LEAKS: 'I DON'T RECALL' 71 TIMES"
+        text: >
+          A civil deposition recorded over the summer was posted online days
+          before voting, quickly cut into viral clips.
+        politician: "Placeholder H. Lastminute"
+        position: "Gubernatorial candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/deposition-video"
+        articleSource: "Placeholder Broadcasting"
+      - id: os-ghost-employees
+        headline: "STATE PAYROLL SHOWS 'EMPLOYEES' WHO NEVER CLOCKED IN"
+        text: >
+          An eve-of-election audit identified nine positions drawing salary
+          with no work product, all hired by the candidate's office.
+        politician: "Placeholder I. Lastminute"
+        position: "State Treasurer candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/ghost-employees"
+        articleSource: "The Placeholder Auditor"
+      - id: os-charity-audit
+        headline: "AG OPENS PROBE INTO THE CANDIDATE'S CHARITY — IN OCTOBER"
+        text: >
+          The attorney general's office confirmed an inquiry into the family
+          foundation's grantmaking one week before polls opened.
+        politician: "Placeholder J. Lastminute"
+        position: "U.S. House candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/charity-audit"
+        articleSource: "Placeholder Nonprofit Monitor"
+      - id: os-text-dump
+        headline: "TEXT MESSAGE DUMP APPEARS ON A BURNER WEBSITE"
+        text: >
+          Thousands of messages, apparently from a former campaign phone, were
+          posted anonymously with a countdown clock to Election Day.
+        politician: "Placeholder K. Lastminute"
+        position: "U.S. Senate candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/text-dump"
+        articleSource: "Placeholder Investigations"
+      - id: os-contractor-affidavit
+        headline: "CONTRACTOR SIGNS AFFIDAVIT ON THE UNPERMITTED ADDITION"
+        text: >
+          A builder came forward in the last week alleging work on the
+          candidate's home was done off the books and under-declared.
+        politician: "Placeholder L. Lastminute"
+        position: "Gubernatorial candidate (fictional placeholder)"
+        articleUrl: "https://example.com/october-surprise/contractor-affidavit"
+        articleSource: "Placeholder Local News"
