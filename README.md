@@ -19,7 +19,9 @@ static site on Vercel's free tier.
    - **Decide** immediately — keep it, or **trade it away blind** for one of the
      still-sealed briefcases. A blind swap discards your old scandal for the rest
      of the round; you get one swap per turn.
-3. After all three players lock in, a summary shows every candidate so far.
+3. After all three players lock in, the board comes back into view; a button
+   then reveals the scandals in the briefcases nobody picked, one at a time
+   ("the ones that got away"), followed by a summary of every candidate so far.
 4. After four rounds, the end screen lays out all three finished candidates with
    links to every source article, plus **Play again**.
 

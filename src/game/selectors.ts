@@ -35,6 +35,11 @@ export function swapTargetIndexes(round: RoundState): number[] {
   return round.briefcases.flatMap((b, i) => (!b.opened && b.heldBy === null ? [i] : []));
 }
 
+/** Briefcase indexes never opened this round — the "unselected" scandals. */
+export function unopenedBriefcaseIndexes(round: RoundState): number[] {
+  return round.briefcases.flatMap((b, i) => (b.opened ? [] : [i]));
+}
+
 export interface PlayerBuild {
   player: Player;
   /** One scandal per completed round, in play order. */

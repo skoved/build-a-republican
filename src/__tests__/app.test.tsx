@@ -38,6 +38,18 @@ describe("<App /> full playthrough", () => {
         fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
       }
 
+      // Board recap: the grid returns with a button to start the reveal.
+      expect(screen.getByText(/every pick is in/i)).toBeTruthy();
+      fireEvent.click(screen.getByRole("button", { name: /nobody opened/i }));
+
+      // Reveal of the briefcases nobody picked (3 of them for a keep-only round).
+      expect(screen.getByText(/the ones that got away/i)).toBeTruthy();
+      for (let guard = 0; guard < 6; guard++) {
+        const next = screen.queryByRole("button", { name: /next scandal|show the field/i });
+        if (!next) break;
+        fireEvent.click(next);
+      }
+
       // Round summary
       expect(screen.getByText(/The field so far/i)).toBeTruthy();
       expect(screen.getAllByText(/built by/i)).toHaveLength(3);

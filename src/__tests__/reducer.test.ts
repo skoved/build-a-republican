@@ -14,6 +14,11 @@ function firstClosedIndex(state: GameState): number {
   return round.briefcases.findIndex((b) => !b.opened);
 }
 
+function firstSwapTargetIndex(state: GameState): number {
+  const round = state.current!;
+  return round.briefcases.findIndex((b) => !b.opened && b.heldBy === null);
+}
+
 /** Play one round where every player just keeps their first pick. */
 function playRoundKeepingPicks(state: GameState): GameState {
   let next = reducer(state, { type: "BEGIN_ROUND" });
@@ -21,6 +26,9 @@ function playRoundKeepingPicks(state: GameState): GameState {
     next = reducer(next, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(next) });
     next = reducer(next, { type: "KEEP_SCANDAL" });
   }
+  // Keeping every pick leaves 3 briefcases unopened -> board recap, then reveal.
+  if (next.phase === "round-recap") next = reducer(next, { type: "REVEAL_UNOPENED" });
+  while (next.phase === "round-reveal") next = reducer(next, { type: "NEXT_REVEAL" });
   return reducer(next, { type: "DISMISS_SUMMARY" });
 }
 
@@ -109,6 +117,66 @@ describe("round turn flow", () => {
     const attempt = reducer(state, { type: "TAKE_BRIEFCASE", index: 0 });
     expect(attempt.current?.briefcases[0].heldBy).toBe(null);
     expect(attempt.current?.turnStep).toBe("picking");
+  });
+});
+
+describe("end-of-round reveal", () => {
+  function lockInThreeKeepingPicks(): GameState {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    for (let p = 0; p < 3; p++) {
+      state = reducer(state, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(state) });
+      state = reducer(state, { type: "KEEP_SCANDAL" });
+    }
+    return state;
+  }
+
+  it("pauses on the board recap, then reveals the unopened briefcases before the summary", () => {
+    let state = lockInThreeKeepingPicks();
+    // Last lock-in lands on the board recap, not straight into the reveal.
+    expect(state.phase).toBe("round-recap");
+
+    state = reducer(state, { type: "REVEAL_UNOPENED" });
+    expect(state.phase).toBe("round-reveal");
+    expect(state.current?.revealCursor).toBe(0);
+
+    // 3 kept picks -> 3 unopened briefcases to reveal.
+    state = reducer(state, { type: "NEXT_REVEAL" });
+    expect(state.phase).toBe("round-reveal");
+    expect(state.current?.revealCursor).toBe(1);
+
+    state = reducer(state, { type: "NEXT_REVEAL" });
+    expect(state.phase).toBe("round-reveal");
+    expect(state.current?.revealCursor).toBe(2);
+
+    state = reducer(state, { type: "NEXT_REVEAL" });
+    expect(state.phase).toBe("round-summary");
+    expect(state.rounds).toHaveLength(1);
+  });
+
+  it("skips the recap and reveal when every briefcase was opened", () => {
+    let state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    for (let p = 0; p < 3; p++) {
+      state = reducer(state, { type: "TAKE_BRIEFCASE", index: firstClosedIndex(state) });
+      state = reducer(state, { type: "REQUEST_SWAP" });
+      state = reducer(state, { type: "BLIND_SWAP", index: firstSwapTargetIndex(state) });
+      state = reducer(state, { type: "KEEP_SCANDAL" });
+    }
+    // 3 taken + 3 swapped-into = all 6 opened.
+    expect(state.current?.briefcases.every((b) => b.opened)).toBe(true);
+    expect(state.phase).toBe("round-summary");
+  });
+
+  it("REVEAL_UNOPENED only fires from the recap", () => {
+    const recap = lockInThreeKeepingPicks();
+    expect(recap.phase).toBe("round-recap");
+
+    // Ignored from other phases.
+    expect(reducer(startedGame(), { type: "REVEAL_UNOPENED" }).phase).toBe("round-intro");
+
+    const revealing = reducer(recap, { type: "REVEAL_UNOPENED" });
+    expect(revealing.phase).toBe("round-reveal");
+    // A second REVEAL_UNOPENED does nothing now that we've left the recap.
+    expect(reducer(revealing, { type: "REVEAL_UNOPENED" }).phase).toBe("round-reveal");
   });
 });
 
