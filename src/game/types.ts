@@ -1,4 +1,7 @@
 import type { Dispatch } from "react";
+import type { DeckId } from "../data/scandals";
+
+export type { DeckId };
 
 export type Phase =
   | "setup"
@@ -74,6 +77,8 @@ export interface CompletedRound {
 
 export interface GameState {
   phase: Phase;
+  /** Which scandal pool this game draws from. Chosen at SUBMIT_SETUP. */
+  deckId: DeckId;
   /** Length 3–4 once setup is submitted; [] beforehand. */
   players: Player[];
   /** Rounds that have finished, in play order. */
@@ -94,7 +99,7 @@ export interface SetupSeat {
 }
 
 export type Action =
-  | { type: "SUBMIT_SETUP"; seats: SetupSeat[] }
+  | { type: "SUBMIT_SETUP"; seats: SetupSeat[]; deckId?: DeckId }
   | { type: "BEGIN_ROUND" }
   | { type: "CONSIDER_BRIEFCASE"; index: number }
   | { type: "CANCEL_CONSIDER" }

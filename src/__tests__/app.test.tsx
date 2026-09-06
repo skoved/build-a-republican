@@ -178,4 +178,34 @@ describe("<App /> full playthrough", () => {
     fireEvent.click(screen.getByRole("button", { name: /back to three players/i }));
     expect(screen.getAllByText("Your name")).toHaveLength(3);
   });
+
+  it("starts a game from the Trump deck via the unmarked button", () => {
+    render(<App />);
+
+    const trumpButton = screen.getByRole("button", { name: /trump deck/i });
+    expect((trumpButton as HTMLButtonElement).disabled).toBe(true);
+
+    const yourName = screen
+      .getAllByText("Your name")
+      .map((l) => l.parentElement!.querySelector("input")!);
+    const repName = screen
+      .getAllByText("Name your Republican")
+      .map((l) => l.parentElement!.querySelector("input")!);
+    ["Ada", "Ben", "Cal"].forEach((n, i) =>
+      fireEvent.change(yourName[i], { target: { value: n } }),
+    );
+    ["Sen. A", "Gov. B", "Mayor C"].forEach((n, i) =>
+      fireEvent.change(repName[i], { target: { value: n } }),
+    );
+
+    expect((trumpButton as HTMLButtonElement).disabled).toBe(false);
+    fireEvent.click(trumpButton);
+
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+    fireEvent.click(sealedBriefcases()[0]);
+    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
+
+    // The newspaper's "based on a true story" line names the Trump-deck figure.
+    expect(screen.getAllByText(/donald j\. trump/i).length).toBeGreaterThan(0);
+  });
 });

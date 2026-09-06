@@ -72,6 +72,15 @@ Run the check yourself any time:
 npm run validate:scandals
 ```
 
+### The Trump deck
+
+[`trump.yaml`](./trump.yaml) is a second scandal pool in the **identical** format.
+It is started from the small unlabelled button in the top-right corner of the
+setup screen (enabled once every name is filled). It plays a normal 4-round game,
+just from this file instead of `scandals.yaml`. Same validation rules apply, and
+scandal ids must be unique **across both files** — keep the `t-` prefix used in
+the shipped placeholders. `npm run validate:scandals` checks both files.
+
 ## Local development
 
 ```bash

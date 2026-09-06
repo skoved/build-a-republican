@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import type { AppDispatch, SetupSeat } from "../game/types";
 import { MAX_PLAYERS, MIN_PLAYERS } from "../data/scandals";
+import TrumpMark from "./TrumpMark";
 
 interface Props {
   dispatch: AppDispatch;
@@ -34,7 +35,18 @@ export default function SetupScreen({ dispatch }: Props) {
   }
 
   return (
-    <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-4 py-10">
+    <div className="relative mx-auto flex min-h-full max-w-3xl flex-col justify-center px-4 py-10">
+      <button
+        type="button"
+        aria-label="Start with the Trump deck"
+        title="Start with the Trump deck"
+        disabled={!complete}
+        onClick={() => dispatch({ type: "SUBMIT_SETUP", seats, deckId: "trump" })}
+        className="absolute right-3 top-3 rounded-full p-2 text-paper/15 transition hover:text-paper/70 focus-visible:text-paper/70 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-paper/15"
+      >
+        <TrumpMark className="h-7 w-7" />
+      </button>
+
       <header className="text-center">
         <p className="dateline text-xs uppercase tracking-[0.35em] text-brass">
           A Hotseat Party Game for Three or Four

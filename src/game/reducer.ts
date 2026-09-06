@@ -10,6 +10,7 @@ import type {
   Action,
   Briefcase,
   CompletedRound,
+  DeckId,
   GameState,
   Player,
   PlayerId,
@@ -19,6 +20,7 @@ import type {
 export function createInitialState(): GameState {
   return {
     phase: "setup",
+    deckId: "standard",
     players: [],
     rounds: [],
     current: null,
@@ -39,9 +41,10 @@ function dealRound(
   categoryIndex: number,
   usedScandalIds: string[],
   playerCount: number,
+  deckId: DeckId,
 ): { round: RoundState; usedScandalIds: string[] } {
   const count = briefcasesForPlayers(playerCount);
-  const categoryIds = scandalIdsForCategory(categoryIndex);
+  const categoryIds = scandalIdsForCategory(categoryIndex, deckId);
   const categoryIdSet = new Set(categoryIds);
   const unusedInCategory = categoryIds.filter((id) => !usedScandalIds.includes(id));
 
@@ -52,7 +55,7 @@ function dealRound(
       ? usedScandalIds.filter((id) => !categoryIdSet.has(id))
       : usedScandalIds;
 
-  const dealtIds = sampleScandals(categoryIndex, count, carriedUsed);
+  const dealtIds = sampleScandals(categoryIndex, count, carriedUsed, deckId);
   const briefcases: Briefcase[] = dealtIds.map((scandalId) => ({
     scandalId,
     opened: false,
@@ -139,7 +142,14 @@ export function reducer(state: GameState, action: Action): GameState {
         playerName: seat.playerName.trim(),
         politicianName: seat.politicianName.trim(),
       }));
-      return { ...state, phase: "round-intro", players, rounds: [], current: null };
+      return {
+        ...state,
+        phase: "round-intro",
+        deckId: action.deckId ?? "standard",
+        players,
+        rounds: [],
+        current: null,
+      };
     }
 
     case "BEGIN_ROUND": {
@@ -150,6 +160,7 @@ export function reducer(state: GameState, action: Action): GameState {
         categoryIndex,
         state.usedScandalIds,
         state.players.length,
+        state.deckId,
       );
       return { ...state, phase: "round-turn", current: round, usedScandalIds };
     }
@@ -284,9 +295,11 @@ export function reducer(state: GameState, action: Action): GameState {
     }
 
     case "PLAY_AGAIN": {
-      // Keep usedScandalIds so a fresh game avoids scandals already seen.
+      // Keep usedScandalIds so a fresh game avoids scandals already seen. The
+      // deck is re-chosen on the setup screen by which start button is clicked.
       return {
         phase: "setup",
+        deckId: "standard",
         players: [],
         rounds: [],
         current: null,

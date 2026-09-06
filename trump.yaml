@@ -1,0 +1,301 @@
+# =============================================================================
+# Build a Republican — the "Trump deck"
+# =============================================================================
+# A second scandal pool, identical in format to scandals.yaml. It is reached
+# from the small unmarked button in the top-right corner of the setup screen.
+# Picking it starts a normal 4-round game whose briefcases are drawn entirely
+# from this file instead of scandals.yaml.
+#
+# Same rules as scandals.yaml:
+#   - exactly 4 categories, in this order, with these ids/names:
+#       1. personal-conduct     Personal Conduct
+#       2. finance-and-fraud    Finance and Fraud
+#       3. conflict-of-interest Conflict of Interest
+#       4. october-surprise     October Surprise
+#   - at least 8 scandals per category.
+#   - every scandal id must be UNIQUE ACROSS BOTH FILES. Keep the "t-" prefix
+#     used here so Trump-deck ids never collide with scandals.yaml's
+#     pc-/ff-/ci-/os- ids.
+#
+# Per scandal: id, headline, text, politician, position, articleUrl (http(s)),
+# and optional articleSource — exactly as in scandals.yaml.
+#
+# The entries below are PLACEHOLDERS. Replace headline/text/articleUrl with the
+# real Trump scandals you want in the deck.
+# =============================================================================
+
+categories:
+  # ---------------------------------------------------------------------------
+  - id: personal-conduct
+    name: Personal Conduct
+    scandals:
+      - id: t-pc-1
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #1"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck —
+          the body paragraph that prints on the newspaper when this briefcase is
+          opened.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/1"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-2
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #2"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/2"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-3
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #3"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/3"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-4
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #4"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/4"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-5
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #5"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/5"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-6
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #6"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/6"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-7
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #7"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/7"
+        articleSource: "Replace With Real Source"
+      - id: t-pc-8
+        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #8"
+        text: >
+          Replace this with a real Personal Conduct scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/personal-conduct/8"
+        articleSource: "Replace With Real Source"
+  # ---------------------------------------------------------------------------
+  - id: finance-and-fraud
+    name: Finance and Fraud
+    scandals:
+      - id: t-ff-1
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #1"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/1"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-2
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #2"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/2"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-3
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #3"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/3"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-4
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #4"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/4"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-5
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #5"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/5"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-6
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #6"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/6"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-7
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #7"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/7"
+        articleSource: "Replace With Real Source"
+      - id: t-ff-8
+        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #8"
+        text: >
+          Replace this with a real Finance and Fraud scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/finance-and-fraud/8"
+        articleSource: "Replace With Real Source"
+  # ---------------------------------------------------------------------------
+  - id: conflict-of-interest
+    name: Conflict of Interest
+    scandals:
+      - id: t-ci-1
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #1"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/1"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-2
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #2"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/2"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-3
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #3"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/3"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-4
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #4"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/4"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-5
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #5"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/5"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-6
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #6"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/6"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-7
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #7"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/7"
+        articleSource: "Replace With Real Source"
+      - id: t-ci-8
+        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #8"
+        text: >
+          Replace this with a real Conflict of Interest scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/conflict-of-interest/8"
+        articleSource: "Replace With Real Source"
+  # ---------------------------------------------------------------------------
+  - id: october-surprise
+    name: October Surprise
+    scandals:
+      - id: t-os-1
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #1"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/1"
+        articleSource: "Replace With Real Source"
+      - id: t-os-2
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #2"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/2"
+        articleSource: "Replace With Real Source"
+      - id: t-os-3
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #3"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/3"
+        articleSource: "Replace With Real Source"
+      - id: t-os-4
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #4"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/4"
+        articleSource: "Replace With Real Source"
+      - id: t-os-5
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #5"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/5"
+        articleSource: "Replace With Real Source"
+      - id: t-os-6
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #6"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/6"
+        articleSource: "Replace With Real Source"
+      - id: t-os-7
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #7"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/7"
+        articleSource: "Replace With Real Source"
+      - id: t-os-8
+        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #8"
+        text: >
+          Replace this with a real October Surprise scandal for the Trump deck.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://example.com/trump/october-surprise/8"
+        articleSource: "Replace With Real Source"

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { briefcasesForPlayers, ROUND_COUNT, scandalIdsForCategory } from "../data/scandals";
 import { createInitialState, reducer } from "../game/reducer";
-import type { GameState } from "../game/types";
+import type { DeckId, GameState } from "../game/types";
 
 const SEATS = [
   { playerName: "Ada", politicianName: "Senator Alpha" },
@@ -57,8 +57,8 @@ function playFullGame(state: GameState): GameState {
   return next;
 }
 
-function startedGame(seats = SEATS): GameState {
-  return reducer(createInitialState(), { type: "SUBMIT_SETUP", seats });
+function startedGame(seats = SEATS, deckId?: DeckId): GameState {
+  return reducer(createInitialState(), { type: "SUBMIT_SETUP", seats, deckId });
 }
 
 describe("setup", () => {
@@ -340,5 +340,44 @@ describe("full game + replays", () => {
     expect(dealt.current?.briefcases).toHaveLength(SIX);
     // History for the category was cleared, then the fresh deal recorded.
     expect(dealt.usedScandalIds).toHaveLength(SIX);
+  });
+});
+
+describe("trump deck", () => {
+  const isTrumpId = (id: string) => id.startsWith("t-");
+
+  it("defaults to the standard deck", () => {
+    expect(createInitialState().deckId).toBe("standard");
+    expect(startedGame().deckId).toBe("standard");
+  });
+
+  it("SUBMIT_SETUP with deckId 'trump' records the deck", () => {
+    const state = startedGame(SEATS, "trump");
+    expect(state.phase).toBe("round-intro");
+    expect(state.deckId).toBe("trump");
+  });
+
+  it("deals a trump round entirely from trump.yaml", () => {
+    const state = reducer(startedGame(SEATS, "trump"), { type: "BEGIN_ROUND" });
+    expect(state.current?.briefcases).toHaveLength(SIX);
+    expect(state.current?.briefcases.every((b) => isTrumpId(b.scandalId))).toBe(true);
+  });
+
+  it("keeps the standard deck free of trump scandals", () => {
+    const state = reducer(startedGame(), { type: "BEGIN_ROUND" });
+    expect(state.current?.briefcases.some((b) => isTrumpId(b.scandalId))).toBe(false);
+  });
+
+  it("plays a full trump game to the end screen", () => {
+    const finished = playFullGame(startedGame(SEATS, "trump"));
+    expect(finished.phase).toBe("end");
+    const dealt = finished.usedScandalIds;
+    expect(dealt).toHaveLength(ROUND_COUNT * SIX);
+    expect(dealt.every(isTrumpId)).toBe(true);
+  });
+
+  it("PLAY_AGAIN drops back to the standard deck", () => {
+    const finished = playFullGame(startedGame(SEATS, "trump"));
+    expect(reducer(finished, { type: "PLAY_AGAIN" }).deckId).toBe("standard");
   });
 });

@@ -1,4 +1,4 @@
-// Build-time gate for scandals.yaml.
+// Build-time gate for the scandal content files (scandals.yaml + trump.yaml).
 //
 // Run directly (`npm run validate:scandals`) or automatically before every
 // build (`prebuild` in package.json). Exits non-zero with a readable message
@@ -11,7 +11,13 @@ import yaml from "js-yaml";
 import { z } from "zod";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const YAML_PATH = resolve(here, "..", "scandals.yaml");
+
+// Every deck file the app bundles. src/data/scandals.ts merges them into one
+// scandal lookup, so ids must also be unique *across* files (checked below).
+const YAML_FILES = [
+  { label: "scandals.yaml", path: resolve(here, "..", "scandals.yaml") },
+  { label: "trump.yaml", path: resolve(here, "..", "trump.yaml") },
+];
 
 // The 4 categories, in the exact order the game plays them as rounds.
 export const EXPECTED_CATEGORIES = [
@@ -62,15 +68,15 @@ const fileSchema = z.object({
 
 /**
  * Validate an already-parsed object. Returns the typed data or throws an Error
- * whose message lists every problem found.
+ * whose message lists every problem found. `label` names the file in messages.
  */
-export function validateScandalData(raw) {
+export function validateScandalData(raw, label = "scandals.yaml") {
   const parsed = fileSchema.safeParse(raw);
   if (!parsed.success) {
     const lines = parsed.error.issues.map(
       (i) => `  - ${i.path.join(".") || "(root)"}: ${i.message}`,
     );
-    throw new Error(`scandals.yaml is invalid:\n${lines.join("\n")}`);
+    throw new Error(`${label} is invalid:\n${lines.join("\n")}`);
   }
 
   const data = parsed.data;
@@ -111,7 +117,7 @@ export function validateScandalData(raw) {
 
   if (problems.length > 0) {
     throw new Error(
-      `scandals.yaml is invalid:\n${problems.map((p) => `  - ${p}`).join("\n")}`,
+      `${label} is invalid:\n${problems.map((p) => `  - ${p}`).join("\n")}`,
     );
   }
 
@@ -119,25 +125,55 @@ export function validateScandalData(raw) {
 }
 
 function main() {
-  let raw;
-  try {
-    raw = yaml.load(readFileSync(YAML_PATH, "utf8"));
-  } catch (err) {
-    console.error(`Could not read/parse scandals.yaml:\n  ${err.message}`);
-    process.exit(1);
+  const validated = [];
+
+  for (const { label, path } of YAML_FILES) {
+    let raw;
+    try {
+      raw = yaml.load(readFileSync(path, "utf8"));
+    } catch (err) {
+      console.error(`Could not read/parse ${label}:\n  ${err.message}`);
+      process.exit(1);
+    }
+
+    try {
+      const data = validateScandalData(raw, label);
+      const counts = data.categories
+        .map((c) => `${c.name}: ${c.scandals.length}`)
+        .join(", ");
+      const total = data.categories.reduce((n, c) => n + c.scandals.length, 0);
+      console.log(`${label} OK — ${total} scandals (${counts}).`);
+      validated.push({ label, data });
+    } catch (err) {
+      console.error(err.message);
+      process.exit(1);
+    }
   }
 
-  try {
-    const data = validateScandalData(raw);
-    const counts = data.categories
-      .map((c) => `${c.name}: ${c.scandals.length}`)
-      .join(", ");
-    const total = data.categories.reduce((n, c) => n + c.scandals.length, 0);
-    console.log(`scandals.yaml OK — ${total} scandals (${counts}).`);
-  } catch (err) {
-    console.error(err.message);
+  // Ids must be unique across every file — src/data/scandals.ts merges all
+  // decks into one getScandal() lookup.
+  const owner = new Map();
+  const collisions = [];
+  for (const { label, data } of validated) {
+    for (const category of data.categories) {
+      for (const scandal of category.scandals) {
+        if (owner.has(scandal.id)) {
+          collisions.push(`"${scandal.id}" (in ${owner.get(scandal.id)} and ${label})`);
+        } else {
+          owner.set(scandal.id, label);
+        }
+      }
+    }
+  }
+  if (collisions.length > 0) {
+    console.error(
+      `scandal ids must be unique across decks:\n${collisions
+        .map((c) => `  - ${c}`)
+        .join("\n")}`,
+    );
     process.exit(1);
   }
+  console.log("no id collisions across decks.");
 }
 
 // Only run when executed as a script, not when imported by tests.
