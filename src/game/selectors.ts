@@ -1,11 +1,10 @@
 import { getScandal, ROUND_COUNT, type Scandal } from "../data/scandals";
-import { PLAYER_ORDER } from "./reducer";
 import type { GameState, Player, PlayerId, RoundState } from "./types";
 
 /** The player whose turn it is. Assumes a round is in progress. */
 export function activePlayer(state: GameState): Player {
   const round = requireRound(state);
-  return state.players[PLAYER_ORDER[round.activePlayerIndex]];
+  return state.players[round.activePlayerIndex];
 }
 
 export function requireRound(state: GameState): RoundState {

@@ -9,7 +9,7 @@ export type Phase =
   | "round-summary"
   | "end";
 
-export type PlayerId = 0 | 1 | 2;
+export type PlayerId = 0 | 1 | 2 | 3;
 
 /** Where the active player is within their turn. */
 export type TurnStep = "picking" | "considering" | "deciding" | "swapping";
@@ -37,9 +37,9 @@ export interface Briefcase {
 export interface RoundState {
   /** 0-based index into the category/round list. */
   categoryIndex: number;
-  /** Always length {@link BRIEFCASES_PER_ROUND}. */
+  /** Always length `players.length * BRIEFCASES_PER_PLAYER` (6 for 3, 8 for 4). */
   briefcases: Briefcase[];
-  /** 0..2 pointer into {@link PLAYER_ORDER}. */
+  /** 0-based turn pointer; equals the active player's id (seats are 0..n-1). */
   activePlayerIndex: number;
   turnStep: TurnStep;
   /** True once the active player has used their one blind swap this turn. */
@@ -68,13 +68,13 @@ export interface CompletedResult {
 
 export interface CompletedRound {
   categoryIndex: number;
-  /** One entry per player, in {@link PLAYER_ORDER}. */
+  /** One entry per player, in seat order. */
   results: CompletedResult[];
 }
 
 export interface GameState {
   phase: Phase;
-  /** Length 3 once setup is submitted; [] beforehand. */
+  /** Length 3–4 once setup is submitted; [] beforehand. */
   players: Player[];
   /** Rounds that have finished, in play order. */
   rounds: CompletedRound[];

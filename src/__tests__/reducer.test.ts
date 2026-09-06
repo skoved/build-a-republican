@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BRIEFCASES_PER_ROUND, ROUND_COUNT, scandalIdsForCategory } from "../data/scandals";
+import { briefcasesForPlayers, ROUND_COUNT, scandalIdsForCategory } from "../data/scandals";
 import { createInitialState, reducer } from "../game/reducer";
 import type { GameState } from "../game/types";
 
@@ -8,6 +8,12 @@ const SEATS = [
   { playerName: "Ben", politicianName: "Governor Bravo" },
   { playerName: "Cal", politicianName: "Mayor Charlie" },
 ];
+
+const SEATS_4 = [...SEATS, { playerName: "Dot", politicianName: "Judge Delta" }];
+
+/** Briefcases dealt for a 3-player table (6) and a 4-player table (8). */
+const SIX = briefcasesForPlayers(3);
+const EIGHT = briefcasesForPlayers(4);
 
 function firstClosedIndex(state: GameState): number {
   const round = state.current!;
@@ -34,11 +40,12 @@ function blindSwap(state: GameState, index: number): GameState {
 /** Play one round where every player just keeps their first pick. */
 function playRoundKeepingPicks(state: GameState): GameState {
   let next = reducer(state, { type: "BEGIN_ROUND" });
-  for (let p = 0; p < 3; p++) {
+  for (let p = 0; p < state.players.length; p++) {
     next = take(next, firstClosedIndex(next));
     next = reducer(next, { type: "KEEP_SCANDAL" });
   }
-  // Keeping every pick leaves 3 briefcases unopened -> board recap, then reveal.
+  // Keeping every pick leaves the other half of the briefcases unopened ->
+  // board recap, then the reveal, one per unopened case.
   if (next.phase === "round-recap") next = reducer(next, { type: "REVEAL_UNOPENED" });
   while (next.phase === "round-reveal") next = reducer(next, { type: "NEXT_REVEAL" });
   return reducer(next, { type: "DISMISS_SUMMARY" });
@@ -50,8 +57,8 @@ function playFullGame(state: GameState): GameState {
   return next;
 }
 
-function startedGame(): GameState {
-  return reducer(createInitialState(), { type: "SUBMIT_SETUP", seats: SEATS });
+function startedGame(seats = SEATS): GameState {
+  return reducer(createInitialState(), { type: "SUBMIT_SETUP", seats });
 }
 
 describe("setup", () => {
@@ -69,6 +76,23 @@ describe("setup", () => {
     });
     expect(state.phase).toBe("setup");
     expect(state.players).toHaveLength(0);
+  });
+
+  it("accepts a 4-player table", () => {
+    const state = startedGame(SEATS_4);
+    expect(state.phase).toBe("round-intro");
+    expect(state.players).toHaveLength(4);
+    expect(state.players[3].politicianName).toBe("Judge Delta");
+  });
+
+  it("rejects tables outside 3–4 players", () => {
+    const two = reducer(createInitialState(), { type: "SUBMIT_SETUP", seats: SEATS.slice(0, 2) });
+    expect(two.phase).toBe("setup");
+    const five = reducer(createInitialState(), {
+      type: "SUBMIT_SETUP",
+      seats: [...SEATS_4, { playerName: "Eve", politicianName: "Rep. Echo" }],
+    });
+    expect(five.phase).toBe("setup");
   });
 });
 
@@ -139,11 +163,17 @@ describe("round turn flow", () => {
   it("deals 6 briefcases and records them as used", () => {
     const state = reducer(startedGame(), { type: "BEGIN_ROUND" });
     expect(state.phase).toBe("round-turn");
-    expect(state.current?.briefcases).toHaveLength(BRIEFCASES_PER_ROUND);
-    expect(state.usedScandalIds).toHaveLength(BRIEFCASES_PER_ROUND);
+    expect(state.current?.briefcases).toHaveLength(SIX);
+    expect(state.usedScandalIds).toHaveLength(SIX);
   });
 
-  it("KEEP_SCANDAL advances players and ends the round after the third", () => {
+  it("deals 8 briefcases for a 4-player table", () => {
+    const state = reducer(startedGame(SEATS_4), { type: "BEGIN_ROUND" });
+    expect(state.current?.briefcases).toHaveLength(EIGHT);
+    expect(state.usedScandalIds).toHaveLength(EIGHT);
+  });
+
+  it("KEEP_SCANDAL advances players and ends the round after the last", () => {
     const state = playRoundKeepingPicks(startedGame());
     // DISMISS_SUMMARY was applied at the end -> back to round-intro for round 2.
     expect(state.phase).toBe("round-intro");
@@ -151,6 +181,26 @@ describe("round turn flow", () => {
     expect(state.rounds[0].results).toHaveLength(3);
     const ownedIds = state.rounds[0].results.map((r) => r.scandalId);
     expect(new Set(ownedIds).size).toBe(3);
+  });
+
+  it("runs a full 4-player round: 4 picks, 4 unopened cases revealed", () => {
+    let state = reducer(startedGame(SEATS_4), { type: "BEGIN_ROUND" });
+    for (let p = 0; p < 4; p++) {
+      state = take(state, firstClosedIndex(state));
+      state = reducer(state, { type: "KEEP_SCANDAL" });
+    }
+    expect(state.phase).toBe("round-recap");
+    expect(state.current?.briefcases.filter((b) => b.opened)).toHaveLength(4);
+
+    state = reducer(state, { type: "REVEAL_UNOPENED" });
+    let steps = 0;
+    while (state.phase === "round-reveal") {
+      state = reducer(state, { type: "NEXT_REVEAL" });
+      steps++;
+    }
+    expect(steps).toBe(4); // 8 dealt - 4 kept = 4 that got away
+    expect(state.phase).toBe("round-summary");
+    expect(state.rounds[0].results).toHaveLength(4);
   });
 
   it("BLIND_SWAP discards the old scandal, keeps the new one, and spends the swap", () => {
@@ -265,7 +315,7 @@ describe("full game + replays", () => {
     const game2 = playFullGame(replay);
     const dealtGame2 = game2.usedScandalIds.slice(seenGame1.size);
 
-    expect(dealtGame2).toHaveLength(ROUND_COUNT * BRIEFCASES_PER_ROUND);
+    expect(dealtGame2).toHaveLength(ROUND_COUNT * SIX);
     for (const id of dealtGame2) expect(seenGame1.has(id)).toBe(false);
   });
 
@@ -287,8 +337,8 @@ describe("full game + replays", () => {
       usedScandalIds: catIds.slice(0, catIds.length - 2),
     };
     const dealt = reducer(primed, { type: "BEGIN_ROUND" });
-    expect(dealt.current?.briefcases).toHaveLength(BRIEFCASES_PER_ROUND);
+    expect(dealt.current?.briefcases).toHaveLength(SIX);
     // History for the category was cleared, then the fresh deal recorded.
-    expect(dealt.usedScandalIds).toHaveLength(BRIEFCASES_PER_ROUND);
+    expect(dealt.usedScandalIds).toHaveLength(SIX);
   });
 });

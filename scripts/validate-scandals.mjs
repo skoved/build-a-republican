@@ -21,7 +21,10 @@ export const EXPECTED_CATEGORIES = [
   { id: "october-surprise", name: "October Surprise" },
 ];
 
-export const MIN_SCANDALS_PER_CATEGORY = 6;
+// A full 4-player round deals 8 briefcases, so every category must hold at
+// least that many scandals (keep in sync with MAX_BRIEFCASES_PER_ROUND in
+// src/data/scandals.ts).
+export const MIN_SCANDALS_PER_CATEGORY = 8;
 
 const nonEmpty = (label) =>
   z

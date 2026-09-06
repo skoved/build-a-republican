@@ -1,18 +1,19 @@
 # Build a Republican
 
-A 3-player hotseat party game. On one screen, three players take turns drafting
+A 3–4 player hotseat party game. On one screen, players take turns drafting
 scandals into their own Republican politician across four rounds — **Personal
 Conduct**, **Finance and Fraud**, **Conflict of Interest**, and the **October
 Surprise**. Whoever assembles the most electable disaster wins (you decide how).
+Three players by default; the setup screen has an **Add a fourth player** toggle.
 
 Built with Vite + React + TypeScript + Tailwind. No backend — it deploys as a
 static site on Vercel's free tier.
 
 ## How a round works
 
-1. Six sealed briefcases are dealt, each hiding one scandal from that round's
-   category.
-2. Players go in order (Player 1 → 2 → 3). On your turn:
+1. Sealed briefcases are dealt, each hiding one scandal from that round's
+   category — two per player, so six for a 3-player game and eight for four.
+2. Players go in seat order (Player 1 → 2 → 3 → …). On your turn:
    - **Choose** a sealed briefcase. It grows and slides to the centre of the
      screen, still shut, and asks you to confirm — **Open this briefcase** or
      **Choose a different one** — so a stray click can't cost you your pick.
@@ -22,10 +23,10 @@ static site on Vercel's free tier.
    - **Decide** immediately — keep it, or **trade it away blind** for one of the
      still-sealed briefcases (that trade gets the same confirm step). A blind swap
      discards your old scandal for the rest of the round; you get one swap per turn.
-3. After all three players lock in, the board comes back into view; a button
-   then reveals the scandals in the briefcases nobody picked, one at a time
+3. After every player locks in, the board comes back into view; a button then
+   reveals the scandals in the briefcases nobody picked, one at a time
    ("the ones that got away"), followed by a summary of every candidate so far.
-4. After four rounds, the end screen lays out all three finished candidates with
+4. After four rounds, the end screen lays out all the finished candidates with
    links to every source article, plus **Play again**.
 
 Replays in the same browser session never reuse a scandal you've already seen,
@@ -54,15 +55,16 @@ categories:
 Rules enforced at build time by [`scripts/validate-scandals.mjs`](./scripts/validate-scandals.mjs):
 
 - exactly 4 categories, with the ids/names above, in that order;
-- at least **6** scandals per category;
+- at least **8** scandals per category (enough to fill a 4-player round);
 - every scandal has a unique id and non-empty `headline`, `text`, `politician`,
   `position`, and a valid `http(s)` `articleUrl`.
 
-Each game draws 6 scandals per round at random. Because used scandals are skipped
-in later games that session, size each category for the number of back-to-back
-games you want: roughly `6 × games`. The bundled file ships 12 per category
-(2 clean games) with **placeholder** names and links — replace them with real
-research.
+Each game draws two scandals per player per round at random (6 for three players,
+8 for four). Because used scandals are skipped in later games that session, size
+each category for the number of back-to-back games you want: roughly
+`8 × games` for four-player tables. The bundled file ships 12 per category with
+**placeholder** names and links — replace them with real research (and add more
+if you want multiple clean 4-player games in a session).
 
 Run the check yourself any time:
 

@@ -1,7 +1,9 @@
 import {
-  BRIEFCASES_PER_ROUND,
+  briefcasesForPlayers,
+  MAX_PLAYERS,
+  MIN_PLAYERS,
   ROUND_COUNT,
-  sampleSix,
+  sampleScandals,
   scandalIdsForCategory,
 } from "../data/scandals";
 import type {
@@ -13,9 +15,6 @@ import type {
   PlayerId,
   RoundState,
 } from "./types";
-
-/** Fixed seating / turn order for every round. */
-export const PLAYER_ORDER: readonly PlayerId[] = [0, 1, 2] as const;
 
 export function createInitialState(): GameState {
   return {
@@ -29,7 +28,8 @@ export function createInitialState(): GameState {
 
 function seatsAreComplete(action: Extract<Action, { type: "SUBMIT_SETUP" }>) {
   return (
-    action.seats.length === PLAYER_ORDER.length &&
+    action.seats.length >= MIN_PLAYERS &&
+    action.seats.length <= MAX_PLAYERS &&
     action.seats.every((s) => s.playerName.trim() !== "" && s.politicianName.trim() !== "")
   );
 }
@@ -38,7 +38,9 @@ function seatsAreComplete(action: Extract<Action, { type: "SUBMIT_SETUP" }>) {
 function dealRound(
   categoryIndex: number,
   usedScandalIds: string[],
+  playerCount: number,
 ): { round: RoundState; usedScandalIds: string[] } {
+  const count = briefcasesForPlayers(playerCount);
   const categoryIds = scandalIdsForCategory(categoryIndex);
   const categoryIdSet = new Set(categoryIds);
   const unusedInCategory = categoryIds.filter((id) => !usedScandalIds.includes(id));
@@ -46,11 +48,11 @@ function dealRound(
   // Not enough fresh scandals left in this category -> forget this category's
   // history so the round can still be filled (and future games keep varying).
   const carriedUsed =
-    unusedInCategory.length < BRIEFCASES_PER_ROUND
+    unusedInCategory.length < count
       ? usedScandalIds.filter((id) => !categoryIdSet.has(id))
       : usedScandalIds;
 
-  const dealtIds = sampleSix(categoryIndex, carriedUsed);
+  const dealtIds = sampleScandals(categoryIndex, count, carriedUsed);
   const briefcases: Briefcase[] = dealtIds.map((scandalId) => ({
     scandalId,
     opened: false,
@@ -78,7 +80,7 @@ function unopenedIndexes(round: RoundState): number[] {
 }
 
 function activePlayerId(round: RoundState): PlayerId {
-  return PLAYER_ORDER[round.activePlayerIndex];
+  return round.activePlayerIndex as PlayerId;
 }
 
 /** Index of the briefcase the active player is currently holding, or -1. */
@@ -95,7 +97,7 @@ function heldIndex(round: RoundState): number {
 function advanceTurn(state: GameState, round: RoundState): GameState {
   const nextIndex = round.activePlayerIndex + 1;
 
-  if (nextIndex < PLAYER_ORDER.length) {
+  if (nextIndex < state.players.length) {
     return {
       ...state,
       current: {
@@ -111,10 +113,10 @@ function advanceTurn(state: GameState, round: RoundState): GameState {
 
   const completed: CompletedRound = {
     categoryIndex: round.categoryIndex,
-    results: PLAYER_ORDER.map((playerId) => {
-      const held = round.briefcases.find((b) => b.heldBy === playerId);
-      if (!held) throw new Error(`Round ended with no scandal held by player ${playerId}`);
-      return { playerId, scandalId: held.scandalId };
+    results: state.players.map((player) => {
+      const held = round.briefcases.find((b) => b.heldBy === player.id);
+      if (!held) throw new Error(`Round ended with no scandal held by player ${player.id}`);
+      return { playerId: player.id, scandalId: held.scandalId };
     }),
   };
 
@@ -132,10 +134,10 @@ export function reducer(state: GameState, action: Action): GameState {
   switch (action.type) {
     case "SUBMIT_SETUP": {
       if (state.phase !== "setup" || !seatsAreComplete(action)) return state;
-      const players: Player[] = PLAYER_ORDER.map((id) => ({
-        id,
-        playerName: action.seats[id].playerName.trim(),
-        politicianName: action.seats[id].politicianName.trim(),
+      const players: Player[] = action.seats.map((seat, i) => ({
+        id: i as PlayerId,
+        playerName: seat.playerName.trim(),
+        politicianName: seat.politicianName.trim(),
       }));
       return { ...state, phase: "round-intro", players, rounds: [], current: null };
     }
@@ -144,7 +146,11 @@ export function reducer(state: GameState, action: Action): GameState {
       if (state.phase !== "round-intro") return state;
       const categoryIndex = state.rounds.length;
       if (categoryIndex >= ROUND_COUNT) return state;
-      const { round, usedScandalIds } = dealRound(categoryIndex, state.usedScandalIds);
+      const { round, usedScandalIds } = dealRound(
+        categoryIndex,
+        state.usedScandalIds,
+        state.players.length,
+      );
       return { ...state, phase: "round-turn", current: round, usedScandalIds };
     }
 

@@ -26,7 +26,11 @@ export default function EndScreen({ state, dispatch }: Props) {
         </p>
       </header>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-3">
+      <div
+        className={`mt-8 grid gap-5 ${
+          builds.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"
+        }`}
+      >
         {builds.map(({ player, scandals }, i) => (
           <motion.section
             key={player.id}

@@ -2,11 +2,23 @@ import { z } from "zod";
 import rawScandalData from "../../scandals.yaml";
 import { shuffle } from "../lib/shuffle";
 
+/** Briefcases dealt per player, per round. 3 players -> 6, 4 players -> 8. */
+export const BRIEFCASES_PER_PLAYER = 2;
+
+/** Fewest / most players a game supports. */
+export const MIN_PLAYERS = 3;
+export const MAX_PLAYERS = 4;
+
 /**
- * Number of briefcases shown per round. Also the minimum number of scandals a
- * category must contain.
+ * The largest round a game can deal (a full 4-player table). Also the minimum
+ * number of scandals a category must contain, so any table size can be filled.
  */
-export const BRIEFCASES_PER_ROUND = 6;
+export const MAX_BRIEFCASES_PER_ROUND = MAX_PLAYERS * BRIEFCASES_PER_PLAYER;
+
+/** How many briefcases a round deals for a table of `playerCount` players. */
+export function briefcasesForPlayers(playerCount: number): number {
+  return playerCount * BRIEFCASES_PER_PLAYER;
+}
 
 /** The 4 categories, in the order the game plays them as rounds 1-4. */
 export const EXPECTED_CATEGORIES = [
@@ -36,7 +48,10 @@ const categorySchema = z.object({
   name: nonEmpty("category name"),
   scandals: z
     .array(scandalSchema)
-    .min(BRIEFCASES_PER_ROUND, `each category needs at least ${BRIEFCASES_PER_ROUND} scandals`),
+    .min(
+      MAX_BRIEFCASES_PER_ROUND,
+      `each category needs at least ${MAX_BRIEFCASES_PER_ROUND} scandals`,
+    ),
 });
 
 const fileSchema = z.object({
@@ -108,16 +123,20 @@ export function scandalIdsForCategory(categoryIndex: number): string[] {
 }
 
 /**
- * Pick {@link BRIEFCASES_PER_ROUND} scandal ids for a round, at random, skipping
- * any id in `excludeIds`. Callers are responsible for clearing exclusions when a
- * category no longer has enough unused scandals (see the reducer's BEGIN_ROUND).
- * Falls back to sampling with reuse only if the category itself is too small,
- * which the loader's validation already prevents.
+ * Pick `count` scandal ids for a round, at random, skipping any id in
+ * `excludeIds`. Callers are responsible for clearing exclusions when a category
+ * no longer has enough unused scandals (see the reducer's BEGIN_ROUND). Falls
+ * back to sampling with reuse only if the category itself is too small, which
+ * the loader's validation already prevents.
  */
-export function sampleSix(categoryIndex: number, excludeIds: readonly string[] = []): string[] {
+export function sampleScandals(
+  categoryIndex: number,
+  count: number,
+  excludeIds: readonly string[] = [],
+): string[] {
   const exclude = new Set(excludeIds);
   const pool = categories[categoryIndex].scandals.map((s) => s.id);
   const available = pool.filter((id) => !exclude.has(id));
-  const source = available.length >= BRIEFCASES_PER_ROUND ? available : pool;
-  return shuffle(source).slice(0, BRIEFCASES_PER_ROUND);
+  const source = available.length >= count ? available : pool;
+  return shuffle(source).slice(0, count);
 }

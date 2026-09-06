@@ -1,15 +1,13 @@
 import { useState, type FormEvent } from "react";
 import type { AppDispatch, SetupSeat } from "../game/types";
-import { PLAYER_ORDER } from "../game/reducer";
+import { MAX_PLAYERS, MIN_PLAYERS } from "../data/scandals";
 
 interface Props {
   dispatch: AppDispatch;
 }
 
-const EMPTY_SEATS: SetupSeat[] = PLAYER_ORDER.map(() => ({
-  playerName: "",
-  politicianName: "",
-}));
+const emptySeat = (): SetupSeat => ({ playerName: "", politicianName: "" });
+const EMPTY_SEATS: SetupSeat[] = Array.from({ length: MIN_PLAYERS }, emptySeat);
 
 export default function SetupScreen({ dispatch }: Props) {
   const [seats, setSeats] = useState<SetupSeat[]>(EMPTY_SEATS);
@@ -22,6 +20,14 @@ export default function SetupScreen({ dispatch }: Props) {
     setSeats((prev) => prev.map((s, i) => (i === index ? { ...s, ...patch } : s)));
   }
 
+  function addSeat() {
+    setSeats((prev) => (prev.length < MAX_PLAYERS ? [...prev, emptySeat()] : prev));
+  }
+
+  function removeSeat() {
+    setSeats((prev) => (prev.length > MIN_PLAYERS ? prev.slice(0, -1) : prev));
+  }
+
   function submit(e: FormEvent) {
     e.preventDefault();
     if (complete) dispatch({ type: "SUBMIT_SETUP", seats });
@@ -31,19 +37,24 @@ export default function SetupScreen({ dispatch }: Props) {
     <div className="mx-auto flex min-h-full max-w-3xl flex-col justify-center px-4 py-10">
       <header className="text-center">
         <p className="dateline text-xs uppercase tracking-[0.35em] text-brass">
-          A Hotseat Party Game for Three
+          A Hotseat Party Game for Three or Four
         </p>
         <h1 className="headline mt-2 text-5xl text-paper sm:text-6xl">
           Build a <span className="text-gop-red">Republican</span>
         </h1>
         <p className="mx-auto mt-3 max-w-xl font-serif text-paper/80">
-          Four rounds. Six briefcases each. Draft one scandal per category —
-          Personal Conduct, Finance &amp; Fraud, Conflict of Interest, and the
-          October Surprise — into the most electable disaster at the table.
+          Four rounds. Two briefcases per player each round. Draft one scandal per
+          category — Personal Conduct, Finance &amp; Fraud, Conflict of Interest,
+          and the October Surprise — into the most electable disaster at the table.
         </p>
       </header>
 
-      <form onSubmit={submit} className="mt-8 grid gap-4 sm:grid-cols-3">
+      <form
+        onSubmit={submit}
+        className={`mt-8 grid gap-4 ${
+          seats.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"
+        }`}
+      >
         {seats.map((seat, i) => (
           <fieldset
             key={i}
@@ -76,7 +87,27 @@ export default function SetupScreen({ dispatch }: Props) {
           </fieldset>
         ))}
 
-        <div className="sm:col-span-3">
+        <div className="sm:col-span-full">
+          {seats.length < MAX_PLAYERS ? (
+            <button
+              type="button"
+              onClick={addSeat}
+              className="w-full rounded-lg border border-dashed border-brass/50 px-4 py-2 font-serif text-sm text-paper/80 transition hover:border-brass hover:text-paper"
+            >
+              ＋ Add a fourth player
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={removeSeat}
+              className="w-full rounded-lg border border-dashed border-brass/50 px-4 py-2 font-serif text-sm text-paper/80 transition hover:border-brass hover:text-paper"
+            >
+              − Back to three players
+            </button>
+          )}
+        </div>
+
+        <div className="sm:col-span-full">
           <button
             type="submit"
             disabled={!complete}

@@ -128,4 +128,54 @@ describe("<App /> full playthrough", () => {
     fireEvent.click(sealedBriefcases()[0]);
     expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
   });
+
+  it("adds a fourth player and deals eight briefcases", () => {
+    render(<App />);
+
+    fireEvent.click(screen.getByRole("button", { name: /add a fourth player/i }));
+
+    const yourName = screen
+      .getAllByText("Your name")
+      .map((l) => l.parentElement!.querySelector("input")!);
+    const repName = screen
+      .getAllByText("Name your Republican")
+      .map((l) => l.parentElement!.querySelector("input")!);
+    expect(yourName).toHaveLength(4);
+    ["Ada", "Ben", "Cal", "Dot"].forEach((n, i) =>
+      fireEvent.change(yourName[i], { target: { value: n } }),
+    );
+    ["Sen. A", "Gov. B", "Mayor C", "Judge D"].forEach((n, i) =>
+      fireEvent.change(repName[i], { target: { value: n } }),
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+
+    expect(sealedBriefcases()).toHaveLength(8);
+
+    // Four turns, keep each pick.
+    for (let turn = 0; turn < 4; turn++) {
+      fireEvent.click(sealedBriefcases()[0]);
+      fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
+      fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
+    }
+
+    expect(screen.getByText(/every pick is in/i)).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: /nobody opened/i }));
+    for (let guard = 0; guard < 8; guard++) {
+      const next = screen.queryByRole("button", { name: /next scandal|show the field/i });
+      if (!next) break;
+      fireEvent.click(next);
+    }
+
+    expect(screen.getAllByText(/built by/i)).toHaveLength(4);
+  });
+
+  it("can drop back to three players after adding a fourth", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /add a fourth player/i }));
+    expect(screen.getAllByText("Your name")).toHaveLength(4);
+    fireEvent.click(screen.getByRole("button", { name: /back to three players/i }));
+    expect(screen.getAllByText("Your name")).toHaveLength(3);
+  });
 });

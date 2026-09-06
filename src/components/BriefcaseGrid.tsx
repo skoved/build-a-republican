@@ -28,7 +28,11 @@ export default function BriefcaseGrid({
   onSelect,
 }: Props) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+    <div
+      className={`grid grid-cols-2 gap-3 sm:gap-4 ${
+        round.briefcases.length === 8 ? "sm:grid-cols-4" : "sm:grid-cols-3"
+      }`}
+    >
       {round.briefcases.map((b, i) => {
         const isSealed = !b.opened && b.heldBy === null;
 
