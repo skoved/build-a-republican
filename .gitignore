@@ -6,3 +6,8 @@ dist-ssr
 .vercel
 .DS_Store
 npm-debug.log*
+
+# temporary
+personal-conduct.md
+personal-conduct.yaml
+scandals-list.md
