@@ -63,10 +63,12 @@ describe("<App /> full playthrough", () => {
       );
     }
 
-    // End screen
+    // End screen: 3 player cards + the first bonus candidate.
     expect(screen.getByText(/Meet your/i)).toBeTruthy();
     const candidates = screen.getAllByText(/built by/i);
-    expect(candidates).toHaveLength(3);
+    expect(candidates).toHaveLength(4);
+    expect(screen.getByText(/^bonus candidate$/i)).toBeTruthy();
+    expect(screen.getByText(/built by Digital Ground Game/i)).toBeTruthy();
     expect(screen.getByRole("button", { name: /play again/i })).toBeTruthy();
   });
 

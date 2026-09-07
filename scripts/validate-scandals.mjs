@@ -1,4 +1,5 @@
-// Build-time gate for the scandal content files (scandals.yaml + trump.yaml).
+// Build-time gate for the content files: the scandal decks (scandals.yaml +
+// trump.yaml) and the end-screen bonus candidates (bonus-candidates.yaml).
 //
 // Run directly (`npm run validate:scandals`) or automatically before every
 // build (`prebuild` in package.json). Exits non-zero with a readable message
@@ -18,6 +19,14 @@ const YAML_FILES = [
   { label: "scandals.yaml", path: resolve(here, "..", "scandals.yaml") },
   { label: "trump.yaml", path: resolve(here, "..", "trump.yaml") },
 ];
+
+// End-screen bonus candidates — a different shape (no categories), validated
+// separately below. Keep in sync with src/data/bonusCandidates.ts.
+const BONUS_FILE = {
+  label: "bonus-candidates.yaml",
+  path: resolve(here, "..", "bonus-candidates.yaml"),
+};
+const MAX_BONUS_CANDIDATES = 3;
 
 // The 4 categories, in the exact order the game plays them as rounds.
 export const EXPECTED_CATEGORIES = [
@@ -64,6 +73,33 @@ const categorySchema = z.object({
 
 const fileSchema = z.object({
   categories: z.array(categorySchema).length(4, "there must be exactly 4 categories"),
+});
+
+// bonus-candidates.yaml: up to 3 candidates, each with exactly 4 scandals (one
+// per category, in order) shaped like a scandal entry minus its id.
+const bonusScandalSchema = z.object({
+  headline: nonEmpty("headline"),
+  text: nonEmpty("text"),
+  politician: nonEmpty("politician"),
+  position: nonEmpty("position"),
+  articleUrl: z
+    .string({ required_error: "articleUrl is required" })
+    .url("articleUrl must be a valid URL")
+    .refine((u) => /^https?:\/\//i.test(u), "articleUrl must be http(s)"),
+  articleSource: z.string().trim().min(1).optional(),
+});
+
+const bonusFileSchema = z.object({
+  candidates: z
+    .array(
+      z.object({
+        name: nonEmpty("candidate name"),
+        scandals: z
+          .array(bonusScandalSchema)
+          .length(4, "each bonus candidate needs exactly 4 scandals"),
+      }),
+    )
+    .max(MAX_BONUS_CANDIDATES, `at most ${MAX_BONUS_CANDIDATES} bonus candidates`),
 });
 
 /**
@@ -174,6 +210,26 @@ function main() {
     process.exit(1);
   }
   console.log("no id collisions across decks.");
+
+  // Bonus candidates (end screen) — separate shape.
+  let bonusRaw;
+  try {
+    bonusRaw = yaml.load(readFileSync(BONUS_FILE.path, "utf8"));
+  } catch (err) {
+    console.error(`Could not read/parse ${BONUS_FILE.label}:\n  ${err.message}`);
+    process.exit(1);
+  }
+  const bonusParsed = bonusFileSchema.safeParse(bonusRaw);
+  if (!bonusParsed.success) {
+    const lines = bonusParsed.error.issues.map(
+      (i) => `  - ${i.path.join(".") || "(root)"}: ${i.message}`,
+    );
+    console.error(`${BONUS_FILE.label} is invalid:\n${lines.join("\n")}`);
+    process.exit(1);
+  }
+  console.log(
+    `${BONUS_FILE.label} OK — ${bonusParsed.data.candidates.length} candidates.`,
+  );
 }
 
 // Only run when executed as a script, not when imported by tests.

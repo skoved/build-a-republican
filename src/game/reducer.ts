@@ -25,6 +25,7 @@ export function createInitialState(): GameState {
     rounds: [],
     current: null,
     usedScandalIds: [],
+    completedGames: 0,
   };
 }
 
@@ -289,14 +290,22 @@ export function reducer(state: GameState, action: Action): GameState {
     case "DISMISS_SUMMARY": {
       if (state.phase !== "round-summary") return state;
       if (state.rounds.length >= ROUND_COUNT) {
-        return { ...state, phase: "end", current: null };
+        return {
+          ...state,
+          phase: "end",
+          current: null,
+          // Count only standard-deck games — they're what draws a bonus candidate.
+          completedGames:
+            state.deckId === "standard" ? state.completedGames + 1 : state.completedGames,
+        };
       }
       return { ...state, phase: "round-intro", current: null };
     }
 
     case "PLAY_AGAIN": {
-      // Keep usedScandalIds so a fresh game avoids scandals already seen. The
-      // deck is re-chosen on the setup screen by which start button is clicked.
+      // Keep usedScandalIds so a fresh game avoids scandals already seen, and
+      // completedGames so replays keep advancing the bonus candidate. The deck
+      // is re-chosen on the setup screen by which start button is clicked.
       return {
         phase: "setup",
         deckId: "standard",
@@ -304,6 +313,7 @@ export function reducer(state: GameState, action: Action): GameState {
         rounds: [],
         current: null,
         usedScandalIds: state.usedScandalIds,
+        completedGames: state.completedGames,
       };
     }
 

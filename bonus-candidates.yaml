@@ -1,0 +1,119 @@
+# =============================================================================
+# Build a Republican — bonus candidates
+# =============================================================================
+# Up to 3 pre-built candidates that appear, one at a time, on the END screen of
+# successive STANDARD-deck games in a browser session:
+#   - candidate #1  -> first game
+#   - candidate #2  -> first replay
+#   - candidate #3  -> second replay
+#   - (none)        -> every game after that
+# Trump-deck games never show a bonus candidate and do not use up a slot.
+#
+# Each candidate:
+#   name      the politician name shown on the card (like a player's "Republican")
+#   scandals  EXACTLY 4, one per category, IN THIS ORDER:
+#               1. Personal Conduct
+#               2. Finance and Fraud
+#               3. Conflict of Interest
+#               4. October Surprise
+#
+# Each scandal has the same fields as a scandals.yaml entry, minus `id`:
+#   headline, text, politician, position, articleUrl (http(s)), articleSource?
+#
+# The card's "built by" line is always "Digital Ground Game" — set by the app,
+# not in this file.
+#
+# The entries below are PLACEHOLDERS. Replace them with the real bonus candidates.
+# =============================================================================
+
+candidates:
+  - name: "Placeholder Bonus Candidate One"
+    scandals:
+      - headline: "PLACEHOLDER: BONUS 1 — PERSONAL CONDUCT"
+        text: >
+          Replace this with the first bonus candidate's Personal Conduct scandal.
+        politician: "Placeholder Person One"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/1/personal-conduct"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 1 — FINANCE AND FRAUD"
+        text: >
+          Replace this with the first bonus candidate's Finance and Fraud scandal.
+        politician: "Placeholder Person One"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/1/finance-and-fraud"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 1 — CONFLICT OF INTEREST"
+        text: >
+          Replace this with the first bonus candidate's Conflict of Interest scandal.
+        politician: "Placeholder Person One"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/1/conflict-of-interest"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 1 — OCTOBER SURPRISE"
+        text: >
+          Replace this with the first bonus candidate's October Surprise scandal.
+        politician: "Placeholder Person One"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/1/october-surprise"
+        articleSource: "Replace With Real Source"
+  - name: "Placeholder Bonus Candidate Two"
+    scandals:
+      - headline: "PLACEHOLDER: BONUS 2 — PERSONAL CONDUCT"
+        text: >
+          Replace this with the second bonus candidate's Personal Conduct scandal.
+        politician: "Placeholder Person Two"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/2/personal-conduct"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 2 — FINANCE AND FRAUD"
+        text: >
+          Replace this with the second bonus candidate's Finance and Fraud scandal.
+        politician: "Placeholder Person Two"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/2/finance-and-fraud"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 2 — CONFLICT OF INTEREST"
+        text: >
+          Replace this with the second bonus candidate's Conflict of Interest scandal.
+        politician: "Placeholder Person Two"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/2/conflict-of-interest"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 2 — OCTOBER SURPRISE"
+        text: >
+          Replace this with the second bonus candidate's October Surprise scandal.
+        politician: "Placeholder Person Two"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/2/october-surprise"
+        articleSource: "Replace With Real Source"
+  - name: "Placeholder Bonus Candidate Three"
+    scandals:
+      - headline: "PLACEHOLDER: BONUS 3 — PERSONAL CONDUCT"
+        text: >
+          Replace this with the third bonus candidate's Personal Conduct scandal.
+        politician: "Placeholder Person Three"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/3/personal-conduct"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 3 — FINANCE AND FRAUD"
+        text: >
+          Replace this with the third bonus candidate's Finance and Fraud scandal.
+        politician: "Placeholder Person Three"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/3/finance-and-fraud"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 3 — CONFLICT OF INTEREST"
+        text: >
+          Replace this with the third bonus candidate's Conflict of Interest scandal.
+        politician: "Placeholder Person Three"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/3/conflict-of-interest"
+        articleSource: "Replace With Real Source"
+      - headline: "PLACEHOLDER: BONUS 3 — OCTOBER SURPRISE"
+        text: >
+          Replace this with the third bonus candidate's October Surprise scandal.
+        politician: "Placeholder Person Three"
+        position: "Placeholder political position"
+        articleUrl: "https://example.com/bonus/3/october-surprise"
+        articleSource: "Replace With Real Source"

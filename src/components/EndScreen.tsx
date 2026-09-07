@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { categoryName } from "../data/scandals";
+import { BONUS_BUILT_BY, bonusCandidateForGame } from "../data/bonusCandidates";
 import { playerBuilds } from "../game/selectors";
 import type { AppDispatch, GameState } from "../game/types";
 import ScandalCard from "./ScandalCard";
@@ -11,6 +12,16 @@ interface Props {
 
 export default function EndScreen({ state, dispatch }: Props) {
   const builds = playerBuilds(state);
+  const bonus =
+    state.deckId === "standard" ? bonusCandidateForGame(state.completedGames - 1) : null;
+
+  const cardCount = builds.length + (bonus ? 1 : 0);
+  const gridCols =
+    cardCount >= 5
+      ? "sm:grid-cols-2 lg:grid-cols-3"
+      : cardCount === 4
+        ? "sm:grid-cols-2 lg:grid-cols-4"
+        : "md:grid-cols-3";
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
@@ -26,11 +37,7 @@ export default function EndScreen({ state, dispatch }: Props) {
         </p>
       </header>
 
-      <div
-        className={`mt-8 grid gap-5 ${
-          builds.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"
-        }`}
-      >
+      <div className={`mt-8 grid gap-5 ${gridCols}`}>
         {builds.map(({ player, scandals }, i) => (
           <motion.section
             key={player.id}
@@ -57,6 +64,38 @@ export default function EndScreen({ state, dispatch }: Props) {
             </div>
           </motion.section>
         ))}
+
+        {bonus ? (
+          <motion.section
+            key="bonus"
+            className="rounded-xl border-2 border-dashed border-gop-red/70 bg-leather p-4 text-paper shadow-xl ring-1 ring-gop-red/30"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: builds.length * 0.12,
+              type: "spring",
+              stiffness: 200,
+              damping: 22,
+            }}
+          >
+            <div className="rounded-lg bg-gop-red/20 p-3 text-center">
+              <p className="dateline text-[0.65rem] uppercase tracking-[0.25em] text-gop-red">
+                Bonus candidate
+              </p>
+              <h2 className="headline mt-1 text-2xl text-brass">{bonus.name}</h2>
+              <p className="font-serif text-xs text-paper/60">built by {BONUS_BUILT_BY}</p>
+            </div>
+            <div className="mt-3 space-y-2">
+              {bonus.scandals.map((scandal, i) => (
+                <ScandalCard
+                  key={scandal.id}
+                  scandal={scandal}
+                  categoryLabel={categoryName(i)}
+                />
+              ))}
+            </div>
+          </motion.section>
+        ) : null}
       </div>
 
       <div className="mt-10 text-center">

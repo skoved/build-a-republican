@@ -91,6 +91,12 @@ export interface GameState {
    * category by BEGIN_ROUND when that category runs low.
    */
   usedScandalIds: string[];
+  /**
+   * Standard-deck games finished this session. Selects which bonus candidate the
+   * end screen shows (game 1 -> #1, first replay -> #2, …). Persists across
+   * PLAY_AGAIN; reset only on page reload. Trump-deck games do not increment it.
+   */
+  completedGames: number;
 }
 
 export interface SetupSeat {

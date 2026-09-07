@@ -81,6 +81,18 @@ just from this file instead of `scandals.yaml`. Same validation rules apply, and
 scandal ids must be unique **across both files** — keep the `t-` prefix used in
 the shipped placeholders. `npm run validate:scandals` checks both files.
 
+### Bonus candidates
+
+[`bonus-candidates.yaml`](./bonus-candidates.yaml) holds up to **3** pre-built
+candidates shown one at a time on the end screen of successive **standard-deck**
+games in a browser session: candidate #1 after the first game, #2 after the first
+replay, #3 after the second replay, then none. Each candidate needs a `name` and
+**exactly 4** scandals in category order (Personal Conduct, Finance and Fraud,
+Conflict of Interest, October Surprise); a bonus scandal has the same fields as a
+`scandals.yaml` entry minus `id`. The card's "built by" line is always
+`Digital Ground Game`. Trump-deck games never show a bonus candidate.
+`npm run validate:scandals` checks this file too.
+
 ## Local development
 
 ```bash

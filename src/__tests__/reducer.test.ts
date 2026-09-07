@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { briefcasesForPlayers, ROUND_COUNT, scandalIdsForCategory } from "../data/scandals";
+import { bonusCandidateForGame } from "../data/bonusCandidates";
 import { createInitialState, reducer } from "../game/reducer";
 import type { DeckId, GameState } from "../game/types";
 
@@ -327,6 +328,7 @@ describe("full game + replays", () => {
     expect(again.rounds).toHaveLength(0);
     expect(again.current).toBeNull();
     expect(again.usedScandalIds).toEqual(finished.usedScandalIds);
+    expect(again.completedGames).toBe(finished.completedGames);
   });
 
   it("resets a category's history when it can no longer fill a round", () => {
@@ -379,5 +381,38 @@ describe("trump deck", () => {
   it("PLAY_AGAIN drops back to the standard deck", () => {
     const finished = playFullGame(startedGame(SEATS, "trump"));
     expect(reducer(finished, { type: "PLAY_AGAIN" }).deckId).toBe("standard");
+  });
+});
+
+describe("bonus candidates", () => {
+  it("starts a session with no completed games", () => {
+    expect(createInitialState().completedGames).toBe(0);
+  });
+
+  it("counts each finished standard-deck game", () => {
+    let state = playFullGame(startedGame());
+    expect(state.phase).toBe("end");
+    expect(state.completedGames).toBe(1);
+
+    for (let want = 2; want <= 4; want++) {
+      state = reducer(state, { type: "PLAY_AGAIN" });
+      state = reducer(state, { type: "SUBMIT_SETUP", seats: SEATS });
+      state = playFullGame(state);
+      expect(state.completedGames).toBe(want);
+    }
+  });
+
+  it("does not count Trump-deck games", () => {
+    const finished = playFullGame(startedGame(SEATS, "trump"));
+    expect(finished.phase).toBe("end");
+    expect(finished.completedGames).toBe(0);
+  });
+
+  it("serves candidates 0..2 then runs out", () => {
+    expect(bonusCandidateForGame(0)?.scandals).toHaveLength(4);
+    expect(bonusCandidateForGame(1)).not.toBeNull();
+    expect(bonusCandidateForGame(2)).not.toBeNull();
+    expect(bonusCandidateForGame(3)).toBeNull();
+    expect(bonusCandidateForGame(-1)).toBeNull();
   });
 });
