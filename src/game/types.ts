@@ -3,14 +3,7 @@ import type { DeckId } from "../data/scandals";
 
 export type { DeckId };
 
-export type Phase =
-  | "setup"
-  | "round-intro"
-  | "round-turn"
-  | "round-recap"
-  | "round-reveal"
-  | "round-summary"
-  | "end";
+export type Phase = "setup" | "round-intro" | "round-turn" | "round-summary" | "end";
 
 export type PlayerId = 0 | 1 | 2 | 3;
 
@@ -44,11 +37,6 @@ export interface RoundState {
   turnStep: TurnStep;
   /** True once the active player has used their one blind swap this turn. */
   swapUsed: boolean;
-  /**
-   * During `round-reveal`, the 0-based position in the list of never-opened
-   * briefcases currently being shown. Ignored in every other phase.
-   */
-  revealCursor: number;
 }
 
 export interface CompletedResult {
@@ -99,8 +87,6 @@ export type Action =
   | { type: "REQUEST_SWAP" }
   | { type: "CANCEL_SWAP" }
   | { type: "BLIND_SWAP"; index: number }
-  | { type: "REVEAL_UNOPENED" }
-  | { type: "NEXT_REVEAL" }
   | { type: "DISMISS_SUMMARY" }
   | { type: "PLAY_AGAIN" };
 

@@ -14,18 +14,13 @@ static site on Vercel's free tier.
 1. Sealed briefcases are dealt, each hiding one scandal from that round's
    category — two per player, so six for a 3-player game and eight for four.
 2. Players go in seat order (Player 1 → 2 → 3 → …). On your turn:
-   - **Choose** a sealed briefcase. It grows and slides to the centre of the
-     screen, still shut, and asks you to confirm — **Open this briefcase** or
-     **Choose a different one** — so a stray click can't cost you your pick.
-   - **Open** it and it unfolds into a newspaper: the headline, the story, and a
-     *Based on a true story* footer naming the real politician, their current
-     position, and a link to the real article.
+   - **Open** a sealed briefcase and it unfolds into a newspaper: the headline,
+     the story, and a *Based on a true story* footer naming the real politician,
+     their current position, and a link to the real article.
    - **Decide** immediately — keep it, or **trade it away blind** for one of the
-     still-sealed briefcases (that trade gets the same confirm step). A blind swap
-     discards your old scandal for the rest of the round; you get one swap per turn.
-3. After every player locks in, the board comes back into view; a button then
-   reveals the scandals in the briefcases nobody picked, one at a time
-   ("the ones that got away"), followed by a summary of every candidate so far.
+     still-sealed briefcases. A blind swap discards your old scandal for the rest
+     of the round; you get one swap per turn.
+3. After every player locks in, a summary lays out every candidate so far.
 4. After four rounds, the end screen lays out all the finished candidates with
    links to every source article, plus **Play again**.
 

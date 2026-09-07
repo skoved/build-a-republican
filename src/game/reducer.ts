@@ -70,15 +70,9 @@ function dealRound(
       activePlayerIndex: 0,
       turnStep: "picking",
       swapUsed: false,
-      revealCursor: 0,
     },
     usedScandalIds: [...carriedUsed, ...dealtIds],
   };
-}
-
-/** Briefcase indexes that were never opened this round (the "unselected" ones). */
-function unopenedIndexes(round: RoundState): number[] {
-  return round.briefcases.flatMap((b, i) => (b.opened ? [] : [i]));
 }
 
 function activePlayerId(round: RoundState): PlayerId {
@@ -93,8 +87,7 @@ function heldIndex(round: RoundState): number {
 
 /**
  * Move to the next player's turn. When the last player has locked in, record the
- * round. If any briefcases were never opened, pause on the board (`round-recap`)
- * so a player can start the reveal; otherwise go straight to the summary.
+ * round and go to the summary.
  */
 function advanceTurn(state: GameState, round: RoundState): GameState {
   const nextIndex = round.activePlayerIndex + 1;
@@ -120,13 +113,11 @@ function advanceTurn(state: GameState, round: RoundState): GameState {
     }),
   };
 
-  const hasUnopened = unopenedIndexes(round).length > 0;
-
   return {
     ...state,
-    phase: hasUnopened ? "round-recap" : "round-summary",
+    phase: "round-summary",
     rounds: [...state.rounds, completed],
-    current: { ...round, revealCursor: 0 },
+    current: round,
   };
 }
 
@@ -227,27 +218,6 @@ export function reducer(state: GameState, action: Action): GameState {
           swapUsed: true,
         },
       };
-    }
-
-    case "REVEAL_UNOPENED": {
-      const round = state.current;
-      if (state.phase !== "round-recap" || !round) return state;
-      const hasUnopened = unopenedIndexes(round).length > 0;
-      return {
-        ...state,
-        phase: hasUnopened ? "round-reveal" : "round-summary",
-        current: { ...round, revealCursor: 0 },
-      };
-    }
-
-    case "NEXT_REVEAL": {
-      const round = state.current;
-      if (state.phase !== "round-reveal" || !round) return state;
-      const nextCursor = round.revealCursor + 1;
-      if (nextCursor >= unopenedIndexes(round).length) {
-        return { ...state, phase: "round-summary" };
-      }
-      return { ...state, current: { ...round, revealCursor: nextCursor } };
     }
 
     case "DISMISS_SUMMARY": {
