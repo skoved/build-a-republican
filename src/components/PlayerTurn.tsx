@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { categoryName } from "../data/scandals";
 import { activePlayer, heldScandal, requireRound, roundNumber, swapTargetIndexes } from "../game/selectors";
 import type { AppDispatch, GameState } from "../game/types";
-import Briefcase from "./Briefcase";
 import BriefcaseGrid from "./BriefcaseGrid";
 import NewspaperReveal from "./NewspaperReveal";
 import TurnBanner from "./TurnBanner";
@@ -23,14 +22,9 @@ export default function PlayerTurn({ state, dispatch }: Props) {
   const gridMode =
     round.turnStep === "picking"
       ? "picking"
-      : round.turnStep === "considering"
-        ? "considering"
-        : round.turnStep === "swapping"
-          ? "swapping"
-          : "idle";
-
-  const pendingIndex = round.turnStep === "considering" ? round.pendingIndex : null;
-  const consideringSwap = round.pendingKind === "swap";
+      : round.turnStep === "swapping"
+        ? "swapping"
+        : "idle";
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -61,66 +55,16 @@ export default function PlayerTurn({ state, dispatch }: Props) {
             round={round}
             players={state.players}
             mode={gridMode}
-            consideringIndex={pendingIndex}
-            onSelect={(index) => dispatch({ type: "CONSIDER_BRIEFCASE", index })}
+            onSelect={(index) =>
+              dispatch(
+                round.turnStep === "swapping"
+                  ? { type: "BLIND_SWAP", index }
+                  : { type: "TAKE_BRIEFCASE", index },
+              )
+            }
           />
         </div>
       </div>
-
-      {/* Confirm step: the clicked case flies to centre; nothing is committed yet. */}
-      <AnimatePresence>
-        {pendingIndex !== null ? (
-          <motion.div
-            key="consider"
-            className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 px-4 py-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <p className="dateline text-xs uppercase tracking-[0.3em] text-brass">
-              Briefcase {pendingIndex + 1}
-            </p>
-
-            <div className="w-56 sm:w-72">
-              <Briefcase
-                number={pendingIndex + 1}
-                visual="closed"
-                interactive={false}
-                layoutId={`case-${pendingIndex}`}
-              />
-            </div>
-
-            <p className="max-w-md text-center font-serif text-paper/80">
-              {consideringSwap
-                ? "Trade your current scandal for this sealed briefcase? You won't see it until you commit — and this spends your one swap."
-                : "Open this briefcase? You'll see the scandal, then choose to keep it or trade it away blind."}
-            </p>
-
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <button
-                type="button"
-                onClick={() =>
-                  dispatch(
-                    consideringSwap
-                      ? { type: "BLIND_SWAP", index: pendingIndex }
-                      : { type: "TAKE_BRIEFCASE", index: pendingIndex },
-                  )
-                }
-                className="rounded-lg bg-gop-red px-6 py-3 font-display text-lg font-bold text-white shadow-lg transition hover:brightness-110"
-              >
-                Open this briefcase
-              </button>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: "CANCEL_CONSIDER" })}
-                className="rounded-lg border-2 border-brass bg-leather px-6 py-3 font-display text-lg font-bold text-paper transition hover:bg-leather/70"
-              >
-                Choose a different one
-              </button>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
 
       <AnimatePresence>
         {round.turnStep === "deciding" && held ? (

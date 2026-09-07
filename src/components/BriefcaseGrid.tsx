@@ -6,12 +6,9 @@ interface Props {
   players: Player[];
   /**
    * "picking": closed cases selectable. "swapping": only unheld closed cases.
-   * "considering": the pending case is lifted into an overlay (rendered as a
-   * placeholder here); other unheld closed cases stay clickable to re-target.
+   * "idle": nothing is selectable.
    */
-  mode: "picking" | "swapping" | "considering" | "idle";
-  /** The briefcase currently lifted into the confirm overlay, if any. */
-  consideringIndex?: number | null;
+  mode: "picking" | "swapping" | "idle";
   onSelect: (index: number) => void;
 }
 
@@ -20,13 +17,7 @@ function visualFor(b: RoundState["briefcases"][number]): BriefcaseVisual {
   return b.heldBy === null ? "discarded" : "held";
 }
 
-export default function BriefcaseGrid({
-  round,
-  players,
-  mode,
-  consideringIndex = null,
-  onSelect,
-}: Props) {
+export default function BriefcaseGrid({ round, players, mode, onSelect }: Props) {
   return (
     <div
       className={`grid grid-cols-2 gap-3 sm:gap-4 ${
@@ -36,17 +27,10 @@ export default function BriefcaseGrid({
       {round.briefcases.map((b, i) => {
         const isSealed = !b.opened && b.heldBy === null;
 
-        // The considered case lives in the overlay; keep its slot to hold layout.
-        if (mode === "considering" && i === consideringIndex) {
-          return <div key={i} className="aspect-[4/3] w-full rounded-lg" aria-hidden />;
-        }
-
         const visual = visualFor(b);
         const isSwapTarget = isSealed;
         const interactive =
-          (mode === "picking" && !b.opened) ||
-          (mode === "swapping" && isSwapTarget) ||
-          (mode === "considering" && isSwapTarget);
+          (mode === "picking" && !b.opened) || (mode === "swapping" && isSwapTarget);
         const holderName =
           b.heldBy === null ? undefined : players[b.heldBy]?.politicianName;
 

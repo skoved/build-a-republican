@@ -12,8 +12,6 @@ function hint(turnStep: TurnStep, swapUsed: boolean): string {
   switch (turnStep) {
     case "picking":
       return "Pick a sealed briefcase.";
-    case "considering":
-      return "Take a closer look — open it, or pick a different one.";
     case "deciding":
       return swapUsed
         ? "Your swap is spent — lock in what you got."

@@ -15,10 +15,7 @@ export type Phase =
 export type PlayerId = 0 | 1 | 2 | 3;
 
 /** Where the active player is within their turn. */
-export type TurnStep = "picking" | "considering" | "deciding" | "swapping";
-
-/** What confirming a considered briefcase will do. */
-export type PendingKind = "pick" | "swap";
+export type TurnStep = "picking" | "deciding" | "swapping";
 
 export interface Player {
   id: PlayerId;
@@ -47,16 +44,6 @@ export interface RoundState {
   turnStep: TurnStep;
   /** True once the active player has used their one blind swap this turn. */
   swapUsed: boolean;
-  /**
-   * While `turnStep === "considering"`, the briefcase the player clicked but has
-   * not yet committed to. `null` in every other step.
-   */
-  pendingIndex: number | null;
-  /**
-   * While `turnStep === "considering"`, whether confirming opens the case as a
-   * fresh pick or as a blind swap. Meaningless otherwise.
-   */
-  pendingKind: PendingKind;
   /**
    * During `round-reveal`, the 0-based position in the list of never-opened
    * briefcases currently being shown. Ignored in every other phase.
@@ -107,8 +94,6 @@ export interface SetupSeat {
 export type Action =
   | { type: "SUBMIT_SETUP"; seats: SetupSeat[]; deckId?: DeckId }
   | { type: "BEGIN_ROUND" }
-  | { type: "CONSIDER_BRIEFCASE"; index: number }
-  | { type: "CANCEL_CONSIDER" }
   | { type: "TAKE_BRIEFCASE"; index: number }
   | { type: "KEEP_SCANDAL" }
   | { type: "REQUEST_SWAP" }

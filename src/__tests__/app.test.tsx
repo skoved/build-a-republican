@@ -34,12 +34,11 @@ describe("<App /> full playthrough", () => {
       // Round intro
       fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
-      // Three turns: click a sealed case, confirm the open, then keep it.
+      // Three turns: click a sealed case (opens immediately), then keep it.
       for (let turn = 0; turn < 3; turn++) {
         const sealed = sealedBriefcases();
         expect(sealed.length).toBeGreaterThan(0);
         fireEvent.click(sealed[0]);
-        fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
         fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
       }
 
@@ -72,23 +71,17 @@ describe("<App /> full playthrough", () => {
     expect(screen.getByRole("button", { name: /play again/i })).toBeTruthy();
   });
 
-  it("asks for confirmation before revealing a scandal", () => {
+  it("opens a briefcase immediately on click, with no confirmation step", () => {
     render(<App />);
     fillSetupAndStart();
     fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
     fireEvent.click(sealedBriefcases()[0]);
 
-    // Confirm step is up; the scandal is not revealed yet.
-    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
-    expect(screen.getByRole("button", { name: /choose a different one/i })).toBeTruthy();
-    expect(screen.queryByRole("button", { name: /^keep this scandal$/i })).toBeNull();
-    // No newspaper masthead yet — the scandal stays hidden until confirmed.
-    expect(screen.queryByText(/based on a true story/i)).toBeNull();
-
-    // Backing out returns the turn to the plain "pick a briefcase" state.
-    fireEvent.click(screen.getByRole("button", { name: /choose a different one/i }));
-    expect(screen.getByText(/pick a sealed briefcase/i)).toBeTruthy();
+    // Straight to the reveal: the decide panel is up and there is no confirm gate.
+    expect(screen.getByRole("button", { name: /^keep this scandal$/i })).toBeTruthy();
+    expect(screen.queryByRole("button", { name: /open this briefcase/i })).toBeNull();
+    expect(screen.queryByRole("button", { name: /choose a different one/i })).toBeNull();
   });
 
   it("supports a blind swap during a turn", () => {
@@ -97,38 +90,31 @@ describe("<App /> full playthrough", () => {
     fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
     fireEvent.click(sealedBriefcases()[0]);
-    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
 
     fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
     const targets = sealedBriefcases();
     expect(targets.length).toBeGreaterThanOrEqual(4);
     fireEvent.click(targets[0]);
-    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
 
     // After the swap the panel only offers "Lock it in".
     expect(screen.getByRole("button", { name: /lock it in/i })).toBeTruthy();
     expect(screen.queryByRole("button", { name: /trade it away/i })).toBeNull();
   });
 
-  it("cancelling a swap consideration returns to a working swap grid", () => {
+  it("backing out of a swap returns to the decide panel", () => {
     render(<App />);
     fillSetupAndStart();
     fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
 
     fireEvent.click(sealedBriefcases()[0]);
-    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
     fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
-
-    // Consider a target, then back out.
-    fireEvent.click(sealedBriefcases()[0]);
-    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
-    fireEvent.click(screen.getByRole("button", { name: /choose a different one/i }));
-
-    // Grid is interactive again: the swap sub-bar is back and another target
-    // can be considered (no stuck overlay).
     expect(screen.getByText(/tap a glowing case/i)).toBeTruthy();
-    fireEvent.click(sealedBriefcases()[0]);
-    expect(screen.getByRole("button", { name: /open this briefcase/i })).toBeTruthy();
+
+    fireEvent.click(screen.getByRole("button", { name: /never mind/i }));
+
+    // Back to the decide panel with the swap still available.
+    expect(screen.getByRole("button", { name: /^keep this scandal$/i })).toBeTruthy();
+    expect(screen.getByRole("button", { name: /trade it away/i })).toBeTruthy();
   });
 
   it("adds a fourth player and deals eight briefcases", () => {
@@ -158,7 +144,6 @@ describe("<App /> full playthrough", () => {
     // Four turns, keep each pick.
     for (let turn = 0; turn < 4; turn++) {
       fireEvent.click(sealedBriefcases()[0]);
-      fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
       fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
     }
 
@@ -205,7 +190,6 @@ describe("<App /> full playthrough", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
     fireEvent.click(sealedBriefcases()[0]);
-    fireEvent.click(screen.getByRole("button", { name: /open this briefcase/i }));
 
     // The newspaper's "based on a true story" line names the Trump-deck figure.
     expect(screen.getAllByText(/donald j\. trump/i).length).toBeGreaterThan(0);
