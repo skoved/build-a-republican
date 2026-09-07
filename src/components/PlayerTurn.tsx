@@ -17,7 +17,8 @@ export default function PlayerTurn({ state, dispatch }: Props) {
   const category = categoryName(round.categoryIndex);
   const kicker = `Round ${roundNumber(state)} — ${category}`;
   const held = heldScandal(round, active.id);
-  const canSwap = !round.swapUsed && swapTargetIndexes(round).length > 0;
+  const outOfSwaps = active.swapsRemaining <= 0;
+  const canSwap = !round.swapUsed && !outOfSwaps && swapTargetIndexes(round).length > 0;
 
   const gridMode =
     round.turnStep === "picking"
@@ -34,6 +35,7 @@ export default function PlayerTurn({ state, dispatch }: Props) {
         activePlayerName={active.playerName}
         turnStep={round.turnStep}
         swapUsed={round.swapUsed}
+        swapsRemaining={active.swapsRemaining}
       />
 
       {round.turnStep === "swapping" ? (
@@ -90,7 +92,9 @@ export default function PlayerTurn({ state, dispatch }: Props) {
                     onClick={() => dispatch({ type: "KEEP_SCANDAL" })}
                     className="rounded-lg bg-gop-red px-6 py-3 font-display text-lg font-bold text-white shadow-lg transition hover:brightness-110"
                   >
-                    Lock it in — {active.politicianName} is stuck with this
+                    {outOfSwaps
+                      ? `Lock it in — ${active.politicianName} is stuck with this (last swap spent)`
+                      : `Lock it in — ${active.politicianName} is stuck with this`}
                   </button>
                 ) : (
                   <>
@@ -114,7 +118,9 @@ export default function PlayerTurn({ state, dispatch }: Props) {
               </div>
               {!round.swapUsed && !canSwap ? (
                 <p className="mt-2 text-center font-serif text-sm text-paper/60">
-                  No sealed cases left to trade for — you&rsquo;re keeping this one.
+                  {outOfSwaps
+                    ? "Both your swaps are spent — you’re locked into whatever you pick from here."
+                    : "No sealed cases left to trade for — you’re keeping this one."}
                 </p>
               ) : null}
             </motion.div>

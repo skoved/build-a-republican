@@ -105,6 +105,39 @@ describe("<App /> full playthrough", () => {
     expect(screen.getByRole("button", { name: /trade it away/i })).toBeTruthy();
   });
 
+  it("locks a player out of trading once both game swaps are spent", () => {
+    render(<App />);
+    fillSetupAndStart();
+
+    const playerZeroSwapsRestKeep = () => {
+      fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+      // Player 0 spends a swap this round.
+      fireEvent.click(sealedBriefcases()[0]);
+      fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
+      fireEvent.click(sealedBriefcases()[0]);
+      fireEvent.click(screen.getByRole("button", { name: /lock it in/i }));
+      // Players 1 and 2 just keep their picks to end the round.
+      for (let p = 0; p < 2; p++) {
+        fireEvent.click(sealedBriefcases()[0]);
+        fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
+      }
+      fireEvent.click(screen.getByRole("button", { name: /on to the next round/i }));
+    };
+
+    playerZeroSwapsRestKeep(); // round 1 — one swap left
+    playerZeroSwapsRestKeep(); // round 2 — no swaps left
+
+    // Round 3: player 0 opens a case and can no longer trade it away.
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+    fireEvent.click(sealedBriefcases()[0]);
+
+    const trade = screen.getByRole("button", {
+      name: /trade it away/i,
+    }) as HTMLButtonElement;
+    expect(trade.disabled).toBe(true);
+    expect(screen.getByText(/both your swaps are spent/i)).toBeTruthy();
+  });
+
   it("adds a fourth player and deals eight briefcases", () => {
     render(<App />);
 

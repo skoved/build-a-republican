@@ -10,6 +10,9 @@ export const BRIEFCASES_PER_PLAYER = 2;
 export const MIN_PLAYERS = 3;
 export const MAX_PLAYERS = 4;
 
+/** Blind swaps each player gets for the whole game (spendable in any rounds). */
+export const SWAPS_PER_GAME = 2;
+
 /**
  * The largest round a game can deal (a full 4-player table). Also the minimum
  * number of scandals a category must contain, so any table size can be filled.

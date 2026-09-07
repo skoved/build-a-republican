@@ -16,6 +16,12 @@ export interface Player {
   playerName: string;
   /** The name they give the Republican they are building. Used on summaries. */
   politicianName: string;
+  /**
+   * Blind swaps this player has left for the whole game. Starts at
+   * `SWAPS_PER_GAME`; `BLIND_SWAP` decrements it. At 0 the player can never swap
+   * again this game.
+   */
+  swapsRemaining: number;
 }
 
 export interface Briefcase {
@@ -35,7 +41,11 @@ export interface RoundState {
   /** 0-based turn pointer; equals the active player's id (seats are 0..n-1). */
   activePlayerIndex: number;
   turnStep: TurnStep;
-  /** True once the active player has used their one blind swap this turn. */
+  /**
+   * True once the active player has spent a swap on THIS turn — one swap per
+   * turn, independent of their game-long `Player.swapsRemaining` budget. Reset
+   * every turn.
+   */
   swapUsed: boolean;
 }
 

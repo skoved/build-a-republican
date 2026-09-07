@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { briefcasesForPlayers, ROUND_COUNT, scandalIdsForCategory } from "../data/scandals";
+import {
+  briefcasesForPlayers,
+  ROUND_COUNT,
+  scandalIdsForCategory,
+  SWAPS_PER_GAME,
+} from "../data/scandals";
 import { bonusCandidateForGame } from "../data/bonusCandidates";
 import { createInitialState, reducer } from "../game/reducer";
 import type { DeckId, GameState } from "../game/types";
@@ -58,6 +63,11 @@ describe("setup", () => {
     expect(state.phase).toBe("round-intro");
     expect(state.players).toHaveLength(3);
     expect(state.players[1].politicianName).toBe("Governor Bravo");
+  });
+
+  it("gives every player their full swap budget for the game", () => {
+    const state = startedGame();
+    expect(state.players.every((p) => p.swapsRemaining === SWAPS_PER_GAME)).toBe(true);
   });
 
   it("ignores setup when a seat is blank", () => {
@@ -163,13 +173,46 @@ describe("round turn flow", () => {
     const round = state.current!;
     expect(round.turnStep).toBe("deciding");
     expect(round.swapUsed).toBe(true);
+    expect(state.players[0].swapsRemaining).toBe(SWAPS_PER_GAME - 1); // one spent
     expect(round.briefcases[0]).toMatchObject({ opened: true, heldBy: null }); // discarded
     expect(round.briefcases[3]).toMatchObject({ opened: true, heldBy: 0 });
     expect(round.briefcases[3].scandalId).not.toBe(firstScandal);
 
-    // A second swap is refused now that swapUsed is set.
+    // A second swap this turn is refused now that swapUsed is set, even though
+    // the player still has budget left for a later round.
     const blocked = reducer(state, { type: "REQUEST_SWAP" });
     expect(blocked.current?.turnStep).toBe("deciding");
+  });
+
+  it("gives each player two swaps for the whole game, then locks them out", () => {
+    // Run one round: player 0 spends a swap, everyone else just keeps.
+    function roundWithPlayerZeroSwap(start: GameState): GameState {
+      let s = reducer(start, { type: "BEGIN_ROUND" });
+      s = take(s, firstClosedIndex(s));
+      s = reducer(s, { type: "REQUEST_SWAP" });
+      s = blindSwap(s, s.current!.briefcases.findIndex((b) => !b.opened && b.heldBy === null));
+      s = reducer(s, { type: "KEEP_SCANDAL" }); // player 0 locks in
+      for (let p = 1; p < start.players.length; p++) {
+        s = take(s, firstClosedIndex(s));
+        s = reducer(s, { type: "KEEP_SCANDAL" });
+      }
+      return reducer(s, { type: "DISMISS_SUMMARY" });
+    }
+
+    let state = startedGame();
+    state = roundWithPlayerZeroSwap(state);
+    expect(state.players[0].swapsRemaining).toBe(1);
+
+    state = roundWithPlayerZeroSwap(state);
+    expect(state.players[0].swapsRemaining).toBe(0);
+
+    // Round 3: player 0 is out of swaps — REQUEST_SWAP is a no-op.
+    state = reducer(state, { type: "BEGIN_ROUND" });
+    state = take(state, firstClosedIndex(state));
+    expect(state.current?.turnStep).toBe("deciding");
+    const blocked = reducer(state, { type: "REQUEST_SWAP" });
+    expect(blocked.current?.turnStep).toBe("deciding");
+    expect(blocked.players[0].swapsRemaining).toBe(0);
   });
 
   it("a discarded scandal cannot be chosen by a later player", () => {

@@ -5,6 +5,7 @@ import {
   ROUND_COUNT,
   sampleScandals,
   scandalIdsForCategory,
+  SWAPS_PER_GAME,
 } from "../data/scandals";
 import type {
   Action,
@@ -129,6 +130,7 @@ export function reducer(state: GameState, action: Action): GameState {
         id: i as PlayerId,
         playerName: seat.playerName.trim(),
         politicianName: seat.politicianName.trim(),
+        swapsRemaining: SWAPS_PER_GAME,
       }));
       return {
         ...state,
@@ -183,6 +185,7 @@ export function reducer(state: GameState, action: Action): GameState {
       const round = state.current;
       if (state.phase !== "round-turn" || !round || round.turnStep !== "deciding") return state;
       if (round.swapUsed) return state;
+      if (state.players[round.activePlayerIndex].swapsRemaining <= 0) return state;
       const hasTarget = round.briefcases.some((b) => !b.opened && b.heldBy === null);
       if (!hasTarget) return state;
       return { ...state, current: { ...round, turnStep: "swapping" } };
@@ -207,10 +210,15 @@ export function reducer(state: GameState, action: Action): GameState {
         if (i === index) return { ...b, opened: true, heldBy: player };
         return b;
       });
-      // Back to "deciding" so the player sees what they got, but their swap is
-      // spent: the panel now only offers "Lock it in".
+      // Spend one of the player's game-long swaps.
+      const players = state.players.map((p) =>
+        p.id === player ? { ...p, swapsRemaining: p.swapsRemaining - 1 } : p,
+      );
+      // Back to "deciding" so the player sees what they got, but their swap for
+      // this turn is spent: the panel now only offers "Lock it in".
       return {
         ...state,
+        players,
         current: {
           ...round,
           briefcases,

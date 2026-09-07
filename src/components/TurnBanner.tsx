@@ -6,16 +6,20 @@ interface Props {
   activePlayerName: string;
   turnStep: TurnStep;
   swapUsed: boolean;
+  /** The active player's game-long blind-swap budget. */
+  swapsRemaining: number;
 }
 
-function hint(turnStep: TurnStep, swapUsed: boolean): string {
+function hint(turnStep: TurnStep, swapUsed: boolean, swapsRemaining: number): string {
   switch (turnStep) {
     case "picking":
       return "Pick a sealed briefcase.";
     case "deciding":
-      return swapUsed
-        ? "Your swap is spent — lock in what you got."
-        : "Keep this scandal, or trade it away blind.";
+      if (swapUsed) return "That swap is locked in for this round.";
+      if (swapsRemaining <= 0) return "No swaps left — keep what you pick.";
+      return `Keep this scandal, or trade it away blind (${swapsRemaining} swap${
+        swapsRemaining === 1 ? "" : "s"
+      } left).`;
     case "swapping":
       return "Choose a sealed briefcase to trade for — you won't see it until you commit.";
   }
@@ -27,6 +31,7 @@ export default function TurnBanner({
   activePlayerName,
   turnStep,
   swapUsed,
+  swapsRemaining,
 }: Props) {
   return (
     <div className="sticky top-0 z-20 border-b-2 border-brass/40 bg-leather/95 px-4 py-3 text-center text-paper backdrop-blur">
@@ -36,7 +41,9 @@ export default function TurnBanner({
       <p className="mt-1 font-display text-xl font-bold sm:text-2xl">
         <span className="text-brass">{activePlayerName}</span>&rsquo;s turn
       </p>
-      <p className="mt-0.5 font-serif text-sm text-paper/80">{hint(turnStep, swapUsed)}</p>
+      <p className="mt-0.5 font-serif text-sm text-paper/80">
+        {hint(turnStep, swapUsed, swapsRemaining)}
+      </p>
     </div>
   );
 }

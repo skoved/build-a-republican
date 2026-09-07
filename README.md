@@ -18,8 +18,10 @@ static site on Vercel's free tier.
      the story, and a *Based on a true story* footer naming the real politician,
      their current position, and a link to the real article.
    - **Decide** immediately — keep it, or **trade it away blind** for one of the
-     still-sealed briefcases. A blind swap discards your old scandal for the rest
-     of the round; you get one swap per turn.
+     still-sealed briefcases. A blind swap discards your old scandal and locks you
+     into the new one for the rest of the round. You get **two swaps for the whole
+     game** — spend them in whichever rounds you like (still one per turn), and
+     once both are gone you're stuck with whatever you pick in every later round.
 3. After every player locks in, a summary lays out every candidate so far.
 4. After four rounds, the end screen lays out all the finished candidates with
    links to every source article, plus **Play again**.
