@@ -29,7 +29,7 @@
 # =============================================================================
 
 candidates:
-  - name: "Donald J. Trump"
+  - name: "Thomas Jonathan \"Stonewall\" Jackson"
     scandals:
       - headline: "CONVICTED ON 34 FELONY COUNTS OVER A $130,000 HUSH-MONEY PAYMENT TO A PORN STAR"
         text: >
@@ -38,19 +38,18 @@ candidates:
           quiet about it. You reimbursed him through payments recorded as legal
           expenses, and the resulting cover-up ultimately got you convicted on 34
           felony counts.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://apnews.com/article/trump-trial-deliberations-jury-testimony-verdict-85558c6d08efb434d05b694364470aa0"
         articleSource: "The Associated Press"
-      - headline: "'TRUMP UNIVERSITY' WASN'T A UNIVERSITY; HE PAID $25 MILLION TO SETTLE THE FRAUD SUITS"
+      - headline: "HIS FOR-PROFIT 'UNIVERSITY' WASN'T A UNIVERSITY; HE PAID $25 MILLION TO SETTLE FRAUD SUITS"
         text: >
-          You created something called Trump University that wasn't actually a
-          university, sold people expensive real-estate courses using your name
-          and promises of your expertise, got sued by former students and the New
-          York attorney general, and eventually agreed to pay $25 million to
-          settle the cases.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+          You created a for-profit school that wasn't actually a university, sold
+          people expensive real-estate courses using your name and promises of
+          your expertise, got sued by former students and the New York attorney
+          general, and eventually agreed to pay $25 million to settle the cases.
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://ag.ny.gov/press-release/2016/ag-schneiderman-statement-25-million-settlement-trump-university"
         articleSource: "New York State Attorney General"
       - headline: "TRIED TO PUT THE G7 SUMMIT AT HIS OWN MIAMI GOLF RESORT, RETREATED IN TWO DAYS"
@@ -60,8 +59,8 @@ candidates:
           your administration concluded that the best place was your own golf
           resort. The backlash was so immediate you abandoned the plan two days
           later.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://apnews.com/article/7bcb5b2b215c458a9c5c16a5d229a48d"
         articleSource: "The Associated Press"
       - headline: "GOT A VIETNAM DRAFT DEFERMENT FOR 'BONE SPURS'; DOCTOR'S DAUGHTERS CALL IT A FAVOR TO HIS DAD"
@@ -72,12 +71,12 @@ candidates:
           be his landlord — and that their father got preferential treatment
           afterward. Their account hasn't been independently established from the
           underlying medical records.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://www.nytimes.com/2018/12/26/us/politics/trump-vietnam-draft-exemption.html"
         articleSource: "The New York Times"
 
-  - name: "Donald J. Trump"
+  - name: "Robert E. Lee"
     scandals:
       - headline: "A FEDERAL JURY FOUND HIM LIABLE FOR SEXUALLY ABUSING E. JEAN CARROLL"
         text: >
@@ -87,8 +86,8 @@ candidates:
           definition at the time didn't classify that as rape, what the jury
           found you did constitutes rape in the ordinary meaning of the word. You
           denied it and appealed, but the judgment was upheld.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1%3A2022cv10016/590045/212/"
         articleSource: "Justia (court records)"
       - headline: "MADE HIS OWN CHARITY PAY $10,000 FOR A PORTRAIT OF HIMSELF, HUNG IT AT HIS RESORT"
@@ -96,8 +95,8 @@ candidates:
           You went to a charity auction, bought a $10,000 painting of yourself,
           made your own charity pay for the painting of yourself, and then hung
           your charity's painting of yourself at your own for-profit golf resort.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://ag.ny.gov/press-release/2019/court-orders-trump-pay-2-million-illegally-using-trump-foundation-funds"
         articleSource: "New York State Attorney General"
       - headline: "ADMINISTRATION ACCEPTED A ~$400 MILLION LUXURY 747 FROM QATAR FOR AIR FORCE ONE"
@@ -108,8 +107,8 @@ candidates:
           transferring the plane to your presidential library. The administration
           maintains that the gift was legally made to the United States, not to
           you personally.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://www.cbsnews.com/news/air-force-one-new-plane-trump-qatar/"
         articleSource: "CBS News"
       - headline: "A LETTER BEARING HIS NAME WAS IN EPSTEIN'S 50TH-BIRTHDAY ALBUM; HE DENIES WRITING IT"
@@ -119,19 +118,19 @@ candidates:
           the outline of a naked woman and ending with a reference to another
           "wonderful secret." You deny writing it. It was addressed to a man you
           had publicly called a "terrific guy" and said you'd known for 15 years.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://www.reuters.com/world/us/trumps-name-2003-birthday-letter-epstein-wall-street-journal-reports-2025-07-18/"
         articleSource: "Reuters"
 
-  - name: "Donald J. Trump"
+  - name: "Benedict Arnold"
     scandals:
       - headline: "SAID ON TV: 'IF IVANKA WEREN'T MY DAUGHTER, PERHAPS I'D BE DATING HER'"
         text: >
           While discussing your own daughter's body on national television, you
           said: "If Ivanka weren't my daughter, perhaps I'd be dating her."
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://www.forbes.com/forbes/2006/1009/056.html"
         articleSource: "Forbes"
       - headline: "HIS BUSINESSES CHARGED THE SECRET SERVICE OVER $1.4M TO GUARD HIM AT HIS OWN PROPERTIES"
@@ -140,10 +139,10 @@ candidates:
           hotels and resorts, forcing the Secret Service to follow you there —
           and then your businesses charged the government for the rooms your
           bodyguards needed to protect you. Congressional investigators
-          documented more than $1.4 million in Secret Service spending at Trump
-          properties, including one rate of $1,185 per room per night.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+          documented more than $1.4 million in Secret Service spending at
+          properties you own, including one rate of $1,185 per room per night.
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://oversightdemocrats.house.gov/news/press-releases/chairwoman-maloney-releases-new-information-showing-trump-owned-properties"
         articleSource: "House Committee on Oversight and Reform"
       - headline: "INAUGURAL FUND PAID HIS HOTEL $175,000 FOR A BALLROOM ANOTHER GROUP GOT FOR $5,000"
@@ -152,11 +151,11 @@ candidates:
           million at your own hotel. On Inauguration Day, another nonprofit paid
           your hotel $5,000 for substantially the same ballroom; your inaugural
           committee paid $175,000, thirty-five times as much. It even used
-          inaugural money for a private Trump-family party at the hotel. The D.C.
+          inaugural money for a private party for your own family at the hotel. The D.C.
           attorney general sued, and the case ultimately settled without an
           admission of wrongdoing.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://oag.dc.gov/release/ag-racine-sues-presidential-inaugural-committee"
         articleSource: "Office of the Attorney General for the District of Columbia"
       - headline: "LOST IN 2020, THEN ASKED GEORGIA'S SECRETARY OF STATE TO 'FIND 11,780 VOTES'"
@@ -167,7 +166,7 @@ candidates:
           more than you needed to erase Biden's margin — while you and your allies
           pressured officials in other states and pursued alternate elector
           certificates.
-        politician: "Donald J. Trump"
-        position: "45th & 47th President of the United States"
+        politician: "Name withheld"
+        position: "Position withheld"
         articleUrl: "https://sos.ga.gov/page/raffensperger-trump-phone-call-transcript"
         articleSource: "Georgia Secretary of State"
