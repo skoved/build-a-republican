@@ -126,6 +126,24 @@ describe("<App /> full playthrough", () => {
     expect(screen.queryByRole("button", { name: /choose a different one/i })).toBeNull();
   });
 
+  it("shows the active player's remaining swaps in the turn banner", () => {
+    render(<App />);
+    fillSetupAndStart();
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+
+    // Visible before any action (turn step "picking") — the key improvement.
+    expect(screen.getByText("Blind swaps left")).toBeTruthy();
+    expect(screen.getByText(/2 of 2 blind swaps left/i)).toBeTruthy();
+
+    // Spend one blind swap.
+    fireEvent.click(sealedBriefcases()[0]);
+    fireEvent.click(screen.getByRole("button", { name: /trade it away/i }));
+    fireEvent.click(sealedBriefcases()[0]);
+
+    // Back on the decide step; the indicator now reads 1 of 2.
+    expect(screen.getByText(/1 of 2 blind swaps left/i)).toBeTruthy();
+  });
+
   it("supports a blind swap during a turn", () => {
     render(<App />);
     fillSetupAndStart();

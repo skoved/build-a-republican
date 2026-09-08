@@ -1,3 +1,4 @@
+import { SWAPS_PER_GAME } from "../data/scandals";
 import type { TurnStep } from "../game/types";
 
 interface Props {
@@ -17,9 +18,7 @@ function hint(turnStep: TurnStep, swapUsed: boolean, swapsRemaining: number): st
     case "deciding":
       if (swapUsed) return "That swap is locked in for this round.";
       if (swapsRemaining <= 0) return "No swaps left — keep what you pick.";
-      return `Keep this scandal, or trade it away blind (${swapsRemaining} swap${
-        swapsRemaining === 1 ? "" : "s"
-      } left).`;
+      return "Keep this scandal, or trade it away blind.";
     case "swapping":
       return "Choose a sealed briefcase to trade for — you won't see it until you commit.";
   }
@@ -41,6 +40,22 @@ export default function TurnBanner({
       <p className="mt-1 break-words font-display text-xl font-bold sm:text-2xl">
         <span className="text-brass">{activePlayerName}</span>&rsquo;s turn
       </p>
+      <div className="mt-1 flex items-center justify-center gap-2 text-xs text-paper/70">
+        <span className="dateline uppercase tracking-[0.15em]">Blind swaps left</span>
+        <span className="flex gap-1" aria-hidden="true">
+          {Array.from({ length: SWAPS_PER_GAME }, (_, i) => (
+            <span
+              key={i}
+              className={`inline-block h-2.5 w-2.5 rounded-full border border-brass ${
+                i < swapsRemaining ? "bg-brass" : "bg-transparent"
+              }`}
+            />
+          ))}
+        </span>
+        <span className="sr-only">
+          {swapsRemaining} of {SWAPS_PER_GAME} blind swaps left
+        </span>
+      </div>
       <p className="mt-0.5 font-serif text-sm text-paper/80">
         {hint(turnStep, swapUsed, swapsRemaining)}
       </p>
