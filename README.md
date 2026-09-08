@@ -5,6 +5,9 @@ scandals into their own Republican politician across four rounds — **Personal
 Conduct**, **Finance and Fraud**, **Conflict of Interest**, and the **October
 Surprise**. Whoever assembles the most electable disaster wins (you decide how).
 Three players by default; the setup screen has an **Add a fourth player** toggle.
+Players enter only their own name — each seat's Republican is named from
+[`candidate-names.yaml`](./candidate-names.yaml), consumed one game at a time in
+blocks of four (a 3-player game uses three names and skips the fourth).
 
 Built with Vite + React + TypeScript + Tailwind. No backend — it deploys as a
 static site on Vercel's free tier.

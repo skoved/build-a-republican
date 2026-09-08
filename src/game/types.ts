@@ -14,7 +14,10 @@ export interface Player {
   id: PlayerId;
   /** The human at the keyboard. Used for turn prompts. */
   playerName: string;
-  /** The name they give the Republican they are building. Used on summaries. */
+  /**
+   * The Republican this player is building. Assigned at SUBMIT_SETUP from
+   * `candidate-names.yaml`, not entered by the player. Used on summaries.
+   */
   politicianName: string;
   /**
    * Blind swaps this player has left for the whole game. Starts at
@@ -82,11 +85,16 @@ export interface GameState {
    * PLAY_AGAIN; reset only on page reload. Trump-deck games do not increment it.
    */
   completedGames: number;
+  /**
+   * Games set up this session (any deck). Indexes into `candidate-names.yaml`:
+   * the Nth game reads its Republican names from slot `N * 4`. Incremented by
+   * SUBMIT_SETUP, persists across PLAY_AGAIN, reset only on page reload.
+   */
+  gamesStarted: number;
 }
 
 export interface SetupSeat {
   playerName: string;
-  politicianName: string;
 }
 
 export type Action =

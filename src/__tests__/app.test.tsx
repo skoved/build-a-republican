@@ -6,13 +6,7 @@ afterEach(cleanup);
 
 function fillSetupAndStart() {
   const yourName = screen.getAllByText("Your name").map((l) => l.parentElement!.querySelector("input")!);
-  const repName = screen
-    .getAllByText("Name your Republican")
-    .map((l) => l.parentElement!.querySelector("input")!);
   ["Ada", "Ben", "Cal"].forEach((n, i) => fireEvent.change(yourName[i], { target: { value: n } }));
-  ["Sen. A", "Gov. B", "Mayor C"].forEach((n, i) =>
-    fireEvent.change(repName[i], { target: { value: n } }),
-  );
   fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
 }
 
@@ -146,15 +140,9 @@ describe("<App /> full playthrough", () => {
     const yourName = screen
       .getAllByText("Your name")
       .map((l) => l.parentElement!.querySelector("input")!);
-    const repName = screen
-      .getAllByText("Name your Republican")
-      .map((l) => l.parentElement!.querySelector("input")!);
     expect(yourName).toHaveLength(4);
     ["Ada", "Ben", "Cal", "Dot"].forEach((n, i) =>
       fireEvent.change(yourName[i], { target: { value: n } }),
-    );
-    ["Sen. A", "Gov. B", "Mayor C", "Judge D"].forEach((n, i) =>
-      fireEvent.change(repName[i], { target: { value: n } }),
     );
 
     fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
@@ -190,14 +178,8 @@ describe("<App /> full playthrough", () => {
     const yourName = screen
       .getAllByText("Your name")
       .map((l) => l.parentElement!.querySelector("input")!);
-    const repName = screen
-      .getAllByText("Name your Republican")
-      .map((l) => l.parentElement!.querySelector("input")!);
     ["Ada", "Ben", "Cal"].forEach((n, i) =>
       fireEvent.change(yourName[i], { target: { value: n } }),
-    );
-    ["Sen. A", "Gov. B", "Mayor C"].forEach((n, i) =>
-      fireEvent.change(repName[i], { target: { value: n } }),
     );
 
     expect((trumpButton as HTMLButtonElement).disabled).toBe(false);

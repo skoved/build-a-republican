@@ -1,21 +1,22 @@
 import { useState, type FormEvent } from "react";
 import type { AppDispatch, SetupSeat } from "../game/types";
+import { candidateNameFor } from "../data/candidateNames";
 import { MAX_PLAYERS, MIN_PLAYERS } from "../data/scandals";
 import TrumpMark from "./TrumpMark";
 
 interface Props {
   dispatch: AppDispatch;
+  /** How many games have started this session — indexes the candidate-name pool. */
+  gameIndex: number;
 }
 
-const emptySeat = (): SetupSeat => ({ playerName: "", politicianName: "" });
+const emptySeat = (): SetupSeat => ({ playerName: "" });
 const EMPTY_SEATS: SetupSeat[] = Array.from({ length: MIN_PLAYERS }, emptySeat);
 
-export default function SetupScreen({ dispatch }: Props) {
+export default function SetupScreen({ dispatch, gameIndex }: Props) {
   const [seats, setSeats] = useState<SetupSeat[]>(EMPTY_SEATS);
 
-  const complete = seats.every(
-    (s) => s.playerName.trim() !== "" && s.politicianName.trim() !== "",
-  );
+  const complete = seats.every((s) => s.playerName.trim() !== "");
 
   function update(index: number, patch: Partial<SetupSeat>) {
     setSeats((prev) => prev.map((s, i) => (i === index ? { ...s, ...patch } : s)));
@@ -59,6 +60,10 @@ export default function SetupScreen({ dispatch }: Props) {
           category — Personal Conduct, Finance &amp; Fraud, Conflict of Interest,
           and the October Surprise — into the most electable disaster at the table.
         </p>
+        <p className="mx-auto mt-2 max-w-xl font-serif text-sm text-paper/60">
+          Just add each player&rsquo;s name — the Republican you&rsquo;ll be
+          building is assigned for you, shown on each seat below.
+        </p>
       </header>
 
       <form
@@ -85,17 +90,12 @@ export default function SetupScreen({ dispatch }: Props) {
                 autoComplete="off"
               />
             </label>
-            <label className="mt-3 block text-sm">
-              <span className="font-serif text-paper/80">Name your Republican</span>
-              <input
-                className="mt-1 w-full rounded border border-brass/40 bg-paper px-2 py-1.5 font-serif text-ink outline-none focus:border-gop-red"
-                value={seat.politicianName}
-                onChange={(e) => update(i, { politicianName: e.target.value })}
-                placeholder="e.g. Senator Buck Wheatland III"
-                maxLength={40}
-                autoComplete="off"
-              />
-            </label>
+            <div className="mt-3 text-sm">
+              <span className="font-serif text-paper/80">Your Republican</span>
+              <p className="headline mt-1 rounded border border-dashed border-brass/40 bg-black/15 px-2 py-1.5 leading-tight text-brass">
+                {candidateNameFor(gameIndex, i)}
+              </p>
+            </div>
           </fieldset>
         ))}
 

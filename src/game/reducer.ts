@@ -1,3 +1,4 @@
+import { candidateNameFor } from "../data/candidateNames";
 import {
   briefcasesForPlayers,
   MAX_PLAYERS,
@@ -27,6 +28,7 @@ export function createInitialState(): GameState {
     current: null,
     usedScandalIds: [],
     completedGames: 0,
+    gamesStarted: 0,
   };
 }
 
@@ -34,7 +36,7 @@ function seatsAreComplete(action: Extract<Action, { type: "SUBMIT_SETUP" }>) {
   return (
     action.seats.length >= MIN_PLAYERS &&
     action.seats.length <= MAX_PLAYERS &&
-    action.seats.every((s) => s.playerName.trim() !== "" && s.politicianName.trim() !== "")
+    action.seats.every((s) => s.playerName.trim() !== "")
   );
 }
 
@@ -126,10 +128,11 @@ export function reducer(state: GameState, action: Action): GameState {
   switch (action.type) {
     case "SUBMIT_SETUP": {
       if (state.phase !== "setup" || !seatsAreComplete(action)) return state;
+      const gameIndex = state.gamesStarted;
       const players: Player[] = action.seats.map((seat, i) => ({
         id: i as PlayerId,
         playerName: seat.playerName.trim(),
-        politicianName: seat.politicianName.trim(),
+        politicianName: candidateNameFor(gameIndex, i),
         swapsRemaining: SWAPS_PER_GAME,
       }));
       return {
@@ -139,6 +142,7 @@ export function reducer(state: GameState, action: Action): GameState {
         players,
         rounds: [],
         current: null,
+        gamesStarted: gameIndex + 1,
       };
     }
 
@@ -244,9 +248,11 @@ export function reducer(state: GameState, action: Action): GameState {
     }
 
     case "PLAY_AGAIN": {
-      // Keep usedScandalIds so a fresh game avoids scandals already seen, and
-      // completedGames so replays keep advancing the bonus candidate. The deck
-      // is re-chosen on the setup screen by which start button is clicked.
+      // Keep usedScandalIds so a fresh game avoids scandals already seen,
+      // completedGames so replays keep advancing the bonus candidate, and
+      // gamesStarted so the next game draws the next block of candidate names.
+      // The deck is re-chosen on the setup screen by which start button is
+      // clicked.
       return {
         phase: "setup",
         deckId: "standard",
@@ -255,6 +261,7 @@ export function reducer(state: GameState, action: Action): GameState {
         current: null,
         usedScandalIds: state.usedScandalIds,
         completedGames: state.completedGames,
+        gamesStarted: state.gamesStarted,
       };
     }
 

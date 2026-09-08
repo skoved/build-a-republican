@@ -6,16 +6,17 @@ import {
   SWAPS_PER_GAME,
 } from "../data/scandals";
 import { bonusCandidateForGame } from "../data/bonusCandidates";
+import { candidateNameFor, candidateNames } from "../data/candidateNames";
 import { createInitialState, reducer } from "../game/reducer";
 import type { DeckId, GameState } from "../game/types";
 
 const SEATS = [
-  { playerName: "Ada", politicianName: "Senator Alpha" },
-  { playerName: "Ben", politicianName: "Governor Bravo" },
-  { playerName: "Cal", politicianName: "Mayor Charlie" },
+  { playerName: "Ada" },
+  { playerName: "Ben" },
+  { playerName: "Cal" },
 ];
 
-const SEATS_4 = [...SEATS, { playerName: "Dot", politicianName: "Judge Delta" }];
+const SEATS_4 = [...SEATS, { playerName: "Dot" }];
 
 /** Briefcases dealt for a 3-player table (6) and a 4-player table (8). */
 const SIX = briefcasesForPlayers(3);
@@ -62,7 +63,31 @@ describe("setup", () => {
     const state = startedGame();
     expect(state.phase).toBe("round-intro");
     expect(state.players).toHaveLength(3);
-    expect(state.players[1].politicianName).toBe("Governor Bravo");
+    expect(state.players[1].playerName).toBe("Ben");
+  });
+
+  it("names each player's Republican from candidate-names.yaml, a block of 4 per game", () => {
+    // A 4-player game fills its whole block of 4 slots.
+    const g1 = startedGame(SEATS_4);
+    expect(g1.players.map((p) => p.politicianName)).toEqual([
+      candidateNameFor(0, 0),
+      candidateNameFor(0, 1),
+      candidateNameFor(0, 2),
+      candidateNameFor(0, 3),
+    ]);
+    // A 3-player game uses slots 0–2 and leaves slot 3 (the 4th name) unused.
+    const g1three = startedGame(SEATS);
+    expect(g1three.players.map((p) => p.politicianName)).toEqual(
+      candidateNames.slice(0, 3),
+    );
+    expect(g1three.gamesStarted).toBe(1);
+
+    // A replay advances to the next block of 4, whatever the first game's size.
+    const replay = reducer(reducer(g1three, { type: "PLAY_AGAIN" }), {
+      type: "SUBMIT_SETUP",
+      seats: SEATS,
+    });
+    expect(replay.players[0].politicianName).toBe(candidateNameFor(1, 0));
   });
 
   it("gives every player their full swap budget for the game", () => {
@@ -73,7 +98,7 @@ describe("setup", () => {
   it("ignores setup when a seat is blank", () => {
     const state = reducer(createInitialState(), {
       type: "SUBMIT_SETUP",
-      seats: [SEATS[0], SEATS[1], { playerName: "Cal", politicianName: "  " }],
+      seats: [SEATS[0], SEATS[1], { playerName: "  " }],
     });
     expect(state.phase).toBe("setup");
     expect(state.players).toHaveLength(0);
@@ -83,7 +108,7 @@ describe("setup", () => {
     const state = startedGame(SEATS_4);
     expect(state.phase).toBe("round-intro");
     expect(state.players).toHaveLength(4);
-    expect(state.players[3].politicianName).toBe("Judge Delta");
+    expect(state.players[3].politicianName).toBe(candidateNameFor(0, 3));
   });
 
   it("rejects tables outside 3–4 players", () => {
@@ -91,7 +116,7 @@ describe("setup", () => {
     expect(two.phase).toBe("setup");
     const five = reducer(createInitialState(), {
       type: "SUBMIT_SETUP",
-      seats: [...SEATS_4, { playerName: "Eve", politicianName: "Rep. Echo" }],
+      seats: [...SEATS_4, { playerName: "Eve" }],
     });
     expect(five.phase).toBe("setup");
   });
@@ -277,6 +302,8 @@ describe("full game + replays", () => {
     expect(again.current).toBeNull();
     expect(again.usedScandalIds).toEqual(finished.usedScandalIds);
     expect(again.completedGames).toBe(finished.completedGames);
+    expect(again.gamesStarted).toBe(finished.gamesStarted);
+    expect(finished.gamesStarted).toBe(1);
   });
 
   it("resets a category's history when it can no longer fill a round", () => {
@@ -335,6 +362,7 @@ describe("trump deck", () => {
 describe("bonus candidates", () => {
   it("starts a session with no completed games", () => {
     expect(createInitialState().completedGames).toBe(0);
+    expect(createInitialState().gamesStarted).toBe(0);
   });
 
   it("counts each finished standard-deck game", () => {
