@@ -20,22 +20,22 @@
 
 names:
   # --- game 1 ---------------------------------------------------------------
+  - "Steven Crowder"
   - "Tim Pool"
   - "Asmongold"
   - "Nick Fuentes"
-  - "Lauren Chen"
   # --- game 2 ---------------------------------------------------------------
   - "Dave Portnoy"
   - "Joe Rogan"
-  - "Alex Jones"
-  - "Andrew Tate"
+  - "Theo Von"
+  - "Tony Hinchcliffe"
   # --- game 3 ---------------------------------------------------------------
-  - "Barron Trump"
+  - "Megyn Kelly"
   - "Tucker Carlson"
   - "Ben Shapiro"
-  - "Jill Stein"
+  - "Candice Owens"
   # --- game 4 ---------------------------------------------------------------
-  - "John D. Rockefeller"
-  - "Andrew Carnegie"
-  - "J. P. Morgan"
-  - "Cornelius Vanderbilt"
+  - "Jeff Bezos"
+  - "Mark Zuckerburg"
+  - "Elon Musk"
+  - "Peter Thiel"
