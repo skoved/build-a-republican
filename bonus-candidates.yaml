@@ -15,7 +15,7 @@
 #               1. Personal Conduct
 #               2. Finance and Fraud
 #               3. Conflict of Interest
-#               4. October Surprise
+#               4. October Surprise   (the "Wildcard" round in bonus-candidates.md)
 #
 # Each scandal has the same fields as a scandals.yaml entry, minus `id`:
 #   headline, text, politician, position, articleUrl (http(s)), articleSource?
@@ -23,97 +23,151 @@
 # The card's "built by" line is always "Digital Ground Game" — set by the app,
 # not in this file.
 #
-# The entries below are PLACEHOLDERS. Replace them with the real bonus candidates.
+# Converted from bonus-candidates.md. `text` uses that doc's second-person
+# ("you") framing. All three candidates are the same person, so successive
+# replays surface a different set of that person's scandals.
 # =============================================================================
 
 candidates:
-  - name: "Placeholder Bonus Candidate One"
+  - name: "Donald J. Trump"
     scandals:
-      - headline: "PLACEHOLDER: BONUS 1 — PERSONAL CONDUCT"
+      - headline: "CONVICTED ON 34 FELONY COUNTS OVER A $130,000 HUSH-MONEY PAYMENT TO A PORN STAR"
         text: >
-          Replace this with the first bonus candidate's Personal Conduct scandal.
-        politician: "Placeholder Person One"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/1/personal-conduct"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 1 — FINANCE AND FRAUD"
+          You allegedly cheated on your wife with a porn star — which you deny —
+          then right before the election your lawyer paid her $130,000 to keep
+          quiet about it. You reimbursed him through payments recorded as legal
+          expenses, and the resulting cover-up ultimately got you convicted on 34
+          felony counts.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://apnews.com/article/trump-trial-deliberations-jury-testimony-verdict-85558c6d08efb434d05b694364470aa0"
+        articleSource: "The Associated Press"
+      - headline: "'TRUMP UNIVERSITY' WASN'T A UNIVERSITY; HE PAID $25 MILLION TO SETTLE THE FRAUD SUITS"
         text: >
-          Replace this with the first bonus candidate's Finance and Fraud scandal.
-        politician: "Placeholder Person One"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/1/finance-and-fraud"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 1 — CONFLICT OF INTEREST"
+          You created something called Trump University that wasn't actually a
+          university, sold people expensive real-estate courses using your name
+          and promises of your expertise, got sued by former students and the New
+          York attorney general, and eventually agreed to pay $25 million to
+          settle the cases.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://ag.ny.gov/press-release/2016/ag-schneiderman-statement-25-million-settlement-trump-university"
+        articleSource: "New York State Attorney General"
+      - headline: "TRIED TO PUT THE G7 SUMMIT AT HIS OWN MIAMI GOLF RESORT, RETREATED IN TWO DAYS"
         text: >
-          Replace this with the first bonus candidate's Conflict of Interest scandal.
-        politician: "Placeholder Person One"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/1/conflict-of-interest"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 1 — OCTOBER SURPRISE"
+          You became President of the United States, got to decide where America
+          would host the leaders of the world's largest democracies, and somehow
+          your administration concluded that the best place was your own golf
+          resort. The backlash was so immediate you abandoned the plan two days
+          later.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://apnews.com/article/7bcb5b2b215c458a9c5c16a5d229a48d"
+        articleSource: "The Associated Press"
+      - headline: "GOT A VIETNAM DRAFT DEFERMENT FOR 'BONE SPURS'; DOCTOR'S DAUGHTERS CALL IT A FAVOR TO HIS DAD"
         text: >
-          Replace this with the first bonus candidate's October Surprise scandal.
-        politician: "Placeholder Person One"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/1/october-surprise"
-        articleSource: "Replace With Real Source"
-  - name: "Placeholder Bonus Candidate Two"
+          You avoided Vietnam after getting a medical deferment for bone spurs.
+          Decades later, the daughters of the podiatrist involved said their
+          father told them the diagnosis was a favor to your dad — who happened to
+          be his landlord — and that their father got preferential treatment
+          afterward. Their account hasn't been independently established from the
+          underlying medical records.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://www.nytimes.com/2018/12/26/us/politics/trump-vietnam-draft-exemption.html"
+        articleSource: "The New York Times"
+
+  - name: "Donald J. Trump"
     scandals:
-      - headline: "PLACEHOLDER: BONUS 2 — PERSONAL CONDUCT"
+      - headline: "A FEDERAL JURY FOUND HIM LIABLE FOR SEXUALLY ABUSING E. JEAN CARROLL"
         text: >
-          Replace this with the second bonus candidate's Personal Conduct scandal.
-        politician: "Placeholder Person Two"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/2/personal-conduct"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 2 — FINANCE AND FRAUD"
+          A federal jury found you civilly liable for sexually abusing E. Jean
+          Carroll. The judge later explained that the verdict established forcible
+          digital penetration and that, while New York's unusually narrow legal
+          definition at the time didn't classify that as rape, what the jury
+          found you did constitutes rape in the ordinary meaning of the word. You
+          denied it and appealed, but the judgment was upheld.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1%3A2022cv10016/590045/212/"
+        articleSource: "Justia (court records)"
+      - headline: "MADE HIS OWN CHARITY PAY $10,000 FOR A PORTRAIT OF HIMSELF, HUNG IT AT HIS RESORT"
         text: >
-          Replace this with the second bonus candidate's Finance and Fraud scandal.
-        politician: "Placeholder Person Two"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/2/finance-and-fraud"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 2 — CONFLICT OF INTEREST"
+          You went to a charity auction, bought a $10,000 painting of yourself,
+          made your own charity pay for the painting of yourself, and then hung
+          your charity's painting of yourself at your own for-profit golf resort.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://ag.ny.gov/press-release/2019/court-orders-trump-pay-2-million-illegally-using-trump-foundation-funds"
+        articleSource: "New York State Attorney General"
+      - headline: "ADMINISTRATION ACCEPTED A ~$400 MILLION LUXURY 747 FROM QATAR FOR AIR FORCE ONE"
         text: >
-          Replace this with the second bonus candidate's Conflict of Interest scandal.
-        politician: "Placeholder Person Two"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/2/conflict-of-interest"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 2 — OCTOBER SURPRISE"
+          The government of Qatar gave your administration a luxury Boeing 747
+          worth roughly $400 million. Your government accepted it, converted it
+          for presidential use, and the arrangement contemplated eventually
+          transferring the plane to your presidential library. The administration
+          maintains that the gift was legally made to the United States, not to
+          you personally.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://www.cbsnews.com/news/air-force-one-new-plane-trump-qatar/"
+        articleSource: "CBS News"
+      - headline: "A LETTER BEARING HIS NAME WAS IN EPSTEIN'S 50TH-BIRTHDAY ALBUM; HE DENIES WRITING IT"
         text: >
-          Replace this with the second bonus candidate's October Surprise scandal.
-        politician: "Placeholder Person Two"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/2/october-surprise"
-        articleSource: "Replace With Real Source"
-  - name: "Placeholder Bonus Candidate Three"
+          Jeffrey Epstein's 50th-birthday album contained a letter bearing your
+          name — an imaginary conversation between you and Epstein, drawn inside
+          the outline of a naked woman and ending with a reference to another
+          "wonderful secret." You deny writing it. It was addressed to a man you
+          had publicly called a "terrific guy" and said you'd known for 15 years.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://www.reuters.com/world/us/trumps-name-2003-birthday-letter-epstein-wall-street-journal-reports-2025-07-18/"
+        articleSource: "Reuters"
+
+  - name: "Donald J. Trump"
     scandals:
-      - headline: "PLACEHOLDER: BONUS 3 — PERSONAL CONDUCT"
+      - headline: "SAID ON TV: 'IF IVANKA WEREN'T MY DAUGHTER, PERHAPS I'D BE DATING HER'"
         text: >
-          Replace this with the third bonus candidate's Personal Conduct scandal.
-        politician: "Placeholder Person Three"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/3/personal-conduct"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 3 — FINANCE AND FRAUD"
+          While discussing your own daughter's body on national television, you
+          said: "If Ivanka weren't my daughter, perhaps I'd be dating her."
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://www.forbes.com/forbes/2006/1009/056.html"
+        articleSource: "Forbes"
+      - headline: "HIS BUSINESSES CHARGED THE SECRET SERVICE OVER $1.4M TO GUARD HIM AT HIS OWN PROPERTIES"
         text: >
-          Replace this with the third bonus candidate's Finance and Fraud scandal.
-        politician: "Placeholder Person Three"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/3/finance-and-fraud"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 3 — CONFLICT OF INTEREST"
+          You chose to spend enormous amounts of your presidency at your own
+          hotels and resorts, forcing the Secret Service to follow you there —
+          and then your businesses charged the government for the rooms your
+          bodyguards needed to protect you. Congressional investigators
+          documented more than $1.4 million in Secret Service spending at Trump
+          properties, including one rate of $1,185 per room per night.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://oversightdemocrats.house.gov/news/press-releases/chairwoman-maloney-releases-new-information-showing-trump-owned-properties"
+        articleSource: "House Committee on Oversight and Reform"
+      - headline: "INAUGURAL FUND PAID HIS HOTEL $175,000 FOR A BALLROOM ANOTHER GROUP GOT FOR $5,000"
         text: >
-          Replace this with the third bonus candidate's Conflict of Interest scandal.
-        politician: "Placeholder Person Three"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/3/conflict-of-interest"
-        articleSource: "Replace With Real Source"
-      - headline: "PLACEHOLDER: BONUS 3 — OCTOBER SURPRISE"
+          Your inauguration raised nonprofit money and then spent more than $1
+          million at your own hotel. On Inauguration Day, another nonprofit paid
+          your hotel $5,000 for substantially the same ballroom; your inaugural
+          committee paid $175,000, thirty-five times as much. It even used
+          inaugural money for a private Trump-family party at the hotel. The D.C.
+          attorney general sued, and the case ultimately settled without an
+          admission of wrongdoing.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://oag.dc.gov/release/ag-racine-sues-presidential-inaugural-committee"
+        articleSource: "Office of the Attorney General for the District of Columbia"
+      - headline: "LOST IN 2020, THEN ASKED GEORGIA'S SECRETARY OF STATE TO 'FIND 11,780 VOTES'"
         text: >
-          Replace this with the third bonus candidate's October Surprise scandal.
-        politician: "Placeholder Person Three"
-        position: "Placeholder political position"
-        articleUrl: "https://example.com/bonus/3/october-surprise"
-        articleSource: "Replace With Real Source"
+          You lost a presidential election and then tried multiple avenues to
+          reverse the result anyway. You personally called Georgia's Republican
+          secretary of state and asked him to "find 11,780 votes" — exactly one
+          more than you needed to erase Biden's margin — while you and your allies
+          pressured officials in other states and pursued alternate elector
+          certificates.
+        politician: "Donald J. Trump"
+        position: "45th & 47th President of the United States"
+        articleUrl: "https://sos.ga.gov/page/raffensperger-trump-phone-call-transcript"
+        articleSource: "Georgia Secretary of State"

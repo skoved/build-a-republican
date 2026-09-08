@@ -11,17 +11,16 @@
 #       1. personal-conduct     Personal Conduct
 #       2. finance-and-fraud    Finance and Fraud
 #       3. conflict-of-interest Conflict of Interest
-#       4. october-surprise     October Surprise
+#       4. october-surprise     October Surprise   (the "WILDCARD" section of trump.md)
 #   - at least 8 scandals per category.
-#   - every scandal id must be UNIQUE ACROSS BOTH FILES. Keep the "t-" prefix
-#     used here so Trump-deck ids never collide with scandals.yaml's
+#   - every scandal id must be UNIQUE ACROSS BOTH FILES. The "t-" prefix used
+#     here keeps Trump-deck ids from colliding with scandals.yaml's
 #     pc-/ff-/ci-/os- ids.
 #
 # Per scandal: id, headline, text, politician, position, articleUrl (http(s)),
 # and optional articleSource — exactly as in scandals.yaml.
 #
-# The entries below are PLACEHOLDERS. Replace headline/text/articleUrl with the
-# real Trump scandals you want in the deck.
+# Converted from trump.md. `text` uses that doc's second-person ("you") framing.
 # =============================================================================
 
 categories:
@@ -29,273 +28,436 @@ categories:
   - id: personal-conduct
     name: Personal Conduct
     scandals:
-      - id: t-pc-1
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #1"
+      - id: t-pc-dressing-rooms
+        headline: "PAGEANT OWNER WALKED INTO DRESSING ROOMS WHILE CONTESTANTS WERE NAKED OR CHANGING"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck —
-          the body paragraph that prints on the newspaper when this briefcase is
-          opened.
+          You owned beauty pageants, and multiple contestants said you walked
+          into their dressing rooms while women were naked or changing. Then an
+          old radio interview surfaced where you had bragged that being the owner
+          meant you could go backstage while contestants had no clothes on and
+          "sort of get away with things like that."
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/1"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-2
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #2"
+        articleUrl: "https://www.theguardian.com/us-news/2016/oct/12/donald-trump-miss-usa-dressing-room-2001-rehearsal"
+        articleSource: "The Guardian"
+
+      - id: t-pc-birther
+        headline: "SPENT YEARS CLAIMING AMERICA'S FIRST BLACK PRESIDENT MIGHT SECRETLY BE FOREIGN"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          You spent years suggesting that the sitting President of the United
+          States was secretly born in another country, to the point that he
+          released his long-form birth certificate. You kept raising doubts
+          afterward anyway. Then you finally admitted he was American — and
+          falsely blamed your political opponent for starting the conspiracy.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/2"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-3
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #3"
+        articleUrl: "https://apnews.com/article/election-2020-ap-fact-check-donald-trump-race-and-ethnicity-barack-obama-c2d27e35cb894b9533e4b0a52a0a66f2"
+        articleSource: "The Associated Press"
+
+      - id: t-pc-dating-remark
+        headline: "SAID HE'D BE DATING A 10-YEAR-OLD GIRL IN TEN YEARS"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          You were talking to a 10-year-old girl, then turned toward a television
+          camera and announced: "I am going to be dating her in ten years. Can
+          you believe it?"
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/3"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-4
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #4"
+        articleUrl: "https://www.cbsnews.com/news/donald-trump-10-year-old-girl-escalator-entertainment-tonight-video/"
+        articleSource: "CBS News"
+
+      - id: t-pc-machado
+        headline: "BROUGHT REPORTERS TO WATCH A PAGEANT WINNER EXERCISE BECAUSE SHE GAINED WEIGHT"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          A woman won the beauty pageant you owned and then gained weight, so you
+          brought reporters to watch her exercise. She says you called her "Miss
+          Piggy" and "Miss Housekeeping." Nearly twenty years later, when the
+          story became an issue during a presidential campaign, you responded by
+          publicly complaining about her weight again.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/4"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-5
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #5"
+        articleUrl: "https://www.theguardian.com/us-news/2016/sep/27/alicia-machado-donald-trump-hillary-clinton-miss-universe"
+        articleSource: "The Guardian"
+
+      - id: t-pc-khan-family
+        headline: "ATTACKED A GOLD STAR FAMILY WHOSE SON WAS KILLED IN IRAQ"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          The parents of an Army captain who died saving his soldiers in Iraq
+          criticized you. Your response included publicly suggesting that his
+          grieving mother had stood silently beside her husband because maybe her
+          religion didn't allow her to speak. She explained that she couldn't
+          speak because seeing pictures of her dead son was too painful.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/5"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-6
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #6"
+        articleUrl: "https://apnews.com/article/39a1e36ec8404a6787deff084981c870"
+        articleSource: "The Associated Press"
+
+      - id: t-pc-blasey-ford
+        headline: "MOCKED CHRISTINE BLASEY FORD'S TESTIMONY AT A RALLY"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          A woman testified before Congress that a Supreme Court nominee had
+          sexually assaulted her as a teenager. You initially called her "very
+          credible." Days later, while the Senate was deciding whether to give
+          him a lifetime appointment, you went before a cheering political rally
+          and performed an imitation mocking gaps in her testimony.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/6"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-7
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #7"
+        articleUrl: "https://apnews.com/article/14e79cc790f84240a922b18ce318a852"
+        articleSource: "The Associated Press"
+
+      - id: t-pc-purple-heart
+        headline: "SAID RECEIVING SOMEONE ELSE'S PURPLE HEART WAS 'MUCH EASIER'"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          A veteran gave you his Purple Heart, an award given to members of the
+          military wounded or killed in combat. You announced that you had
+          "always wanted" one and then added: "This was much easier." You had
+          never served in the military.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/7"
-        articleSource: "Replace With Real Source"
-      - id: t-pc-8
-        headline: "PLACEHOLDER: PERSONAL CONDUCT SCANDAL #8"
+        articleUrl: "https://www.cbsnews.com/news/trump-accepts-a-purple-heart-amid-veteran-controversy/"
+        articleSource: "CBS News"
+
+      - id: t-pc-megyn-kelly
+        headline: "'BLOOD COMING OUT OF HER WHEREVER'"
         text: >
-          Replace this with a real Personal Conduct scandal for the Trump deck.
+          A female journalist asked you a difficult debate question about things
+          you had said about women. Your response the next day was that she had
+          "blood coming out of her eyes, blood coming out of her wherever." You
+          later insisted that by "wherever," you meant her nose.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/personal-conduct/8"
-        articleSource: "Replace With Real Source"
+        articleUrl: "https://www.bbc.com/news/world-us-canada-33833516"
+        articleSource: "BBC News"
+
   # ---------------------------------------------------------------------------
   - id: finance-and-fraud
     name: Finance and Fraud
     scandals:
-      - id: t-ff-1
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #1"
+      - id: t-ff-john-barron
+        headline: "USED A FAKE SPOKESMAN TO TELL FORBES HOW RICH HE WAS"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          Forbes didn't think you were as rich as you wanted them to think you
+          were. Then a mysterious company executive named "John Barron" called
+          their reporter and explained that you actually owned way more of the
+          family business than they realized. There was one problem: John Barron
+          was you. You were calling reporters pretending to be your own spokesman
+          to tell them how rich you were.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/1"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-2
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #2"
+        articleUrl: "https://www.washingtonpost.com/politics/2018/04/20/trump-used-fake-persona-inflate-his-wealth-according-former-forbes-writer/"
+        articleSource: "The Washington Post"
+
+      - id: t-ff-casino-dealers
+        headline: "CASINO REMOVED BLACK AND FEMALE DEALERS TO PLEASE A HIGH ROLLER"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          One of your casino's biggest gamblers didn't want Black people or women
+          dealing his cards, so casino management accommodated him and removed
+          them from the tables. State regulators eventually imposed a $200,000
+          fine.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/2"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-3
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #3"
+        articleUrl: "https://www.washingtonpost.com/investigations/trumps-bad-bet-how-too-much-debt-drove-his-biggest-casino-aground/2016/01/18/f67cedc2-9ac8-11e5-8917-653b65c809eb_story.html"
+        articleSource: "The Washington Post"
+
+      - id: t-ff-soho-sales
+        headline: "CONDO BUYERS WERE TOLD A BUILDING WAS 60% SOLD WHEN IT WAS CLOSER TO 16%"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          You're trying to sell people condos. Potential buyers are told the
+          building is up to 60% sold. The actual number is about 16%. Buyers
+          eventually sued and recovered 90% of their deposits. Prosecutors
+          investigated but brought no criminal charges.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/3"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-4
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #4"
+        articleUrl: "https://www.propublica.org/article/ivanka-donald-trump-jr-close-to-being-charged-felony-fraud"
+        articleSource: "ProPublica"
+
+      - id: t-ff-acn
+        headline: "SECRETLY PAID MILLIONS WHILE PROMOTING A MULTILEVEL-MARKETING COMPANY"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          You spent years telling ordinary people that a multilevel-marketing
+          company was a tremendous business opportunity. What you weren't
+          prominently telling the people taking your advice was that the company
+          was paying you millions of dollars to promote it. People who said they
+          lost money sued you; the case did not ultimately produce a fraud
+          judgment against you.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/4"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-5
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #5"
+        articleUrl: "https://www.nytimes.com/2019/01/15/us/politics/trump-acn-lawsuit.html"
+        articleSource: "The New York Times"
+
+      - id: t-ff-trump-institute
+        headline: "'EXCLUSIVE WEALTH SECRETS' WERE COPIED FROM SOMEONE ELSE'S OLD BOOK"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          People paid roughly $2,000 to learn your exclusive wealth-building
+          secrets. Reporters then discovered that substantial portions of the
+          instructional material had apparently been copied from somebody else's
+          decade-old real-estate book. Your lawyer said you didn't know.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/5"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-6
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #6"
+        articleUrl: "https://www.nytimes.com/2016/06/30/us/politics/donald-trump-institute.html"
+        articleSource: "The New York Times"
+
+      - id: t-ff-unpaid-contractors
+        headline: "CONTRACTORS REPEATEDLY HAD TO FIGHT HIS BUSINESSES JUST TO GET PAID"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          Your businesses became notorious enough that painters, plumbers,
+          waiters, cabinet-makers and other contractors repeatedly ended up
+          fighting just to get paid. Your explanation was basically that
+          sometimes their work wasn't good enough, so you didn't pay the entire
+          bill.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/6"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-7
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #7"
+        articleUrl: "https://www.usatoday.com/story/news/politics/elections/2016/06/09/donald-trump-unpaid-bills-republican-president-lasuits/85297274/"
+        articleSource: "USA Today"
+
+      - id: t-ff-all-county
+        headline: "FAMILY COMPANY ALLEGEDLY PADDED INVOICES TO SHIFT WEALTH FROM HIS FATHER"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          Your family created a company that supposedly bought boilers,
+          refrigerators and cleaning supplies for your father's apartment
+          buildings. According to a massive investigation of the records, it
+          instead took purchases and marked up the invoices — sometimes by 20%,
+          50% or more — with the extra money flowing to you and your siblings.
+          That helped transfer wealth out of your father's empire while reducing
+          taxes. Your lawyer denied fraud or tax evasion.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/7"
-        articleSource: "Replace With Real Source"
-      - id: t-ff-8
-        headline: "PLACEHOLDER: FINANCE AND FRAUD SCANDAL #8"
+        articleUrl: "https://www.nytimes.com/interactive/2018/10/02/us/politics/donald-trump-tax-schemes-fred-trump.html"
+        articleSource: "The New York Times"
+
+      - id: t-ff-fred-trump-valuations
+        headline: "FAMILY REAL ESTATE VALUED AT $41M FOR TAXES LATER SOLD FOR SIXTEEN TIMES THAT"
         text: >
-          Replace this with a real Finance and Fraud scandal for the Trump deck.
+          Your wealthy father transferred an enormous real-estate portfolio to
+          you and your siblings using valuations that dramatically reduced its
+          taxable value. The properties were valued at roughly $41 million for
+          gift-tax purposes. The same portfolio eventually sold for more than
+          sixteen times that amount. Your representatives maintained that the
+          transactions were legal and handled by tax professionals.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/finance-and-fraud/8"
-        articleSource: "Replace With Real Source"
+        articleUrl: "https://www.nytimes.com/interactive/2018/10/02/us/politics/donald-trump-tax-schemes-fred-trump.html"
+        articleSource: "The New York Times"
+
   # ---------------------------------------------------------------------------
   - id: conflict-of-interest
     name: Conflict of Interest
     scandals:
-      - id: t-ci-1
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #1"
+      - id: t-ci-ukraine-aid
+        headline: "WITHHELD UKRAINE AID WHILE ASKING FOR AN INVESTIGATION OF HIS POLITICAL RIVAL"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          Congress approved hundreds of millions of dollars of military aid for a
+          country threatened by Russia. Your administration froze it. During the
+          same period, you personally asked that country's president for
+          investigations involving the man who might run against you in the next
+          election. You were impeached over it and acquitted by the Senate.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/1"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-2
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #2"
+        articleUrl: "https://www.gao.gov/products/b-331564"
+        articleSource: "U.S. Government Accountability Office"
+
+      - id: t-ci-old-post-office
+        headline: "HIS BUSINESS LEASED A FEDERAL BUILDING WHILE HE RAN THE FEDERAL GOVERNMENT"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          Your private hotel leased its building from the federal government. Then
+          you became the person running the federal government without selling
+          your financial interest in the hotel. Your business's landlord was now
+          the government you controlled.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/2"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-3
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #3"
+        articleUrl: "https://www.gsaig.gov/content/gsa%E2%80%99s-management-old-post-office-building-lease"
+        articleSource: "GSA Office of Inspector General"
+
+      - id: t-ci-china-trademarks
+        headline: "CHINA APPROVED DOZENS OF TRUMP TRADEMARKS AFTER HE BECAME PRESIDENT"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          You became responsible for managing America's relationship with China.
+          Then the Chinese government approved dozens of trademarks benefiting
+          your private business, covering everything from hotels and golf clubs to
+          insurance and bodyguards. Your company said there was no connection.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/3"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-4
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #4"
+        articleUrl: "https://apnews.com/article/9caf2ddbbae84bd09e9d7320360a46bd"
+        articleSource: "The Associated Press"
+
+      - id: t-ci-manila-envoy
+        headline: "A FOREIGN BUSINESS PARTNER BECAME HIS COUNTRY'S SPECIAL ENVOY TO TRUMP'S GOVERNMENT"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          You have a foreign real-estate business partner. Then you become
+          president. And his government responds by making your business partner
+          its special envoy to your own administration. The man financially
+          connected to your branded skyscraper is suddenly also responsible for
+          representing his country to you.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/4"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-5
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #5"
+        articleUrl: "https://www.reuters.com/article/us-usa-trump-philippines-idUSKBN13D0BH/"
+        articleSource: "Reuters"
+
+      - id: t-ci-zte
+        headline: "CHINA-LINKED FINANCING FOR A TRUMP RESORT, THEN A TRUMP RESCUE OF CHINA'S ZTE"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          A Chinese state-owned company becomes involved in financing a
+          development containing your branded resort. Days later, you announce
+          that you're personally working with China's president to help save a
+          giant Chinese telecommunications company from U.S. sanctions. No
+          evidence established that the two were connected — but you're
+          simultaneously conducting foreign policy with a country whose
+          government-linked entities intersect with your private business.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/5"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-6
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #6"
+        articleUrl: "https://www.reuters.com/article/us-indonesia-china-trump-idUSKCN1IF0YO/"
+        articleSource: "Reuters"
+
+      - id: t-ci-emoluments-tower
+        headline: "FOREIGN GOVERNMENTS RENTED UNITS IN A BUILDING TIED TO HIS BUSINESS"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          While you were responsible for American foreign policy, foreign
+          governments were simultaneously renting luxury apartments in a building
+          financially connected to your business empire. Those governments didn't
+          seek congressional approval. Whether the transactions violated the
+          Constitution was litigated but never definitively resolved by the
+          Supreme Court.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/6"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-7
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #7"
+        articleUrl: "https://www.reuters.com/article/us-usa-trump-emoluments-exclusive-idUSKCN1S80PP/"
+        articleSource: "Reuters"
+
+      - id: t-ci-moscow-tower
+        headline: "PURSUED A MOSCOW SKYSCRAPER WHILE RUNNING FOR PRESIDENT"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          While campaigning to become President of the United States, your
+          company was simultaneously trying to build an enormous skyscraper in
+          Moscow, and your lawyer contacted Vladimir Putin's office for help with
+          the project. So while asking voters to let you set American policy
+          toward Russia, your private business was pursuing a potentially
+          lucrative Russian real-estate deal.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/7"
-        articleSource: "Replace With Real Source"
-      - id: t-ci-8
-        headline: "PLACEHOLDER: CONFLICT OF INTEREST SCANDAL #8"
+        articleUrl: "https://www.factcheck.org/2018/11/trumps-sketchy-cohen-claims/"
+        articleSource: "FactCheck.org"
+
+      - id: t-ci-milton-pardon
+        headline: "PARDONED A BILLIONAIRE WHO HAD DONATED HEAVILY TO POLITICAL EFFORTS BACKING HIM"
         text: >
-          Replace this with a real Conflict of Interest scandal for the Trump deck.
+          A billionaire gets convicted of defrauding investors. He then
+          contributes at least $1.84 million to political efforts supporting you
+          and one of your prominent allies. After you become president, you give
+          him a full pardon. There is no evidence that the donations bought the
+          pardon — but that's the sequence.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/conflict-of-interest/8"
-        articleSource: "Replace With Real Source"
+        articleUrl: "https://www.reuters.com/investigations/forget-doj-trump-pardon-call-bobby-other-influencers-2026-06-11/"
+        articleSource: "Reuters"
+
   # ---------------------------------------------------------------------------
   - id: october-surprise
     name: October Surprise
     scandals:
-      - id: t-os-1
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #1"
+      - id: t-os-disinfectant
+        headline: "SUGGESTED RESEARCHERS EXAMINE INJECTING DISINFECTANT DURING COVID"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          During a deadly pandemic, a government scientist explains that
+          disinfectants kill the virus on surfaces. You respond by asking whether
+          researchers could investigate doing "something like that, by injection
+          inside" the human body.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/1"
-        articleSource: "Replace With Real Source"
-      - id: t-os-2
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #2"
+        articleUrl: "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-vice-president-pence-members-coronavirus-task-force-press-briefing-31/"
+        articleSource: "The White House (archived)"
+
+      - id: t-os-lavrov-intel
+        headline: "REVEALED HIGHLY SENSITIVE INTELLIGENCE TO RUSSIAN OFFICIALS IN THE OVAL OFFICE"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          You invite senior Russian officials into your office and disclose
+          highly sensitive intelligence about ISIS that had been supplied by an
+          American intelligence partner under restricted sharing arrangements.
+          Officials then reportedly have to take measures to protect the source.
+          You had broad presidential authority to disclose classified
+          information.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/2"
-        articleSource: "Replace With Real Source"
-      - id: t-os-3
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #3"
+        articleUrl: "https://www.washingtonpost.com/world/national-security/trump-revealed-highly-classified-information-to-russian-foreign-minister-and-ambassador/2017/05/15/530c172a-3960-11e7-9e48-c4f199710b69_story.html"
+        articleSource: "The Washington Post"
+
+      - id: t-os-helsinki
+        headline: "HELSINKI: SIDED WITH PUTIN OVER HIS OWN INTELLIGENCE COMMUNITY"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          Standing beside the Russian president, you're asked whether you believe
+          your own country's intelligence agencies or him about interference in
+          an American election. You emphasize that the Russian leader has been
+          "extremely strong and powerful in his denial." Then, at the same press
+          conference, he acknowledges that he wanted you to win the election.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/3"
-        articleSource: "Replace With Real Source"
-      - id: t-os-4
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #4"
+        articleUrl: "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-president-putin-russian-federation-joint-press-conference/"
+        articleSource: "The White House (archived)"
+
+      - id: t-os-family-separation
+        headline: "SEPARATED THOUSANDS OF CHILDREN WITH NO ADEQUATE WAY TO REUNITE THEM"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          Your government adopts a policy that results in thousands of children
+          being separated from their parents. Then investigators discover that
+          the government doesn't even have an adequate integrated system for
+          tracking which child belongs to which parent. Its own inspector general
+          eventually concludes that the total number of separated children isn't
+          even known.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/4"
-        articleSource: "Replace With Real Source"
-      - id: t-os-5
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #5"
+        articleUrl: "https://oig.hhs.gov/oei/reports/oei-BL-18-00511.pdf"
+        articleSource: "HHS Office of Inspector General"
+
+      - id: t-os-blackwater-pardons
+        headline: "PARDONED FOUR BLACKWATER CONTRACTORS CONVICTED OVER KILLING IRAQI CIVILIANS"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          Four private military contractors are convicted in American federal
+          court over a shooting in Baghdad that killed 14 Iraqi civilians. One is
+          serving life for first-degree murder. You pardon all four of them.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/5"
-        articleSource: "Replace With Real Source"
-      - id: t-os-6
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #6"
+        articleUrl: "https://apnews.com/article/donald-trump-baghdad-iraq-massacres-3b9d36ce3237f8b3a6a4c5c75f89f9dd"
+        articleSource: "The Associated Press"
+
+      - id: t-os-nuke-hurricanes
+        headline: "REPORTEDLY ASKED WHY THE U.S. COULDN'T NUKE HURRICANES"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          According to officials who later spoke to reporters, during discussions
+          about hurricanes you essentially ask: why don't we drop a nuclear bomb
+          inside the hurricane? You categorically deny ever saying this, so this
+          one remains a reported allegation rather than an established government
+          finding.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/6"
-        articleSource: "Replace With Real Source"
-      - id: t-os-7
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #7"
+        articleUrl: "https://www.axios.com/2019/08/25/trump-nuclear-bombs-hurricanes"
+        articleSource: "Axios"
+
+      - id: t-os-jan6-clemency
+        headline: "BLANKET JAN. 6 CLEMENCY SWEPT IN DEFENDANTS WITH SEPARATE CHILD-SEX CASES"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          On your first day back in office, you issue essentially blanket
+          clemency to more than 1,500 people charged over January 6, rather than
+          reviewing a narrow group individually. That sweeps in people with
+          extraordinary unrelated criminal histories. One man whose Jan. 6
+          conviction you wiped away later pleads guilty to online solicitation of
+          a minor; another you freed is later convicted of molesting two children
+          and sentenced to life. To be precise: you did not pardon either man's
+          sex crimes — the clemency covered only their January 6 offenses.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/7"
-        articleSource: "Replace With Real Source"
-      - id: t-os-8
-        headline: "PLACEHOLDER: OCTOBER SURPRISE SCANDAL #8"
+        articleUrl: "https://www.npr.org/2025/01/30/nx-s1-5276336/donald-trump-jan-6-rape-assault-pardons-rioters"
+        articleSource: "NPR"
+
+      - id: t-os-epstein-giuffre
+        headline: "SAID EPSTEIN 'STOLE' VIRGINIA GIUFFRE FROM THE MAR-A-LAGO SPA"
         text: >
-          Replace this with a real October Surprise scandal for the Trump deck.
+          You were friends with Jeffrey Epstein. A teenage girl works in the spa
+          at your private club, and Ghislaine Maxwell approaches her there and
+          recruits her to work as Epstein's masseuse. That teenager is Virginia
+          Giuffre, who becomes one of the most famous victims of Epstein's
+          sex-trafficking operation. Years later you yourself acknowledge that
+          Epstein took her from your spa, calling it the kind of employee-poaching
+          that eventually made you throw him out. Giuffre never accused you of
+          abusing her, and there is no evidence that you knew what Epstein and
+          Maxwell were doing to her.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://example.com/trump/october-surprise/8"
-        articleSource: "Replace With Real Source"
+        articleUrl: "https://www.pbs.org/newshour/politics/trump-says-epstein-stole-young-women-from-mar-a-lago-spa-including-virginia-giuffre"
+        articleSource: "PBS NewsHour"
