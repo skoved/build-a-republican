@@ -35,453 +35,1207 @@ categories:
   - id: personal-conduct
     name: Personal Conduct
     scandals:
-      - id: pc-yacht-week
-        headline: "CONGRESSMAN BILLED TAXPAYERS FOR 'FACT-FINDING' YACHT WEEK"
+      - id: pc-higgins
+        headline: "EX-WIFE SUES CONGRESSMAN-ELECT FOR $140,000 IN BACK CHILD SUPPORT — THE DAY AFTER HE WON"
         text: >
-          A week aboard a campaign donor's 90-foot yacht was filed as official
-          travel, complete with a per-diem claim for sunscreen and a jet-ski
-          the member described in the paperwork as "mobile constituent outreach."
-        politician: "Placeholder A. Exampleton"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/yacht-week"
-        articleSource: "The Placeholder Post"
-      - id: pc-country-club-tab
-        headline: "SENATOR'S $40,000 COUNTRY-CLUB TAB PAID FROM 'OFFICE FUND'"
+          In 2016 you won your first election to Congress, and the very next day
+          your second ex-wife sued you for $140,000 in unpaid child support. You
+          were ordered in 1999 to pay $1,289 a month; she says you simply stopped
+          in 2005.
+        politician: "Clay Higgins"
+        position: "U.S. Representative for Louisiana's 3rd Congressional District"
+        articleUrl: "https://www.theadvocate.com/baton_rouge/news/politics/elections/article_724e87f2-bd8d-11e6-b830-07ed00aae23a.html"
+        articleSource: "The Advocate"
+
+      - id: pc-paxton
+        headline: "ATTORNEY GENERAL'S WIFE FILES FOR DIVORCE, CITES ADULTERY — DONOR SAID TO HAVE ARRANGED THE AFFAIR"
         text: >
-          Green fees, a steakhouse minimum, and a members-only cigar locker were
-          all covered by an account that staff were told never to itemize.
-        politician: "Placeholder B. Exampleton"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/country-club"
-        articleSource: "Placeholder Wire"
-      - id: pc-ghosted-hearing
-        headline: "SKIPPED 200 VOTES, ATTENDED 60 GALA DINNERS"
+          In 2025 your own wife filed for divorce and named adultery as the
+          reason. During your impeachment investigation it came out that one of
+          your donors had been facilitating the affair since 2018.
+        politician: "Ken Paxton"
+        position: "Attorney General of Texas and U.S. Senate candidate"
+        articleUrl: "https://www.nytimes.com/2025/07/10/us/ken-paxton-wife-divorce.html?unlocked_article_code=1.9lA.LJYE.U4Io2ACCP9Vw&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: pc-miller
+        headline: "SENATOR'S DAUGHTER ACCUSES CONGRESSMAN OF ABUSE; HE SUES HER FOR DEFAMATION"
         text: >
-          A year of the legislative calendar shows a near-perfect inverse
-          relationship between roll-call attendance and black-tie fundraisers.
-        politician: "Placeholder C. Exampleton"
-        position: "State Governor (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/ghosted-hearing"
-        articleSource: "The Placeholder Ledger"
-      - id: pc-staffer-nda
-        headline: "FORMER STAFFERS DESCRIBE NDAS SIGNED 'AT THE DOOR'"
+          Your ex-wife — who happens to be a sitting senator's daughter — says
+          you scalded her with hot water, held a gun to her head, and broke your
+          two-year-old's collarbone. Your response was to sue her for defamation
+          rather than address any of it.
+        politician: "Max Miller"
+        position: "U.S. Representative for Ohio's 7th Congressional District"
+        articleUrl: "https://www.nytimes.com/2026/07/28/us/politics/domestic-abuse-allegations-ohio-house-race.html?unlocked_article_code=1.9lA.WYgC.aejkdsjdafUb&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: pc-desjarlais
+        headline: "PRO-LIFE DOCTOR-TURNED-CONGRESSMAN CAUGHT ON TAPE URGING A MISTRESS TO GET AN ABORTION"
         text: >
-          Multiple ex-employees say routine onboarding included a sweeping
-          non-disparagement agreement presented minutes before their first shift.
-        politician: "Placeholder D. Exampleton"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/staffer-nda"
-        articleSource: "Placeholder Investigations"
-      - id: pc-fake-degree
-        headline: "'HARVARD FELLOWSHIP' ON BIO WAS A WEEKEND WORKSHOP"
+          The state medical board fined you $500 for sleeping with two patients,
+          a charge you didn't bother fighting, and your own divorce transcript
+          has you admitting under oath to relationships with at least six people
+          you met through the hospital where you worked. Then a tape surfaced of
+          you pushing a mistress to get an abortion — awkward, given the pro-life
+          career you built.
+        politician: "Scott DesJarlais"
+        position: "U.S. Representative for Tennessee's 4th Congressional District"
+        articleUrl: "https://www.huffpost.com/entry/scott-desjarlais-abortion-pro-life_n_1953136"
+        articleSource: "HuffPost"
+
+      - id: pc-mills-nude-videos
+        headline: "MISS AMERICA-TURNED-GOP ACTIVIST SAYS CONGRESSMAN THREATENED TO LEAK NUDE VIDEOS AFTER BREAKUP"
         text: >
-          The campaign website listed an Ivy League fellowship for six years;
-          the university has no record beyond a two-day continuing-education
-          seminar held in a hotel ballroom.
-        politician: "Placeholder E. Exampleton"
-        position: "Lieutenant Governor (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/fake-degree"
-        articleSource: "The Placeholder Times"
-      - id: pc-road-rage
-        headline: "DASHCAM SHOWS OFFICIAL SUV RUNNING MOTORCADE OF ONE"
+          Another Republican in your state — Lindsey Lang, the 2024 Miss America
+          winner — has filed a lawsuit against you. The charge: after she broke
+          up with you, you threatened to release nude videos of her. A judge has
+          granted her a restraining order.
+        politician: "Cory Mills"
+        position: "U.S. Representative for Florida's 7th Congressional District"
+        articleUrl: "https://www.politico.com/news/2025/08/05/gop-rep-mills-accused-of-threatening-to-release-nude-videos-of-ex-girlfriend-00495059"
+        articleSource: "Politico"
+
+      - id: pc-donalds
+        headline: "GROCERY-STORE TAPE: CONGRESSMAN TOLD A SCHOOL BOARD MEMBER HE WOULD 'CRUSH' HER"
         text: >
-          A state vehicle assigned for security was filmed doing 95 in a school
-          zone with flashers on, reportedly to make a tee time.
-        politician: "Placeholder F. Exampleton"
-        position: "State Attorney General (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/road-rage"
-        articleSource: "Placeholder Local News"
-      - id: pc-charity-gala-noshow
-        headline: "KEYNOTED A CHARITY HE NEVER DONATED TO"
+          In 2022 you had a recorded confrontation with a local school board
+          member in a grocery store, telling her you would "crush" her and finish
+          her career. In 2026 she filed suit against you. You call the lawsuit
+          politically motivated.
+        politician: "Byron Donalds"
+        position: "U.S. Representative for Florida's 19th Congressional District and candidate for Governor of Florida"
+        articleUrl: "https://floridapolitics.com/archives/557168-tension-boil-between-byron-donalds-collier-school-board-candidate-in-public-outbursts/"
+        articleSource: "Florida Politics"
+
+      - id: pc-moore
+        headline: "CONGRESSMAN SUED UNDER AN 'ALIENATION OF AFFECTION' LAW FOR AN AFFAIR WITH AN OFFICIAL'S WIFE"
         text: >
-          Tax filings show zero contributions to the veterans' fund the member
-          has headlined for nine consecutive years, each time collecting a
-          five-figure speaking fee.
-        politician: "Placeholder G. Exampleton"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/charity-gala"
-        articleSource: "The Placeholder Observer"
-      - id: pc-townhall-actors
-        headline: "TOWN HALL 'CONSTITUENTS' WERE PAID EXTRAS"
+          You enticed a local Soil and Water Conservation supervisor's wife into
+          an affair. He sued you under North Carolina's arcane
+          "alienation of affection" law. You called it baseless in public, then
+          quietly settled in 2023 on undisclosed terms.
+        politician: "Tim Moore"
+        position: "U.S. Representative for North Carolina's 14th Congressional District"
+        articleUrl: "https://www.wral.com/archive/20917250/"
+        articleSource: "WRAL"
+
+      - id: pc-calvert
+        headline: "'JUST TALKING': CONGRESSMAN'S 1993 CAR STOP WITH A PROSTITUTE PRIED LOOSE BY A COURT ORDER"
         text: >
-          A casting call surfaced online seeking "enthusiastic supporters, ages
-          30-65" for a televised event billed as an unscripted community forum.
-        politician: "Placeholder H. Exampleton"
-        position: "State Senator (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/townhall-actors"
-        articleSource: "Placeholder Broadcasting"
-      - id: pc-residency
-        headline: "'HOME DISTRICT' ADDRESS IS A UPS STORE MAILBOX"
+          In 1993 police found you in your car with a prostitute, and you told
+          them you were "just talking with her." A local newspaper won a court
+          fight to release the police report, and you have since admitted the
+          truth.
+        politician: "Ken Calvert"
+        position: "U.S. Representative for California's 41st Congressional District"
+        articleUrl: "https://www.latimes.com/archives/la-xpm-1994-04-27-mn-50942-story.html"
+        articleSource: "Los Angeles Times"
+
+      - id: pc-edwards
+        headline: "ETHICS PANEL RECOMMENDS CENSURE OVER STAFFER HARASSMENT; CONGRESSMAN QUITS RACE IN 48 HOURS"
         text: >
-          Utility records place the member's actual residence three states away
-          in a gated community; the district address receives only forwarded mail.
-        politician: "Placeholder I. Exampleton"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/residency"
-        articleSource: "The Placeholder Dispatch"
-      - id: pc-plagiarized-book
-        headline: "MEMOIR SHARES 14 PAGES WITH A 1998 SELF-HELP BOOK"
+          The House Ethics Committee found you fostered a hostile work
+          environment and engaged in persistent inappropriate conduct toward two
+          female staffers, and recommended you be censured. You said you would
+          clear your name, then dropped your re-election bid two days later.
+        politician: "Chuck Edwards"
+        position: "U.S. Representative for North Carolina's 11th Congressional District"
+        articleUrl: "https://www.npr.org/2026/08/03/nx-s1-5918341/chuck-edwards-ethics-report"
+        articleSource: "NPR"
+
+      - id: pc-noem
+        headline: "CABINET SECRETARY'S HUSBAND SPENT $45,000 MESSAGING ONLINE DOMINATRIXES, PHOTOS SHOW"
         text: >
-          Side-by-side comparisons show whole anecdotes, including a childhood
-          story, lifted nearly verbatim from an out-of-print paperback.
-        politician: "Placeholder J. Exampleton"
-        position: "State Governor (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/plagiarized-book"
-        articleSource: "Placeholder Review of Books"
-      - id: pc-parking-fines
-        headline: "IGNORED 312 PARKING TICKETS, THEN VOTED TO CUT ENFORCEMENT"
+          Your husband has paid more than $45,000 to take part in an online
+          "bimbofication" scene. Images have circulated of him in outfits with
+          comically large breasts, chatting with online dominatrixes. One of them
+          calls it a "serious problem."
+        politician: "Kristi Noem"
+        position: "Former U.S. Secretary of Homeland Security and Special Envoy for the Shield of the Americas"
+        articleUrl: "https://nypost.com/2026/06/22/us-news/kristi-noems-cross-dressing-hubby-bryon-allegedly-kept-messaging-dominatrix-after-bombshell-report/"
+        articleSource: "New York Post"
+
+      - id: pc-issa
+        headline: "BEFORE CONGRESS: A GUN GUILTY PLEA AND TWO GRAND-THEFT-AUTO INDICTMENTS"
         text: >
-          The unpaid balance on official and personal vehicles topped $28,000
-          weeks before the member sponsored a bill slashing the meter-patrol budget.
-        politician: "Placeholder K. Exampleton"
-        position: "City Mayor (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/parking-fines"
-        articleSource: "Placeholder City Paper"
-      - id: pc-campaign-credit-card
-        headline: "CAMPAIGN CARD USED AT THEME PARKS DURING OFF-YEAR"
+          You pleaded guilty to carrying a concealed, unregistered firearm, and
+          separately were indicted for grand theft auto — not once but twice —
+          decades before you ever ran for office.
+        politician: "Darrell Issa"
+        position: "U.S. Representative for California's 48th Congressional District"
+        articleUrl: "https://www.nytimes.com/2003/07/23/us/california-recall-backer-feels-heat.html?unlocked_article_code=1.91A.Ycjd.XBCeHgJHcF51&smid=url-share"
+        articleSource: "The New York Times"
+      
+      - id: pc-herrera
+        headline: "GUN INFLUENCER CANDIDATE BRAGS ABOUT A VINTAGE HITLER MANIFESTO, 'JOKES' ABOUT MLK'S DEATH"
         text: >
-          Disclosure reports list season passes, a churro stand, and a plush
-          mascot among "voter engagement materials" purchased in a non-election summer.
-        politician: "Placeholder L. Exampleton"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/personal-conduct/campaign-card"
-        articleSource: "The Placeholder Post"
+          You are a gun YouTuber who has bragged about owning a vintage copy of
+          a famous Austrian dictator's manifesto. In 2023 you
+          re-enacted the attempt on MLK's life as "dark, edgy humor."
+        politician: "Brandon Herrera"
+        position: "Candidate for Texas's 23rd Congressional District"
+        articleUrl: "https://people.com/texas-congressional-frontrunner-bragged-about-owning-mein-kampf-in-english-in-newly-resurfaced-clip-11921432"
+
+      - id: pc-gonzales
+        headline: "CONGRESSMAN'S STAFFER AFFAIR GOES PUBLIC; HOUSE ETHICS OPENS AN INVESTIGATION"
+        text: >
+          You had an extramarital affair with a staffer. It went public, she set
+          herself on fire over the scandal, and the House Ethics Committee is now
+          investigating you. Hope it blows over.
+        politician: "Tony Gonzales"
+        position: "Former U.S. Representative for Texas's 23rd Congressional District"
+        articleUrl: "https://www.ksat.com/news/ksat-investigates/2025/11/10/congressional-staffer-for-us-rep-gonzales-dies-by-self-immolation-bexar-county-mes-office-rules/"
+
+      - id: pc-santos
+        headline: "CONGRESSMAN'S RESUME UNRAVELS: FAKE WALL STREET CAREER, BRAZILIAN DRAG PAST, 'JEW-ISH'"
+        text: >
+          You once marched in pride parades and were a well-known drag queen in
+          Brazil. You invented a career as a seasoned Wall Street financier and
+          claimed to be Jewish; confronted about it, you said you were not
+          Jewish but "Jew-ish."
+        politician: "George Santos"
+        position: "Former U.S. Representative for New York's 3rd Congressional District"
+        articleUrl: "https://www.cityandstateny.com/personality/2023/05/george-santos-lies-ranked/383446/"
+
+      - id: pc-mills-muslim
+        headline: "CONGRESSMAN FORCED TO DENY HE IS MUSLIM AT A PRIMARY DEBATE AS THE BASE REFUSES TO BELIEVE HIM"
+        text: >
+          You have suffered the worst fate. Despite repeatedly denying that you
+          are a Muslim, conservative media in your state and the base believe it
+          anyway. You have had to defend your non-Muslim identity at a primary
+          debate.
+        politician: "Cory Mills"
+        position: "U.S. Representative for Florida's 7th Congressional District"
+        articleUrl: "https://headlineusa.com/is-rep-cory-mills-a-secret-muslim/"
+
+      - id: pc-collins
+        headline: "MODERATE SENATOR MARRIED A LONGTIME REPUBLICAN OPERATIVE BEFORE HIS AILING WIFE DIED"
+        text: >
+          You (allegedly!) met a dashing man named Thomas Daffron back in 1974.
+          His wife was diagnosed with cancer in 2011; you married him in 2012;
+          she died of cancer in 2013. The fake-news liberal media calls you a
+          "homewrecking hoe."
+        politician: "Susan Collins"
+        position: "U.S. Senator from Maine"
+        articleUrl: "https://www.dailykos.com/stories/2026/6/7/800051638/community/susan-collins-is-a-homewrecker-lets-do-this/"
+
+      - id: pc-fishback
+        headline: "GOVERNOR HOPEFUL MAKES A TINDER 'TO MEET YOUNG FEMALE VOTERS,' THEN BEGS DONORS FOR TINDER PLUS"
+        text: >
+          You launched a Tinder account "to meet young female voters" and posted
+          a screenshot of your profile. Within an hour you ran out of likes and
+          asked your followers to chip in so you could buy Tinder Plus.
+        politician: "James Fishback"
+        position: "Failed candidate for Governor of Florida"
+        articleUrl: "https://nypost.com/2026/02/03/us-news/florida-gop-governor-candidate-creates-tinder-account-to-meet-young-female-voters-where-they-are-asks-for-cash-for-more-swipes/"
+
+      - id: pc-marx
+        headline: "SELF-DESCRIBED 'DEMON HUNTER' RUNNING FOR GOVERNOR PERFORMS EXORCISMS OVER THE PHONE"
+        text: >
+          You are a self-described demon hunter, "high-risk missionary," and
+          friend of a legendary pundit. On TV you described performing exorcisms
+          over the phone, recounted how your dog identified a demonic presence at
+          the pool, and said you had to exorcise five demons tormenting a woman
+          there.
+        politician: "Victor Marx"
+        position: "Candidate for Governor of Colorado"
+        articleUrl: "https://victormarxdemonhunter.com/"
 
   # ---------------------------------------------------------------------------
   - id: finance-and-fraud
     name: Finance and Fraud
     scandals:
-      - id: ff-shell-consulting
-        headline: "PAID 'CONSULTING FEES' TO A COMPANY WITH NO EMPLOYEES"
+      - id: ff-lawler
+        headline: "CONGRESSMAN STEERED $500,000 IN CAMPAIGN FUNDS TO A FIRM HE HALF-OWNED"
         text: >
-          Nearly $600,000 in campaign funds went to an LLC registered to the
-          member's brother-in-law at a strip-mall address that houses a nail salon.
-        politician: "Placeholder A. Fundwell"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/shell-consulting"
-        articleSource: "Placeholder Financial Times"
-      - id: ff-stock-timing
-        headline: "SOLD AIRLINE STOCK TWO DAYS BEFORE CLOSED-DOOR BRIEFING"
+          You routed half a million dollars in campaign cash to a consulting
+          firm you personally owned half of, all while sitting in Congress.
+          Convenient how that worked out.
+        politician: "Mike Lawler"
+        position: "U.S. Representative for New York's 17th Congressional District"
+        articleUrl: "https://www.politico.com/news/2026/05/06/overlapping-payments-reveal-mike-lawlers-deep-history-as-a-political-operative-00907538"
+        articleSource: "Politico"
+
+      - id: ff-mooney
+        headline: "ETHICS OFFICE: CONGRESSMAN TOOK A FREE ARUBA TRIP, 20 FREE STAYS, THEN LIED"
         text: >
-          Trading records show a well-timed exit from three travel-sector
-          positions immediately preceding a classified committee session.
-        politician: "Placeholder B. Fundwell"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/stock-timing"
-        articleSource: "The Placeholder Exchange"
-      - id: ff-ppp-loan
-        headline: "FAMILY BUSINESS TOOK RELIEF LOAN, LAID OFF STAFF ANYWAY"
+          You took a $10,800 Aruba vacation on someone else's dime, crashed at a
+          free Capitol Hill house 20 separate times, put your staff to work on
+          your personal errands, and then lied to the ethics investigators
+          looking into all of it.
+        politician: "Alex Mooney"
+        position: "Former U.S. Representative for West Virginia's 2nd Congressional District"
+        articleUrl: "https://rollcall.com/2022/05/23/rep-alex-mooney-likely-violated-house-rules-and-federal-law-ethics-office-concludes/"
+        articleSource: "Roll Call"
+
+      - id: ff-ogles
+        headline: "FBI SEARCHES CONGRESSMAN'S HOME OVER A $320,000 CAMPAIGN 'LOAN' THAT BECAME $20,000"
         text: >
-          A forgivable pandemic loan of $1.9M was followed within a month by
-          the closure of two locations and no rehiring.
-        politician: "Placeholder C. Fundwell"
-        position: "State Governor (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/relief-loan"
-        articleSource: "Placeholder Business Journal"
-      - id: ff-inaugural-fund
-        headline: "INAUGURAL COMMITTEE SPENT $200K AT DONOR'S OWN HOTEL"
+          You reported loaning your own campaign $320,000 that never showed up
+          anywhere in your actual finances, then two years later quietly walked
+          it back to $20,000 and called the extra $300,000 a typo. The FBI did
+          not find that explanation satisfying enough to skip the search warrant.
+        politician: "Andy Ogles"
+        position: "U.S. Representative for Tennessee's 5th Congressional District"
+        articleUrl: "https://www.newschannel5.com/news/newschannel-5-investigates/revealed/fbi-agents-execute-search-warrant-on-tennessee-congressman-andy-ogles-newschannel-5-confirms"
+        articleSource: "NewsChannel 5"
+
+      - id: ff-kushner
+        headline: "AMBASSADOR'S RÉSUMÉ: 18 FEDERAL COUNTS, A REVENGE SEX TAPE, AND A PARDON"
         text: >
-          Room blocks, ballroom rental, and catering all flowed back to a
-          property owned by the committee's finance chair.
-        politician: "Placeholder D. Fundwell"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/inaugural-fund"
-        articleSource: "Placeholder Watchdog"
-      - id: ff-double-billing
-        headline: "BILLED MILEAGE TO BOTH THE STATE AND THE CAMPAIGN"
+          You pled guilty to 18 federal counts, including hiring a prostitute to
+          seduce your own brother-in-law and mailing your sister the tape as
+          payback for him cooperating with prosecutors. Fourteen months in prison
+          and a pardon later, you're now Ambassador to France.
+        politician: "Charles Kushner"
+        position: "U.S. Ambassador to France"
+        articleUrl: "https://www.nytimes.com/2005/03/05/nyregion/democratic-donor-receives-twoyear-prison-sentence.html?unlocked_article_code=1.9lA.E2rA.Ww6p9XZkypOO&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-gray
+        headline: "SECRETARY OF STATE'S DAD BANKROLLED 95% OF HIS CAMPAIGN"
         text: >
-          An audit found 40,000 miles reimbursed twice over three years, always
-          for the same district-to-capital drive.
-        politician: "Placeholder E. Fundwell"
-        position: "State Senator (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/double-billing"
-        articleSource: "The Placeholder Auditor"
-      - id: ff-crypto-token
-        headline: "PROMOTED A MEME COIN, DUMPED HIS BAG AT THE PEAK"
+          Your dad personally funded 95 percent of your campaign for Secretary of
+          State. When people pointed that out, your response was that family
+          businesses deserve a shot at public office too.
+        politician: "Chuck Gray"
+        position: "Wyoming Secretary of State and candidate for Wyoming's at-large congressional district"
+        articleUrl: "https://cowboystatedaily.com/2022/08/15/candidate-profile-secretary-of-state-candidate-chuck-gray/"
+        articleSource: "Cowboy State Daily"
+
+      - id: ff-thomas
+        headline: "JUSTICE TOOK 20 YEARS OF JETS, YACHTS AND TUITION FROM ONE DONOR — DISCLOSED NONE OF IT"
         text: >
-          On-chain data ties a wallet that sold near the all-time high to the
-          member's disclosed holdings, days after a promotional livestream.
-        politician: "Placeholder F. Fundwell"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/crypto-token"
-        articleSource: "Placeholder Crypto Desk"
-      - id: ff-nonprofit-salary
-        headline: "'CHARITABLE FOUNDATION' PAID SPOUSE $240K, GAVE AWAY $11K"
+          For twenty years you took free private jets, superyacht trips, resort
+          stays, and private school tuition from a single donor and just never
+          mentioned it on your disclosure forms. You only filed the amendments
+          once the Senate started asking questions.
+        politician: "Clarence Thomas"
+        position: "Associate Justice of the U.S. Supreme Court"
+        articleUrl: "https://www.nytimes.com/2023/04/11/us/politics/clarence-thomas-harlan-crow.html?unlocked_article_code=1.91A._oGA.9v18qveglbAw&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-higgins
+        headline: "SHERIFF'S CAPTAIN USED HIS BADGE TO SELL MERCH AND RUN A PRIVATE SECURITY SIDE HUSTLE"
         text: >
-          Four years of filings show the family foundation spending most of its
-          budget on salaries, travel, and a leased SUV.
-        politician: "Placeholder G. Fundwell"
-        position: "State Attorney General (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/nonprofit-salary"
-        articleSource: "Placeholder Nonprofit Monitor"
-      - id: ff-land-flip
-        headline: "BOUGHT SCRUBLAND, VOTED FOR THE HIGHWAY, SOLD FOR 9X"
+          You wore your sheriff's badge to sell your own merchandise and promote
+          your private security business, ran your side hustle through your
+          government email on the clock, and got reprimanded for threatening
+          suspects on camera before quietly resigning.
+        politician: "Clay Higgins"
+        position: "U.S. Representative for Louisiana's 3rd Congressional District"
+        articleUrl: "https://www.salon.com/2016/10/02/uniform-misconduct-inside-the-rise-and-possible-fall-of-the-cajun-john-wayne-gop-congressional-candidate-clay-higgins/"
+        articleSource: "Salon"
+
+      - id: ff-rogers
+        headline: "APPROPRIATOR SLIPPED A $100,000-DONOR'S TESTING WORK INTO A HOMELAND SECURITY BILL"
         text: >
-          A parcel acquired quietly through a trust tripled in assessed value
-          after an interchange the member championed was funded.
-        politician: "Placeholder H. Fundwell"
-        position: "County Commissioner (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/land-flip"
-        articleSource: "The Placeholder Ledger"
-      - id: ff-straw-donors
-        headline: "DONORS SAY THEY WERE REIMBURSED FOR 'THEIR' CONTRIBUTIONS"
+          You quietly slipped language into a federal spending bill that happened
+          to route testing work to a plant in your own district, from people who
+          happened to have given you $100,000. Your explanation was that it was
+          purely about transportation security, nothing personal.
+        politician: "Harold Rogers"
+        position: "U.S. Representative for Kentucky's 5th Congressional District"
+        articleUrl: "https://www.nytimes.com/2006/05/14/washington/in-kentucky-hills-a-homeland-security-bonanza.html?unlocked_article_code=1.91A.Y11z.qC8j0kZRchfP&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-uthmeier
+        headline: "GRAND JURY: $8.5M OF A MEDICAID SETTLEMENT WAS LAUNDERED INTO AN ANTI-POT AD BLITZ"
         text: >
-          Several maxed-out contributors told investigators an aide handed them
-          cash to cover checks written to the campaign.
-        politician: "Placeholder I. Fundwell"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/straw-donors"
-        articleSource: "Placeholder Investigations"
-      - id: ff-per-diem
-        headline: "CLAIMED CAPITAL LODGING WHILE SLEEPING IN THE OFFICE"
+          You personally directed $8.5 million of a Medicaid fraud settlement,
+          laundered through a charity and two nonprofits, into a political
+          committee that then spent it fighting a marijuana legalization measure.
+          A grand jury said the money was misappropriated but couldn't pin it on
+          any one person, so you walked away calling the whole thing a
+          nothingburger.
+        politician: "James Uthmeier"
+        position: "Attorney General of Florida"
+        articleUrl: "https://floridapolitics.com/archives/733754-uthmeier-sweetener-hope-florida/"
+        articleSource: "Florida Politics"
+
+      - id: ff-patronis
+        headline: "CFO'S COMMITTEE TOOK $60,000 FROM INSURERS HIS OWN OFFICE WAS INVESTIGATING FOR FRAUD"
         text: >
-          The member collected a nightly housing per diem for years while a
-          Murphy bed in the committee suite went unreported.
-        politician: "Placeholder J. Fundwell"
-        position: "State Representative (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/per-diem"
-        articleSource: "The Placeholder Capitol Report"
-      - id: ff-book-bulk-buy
-        headline: "CAMPAIGN BOUGHT 50,000 COPIES OF THE CANDIDATE'S BOOK"
+          Your own office was investigating two insurance companies for
+          defrauding consumers, and your political committee took $60,000 from
+          them anyway. Once the companies got shut down, your excuse was that you
+          had no idea, and you'd give the money to charity.
+        politician: "Jimmy Patronis"
+        position: "U.S. Representative for Florida's 1st Congressional District"
+        articleUrl: "https://floridaphoenix.com/2018/11/02/chief-financial-officer-patronis-took-campaign-cash-from-insurance-companies-shut-down-friday-for-suspected-consumer-fraud/"
+        articleSource: "Florida Phoenix"
+
+      - id: ff-rutherford
+        headline: "CONGRESSMAN FILED 157 STOCK TRADES LATE, PAID $800, STONEWALLED THE ETHICS OFFICE"
         text: >
-          The bulk purchase, routed through the publisher, generated royalties
-          paid personally to the candidate.
-        politician: "Placeholder K. Fundwell"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/book-bulk-buy"
-        articleSource: "Placeholder Media Desk"
-      - id: ff-vendor-kickback
-        headline: "MAIL VENDOR KICKED BACK 12% TO A 'STRATEGY' FIRM"
+          You filed 157 stock trade disclosures late over five years, covering up
+          to $3.5 million in trades, paid an $800 fine on a violation that should
+          have cost you $11,400, and then refused to answer any of the ethics
+          investigators' questions about it.
+        politician: "John Rutherford"
+        position: "U.S. Representative for Florida's 5th Congressional District"
+        articleUrl: "https://www.businessinsider.com/congress-stocks-pat-fallon-john-rutherford-chris-jacobs-2022-5"
+        articleSource: "Business Insider"
+
+      - id: ff-patel
+        headline: "FBI DIRECTOR USED BUREAU JETS FOR GOLF, HUNTING, AND A PEARL HARBOR SNORKEL TRIP"
         text: >
-          The strategy firm shares a P.O. box with the campaign treasurer and
-          filed no other clients.
-        politician: "Placeholder L. Fundwell"
-        position: "State Senator (fictional placeholder)"
-        articleUrl: "https://example.com/finance-fraud/vendor-kickback"
-        articleSource: "Placeholder Watchdog"
+          You used FBI planes and staff for golf trips, hunting trips, and
+          flights to watch your girlfriend perform, and assigned her an actual
+          SWAT security detail. Then you tacked on a private snorkeling trip at
+          Pearl Harbor and called it official business.
+        politician: "Kash Patel"
+        position: "Director of the Federal Bureau of Investigation"
+        articleUrl: "https://apnews.com/article/fbi-kash-patel-snorkel-hawaii-pearl-harbor-192a81cde7a5879aab747bc0ba4b78b9"
+        articleSource: "The Associated Press"
+
+      - id: ff-loeffler
+        headline: "SENATOR DUMPED PANDEMIC-EXPOSED STOCK THE DAY OF A PRIVATE COVID BRIEFING"
+        text: >
+          The same day you sat in a private Senate briefing on an incoming
+          pandemic, you and your husband started dumping stock in companies about
+          to get hammered by it. Your defense was that a third party made the
+          trades and you just happened to find out later.
+        politician: "Kelly Loeffler"
+        position: "Administrator of the Small Business Administration and former U.S. Senator from Georgia"
+        articleUrl: "https://www.npr.org/2020/05/26/862692569/justice-department-closes-investigations-of-3-senators-burr-inquiry-continues"
+        articleSource: "NPR"
+
+      - id: ff-paxton-paul
+        headline: "AIDES SAY AG TRADED OFFICIAL FAVORS FOR A HOME REMODEL AND A JOB FOR HIS MISTRESS"
+        text: >
+          Your own top aides say you used your office to help a donor in exchange
+          for a free home renovation and a job for the woman you were having an
+          affair with, then fired the aides for reporting it. The state Senate
+          cleared you of all 20 impeachment articles, but a judge still made you
+          pay the whistleblowers $6.6 million.
+        politician: "Ken Paxton"
+        position: "Attorney General of Texas and U.S. Senate candidate"
+        articleUrl: "https://www.texastribune.org/2020/10/22/texas-ken-paxton-whistleblower-bribery/"
+        articleSource: "The Texas Tribune"
+
+      - id: ff-paxton-servergy
+        headline: "AG PUSHED STOCK ON CONSTITUENTS WHILE SITTING ON 100,000 FREE SHARES"
+        text: >
+          You sold your friends and constituents stock in a company without
+          mentioning the founder had quietly handed you 100,000 shares to do it.
+          It took nine years, but you eventually agreed to pay $300,000 and do
+          some community service to make the felony charges disappear.
+        politician: "Ken Paxton"
+        position: "Attorney General of Texas and U.S. Senate candidate"
+        articleUrl: "https://apnews.com/article/paxton-indictment-texas-d5e57fc6cd062c995ced91e9d2542199"
+        articleSource: "The Associated Press"
+
+      - id: ff-kobach
+        headline: "SENATE CAMPAIGN MINED A 'WE BUILD THE WALL' DONOR LIST IT WASN'T ALLOWED TO USE"
+        text: >
+          Your Senate campaign fundraised off the donor list of a nonprofit
+          legally barred from funding federal campaigns, skipped the disclaimer
+          the law requires, and when someone filed a complaint about it you
+          called it frivolous and moved on.
+        politician: "Kris Kobach"
+        position: "Attorney General of Kansas"
+        articleUrl: "https://www.kansas.com/news/politics-government/article233019627.html"
+        articleSource: "The Wichita Eagle"
+
+      - id: ff-noem
+        headline: "IMPEACHMENT ARTICLES: SECRETARY STEERED A $200M CONTRACT TO A DEPUTY'S HUSBAND"
+        text: >
+          A colleague filed articles of impeachment against you alleging you
+          steered a $200 million recruitment contract to the husband of one of
+          your own department officials, on top of blocking oversight of ICE
+          facilities. Seventy House members backed it, though it never came to a
+          vote.
+        politician: "Kristi Noem"
+        position: "Special Envoy for the Shield of the Americas and former U.S. Secretary of Homeland Security"
+        articleUrl: "https://www.cbsnews.com/chicago/news/robin-kelly-articles-of-impeachment-kristi-noem/"
+        articleSource: "CBS News"
+
+      - id: ff-chavez-deremer
+        headline: "LABOR SECRETARY'S AIDES FAKED OFFICIAL EVENTS TO COVER HER PERSONAL TRAVEL"
+        text: >
+          Your own staff allegedly invented fake official events so you could
+          travel for personal reasons on the taxpayer's dime. You fired the two
+          aides who helped you do it once the inspector general started asking
+          questions, then resigned a month later.
+        politician: "Lori Chavez-DeRemer"
+        position: "Former U.S. Secretary of Labor"
+        articleUrl: "https://www.nytimes.com/2026/01/12/business/lori-chavez-deremer-misconduct-investigation.html?unlocked_article_code=1.91A.aS8B.xpdXcXrnEgvy&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-greene
+        headline: "CONGRESSWOMAN CLAIMED THE HOMESTEAD TAX BREAK ON TWO HOMES AT ONCE"
+        text: >
+          You claimed the homestead tax exemption on two houses at once, even
+          though the law only allows one. Your response was that it was just
+          paperwork you'd get around to fixing.
+        politician: "Marjorie Taylor Greene"
+        position: "Former U.S. Representative for Georgia's 14th Congressional District"
+        articleUrl: "https://www.wsbtv.com/news/local/fulton-county/investigation-marjorie-taylor-greene-filed-homestead-exemptions-2-homes-violating-state-law/IXIQMH5PBFBGLCFF5ZV44QC6XY/"
+        articleSource: "WSB-TV"
+
+      - id: ff-gorsuch
+        headline: "JUSTICE SOLD PROPERTY TO A LAW-FIRM CHIEF DAYS AFTER CONFIRMATION, OMITTED THE BUYER"
+        text: >
+          Days after joining the Supreme Court, you sold property to the head of
+          a law firm that regularly argues in front of you, and somehow the
+          disclosure form you filled out afterward left his name off entirely.
+        politician: "Neil Gorsuch"
+        position: "Associate Justice of the U.S. Supreme Court"
+        articleUrl: "https://www.nytimes.com/2023/04/25/us/neil-gorsuch-property-sale.html?unlocked_article_code=1.91A.4s3j.7MIBVjycaXMK&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-fallon
+        headline: "CONGRESSMAN HID $17.5M IN STOCK TRADES FOR MONTHS, BLAMED IT ON TEXAS HABITS"
+        text: >
+          You sat on disclosures for up to $17.53 million in stock trades for
+          months at a time, then told investigators you thought Congress worked
+          the same way the Texas legislature does and only required annual
+          filings. You also declined to sit for an interview about it.
+        politician: "Pat Fallon"
+        position: "U.S. Representative for Texas's 4th Congressional District"
+        articleUrl: "https://www.businessinsider.com/pat-fallon-congress-texas-stock-trades-boeing-2021-6"
+        articleSource: "Business Insider"
+
+      - id: ff-hegseth
+        headline: "DEFENSE SECRETARY PAID A SEXUAL-ASSAULT ACCUSER $50,000 FOR AN NDA"
+        text: >
+          Police looked into a sexual assault allegation against you at a hotel,
+          prosecutors passed on charges for lack of proof, and three years later
+          you paid your accuser $50,000 to sign an NDA. Your lawyer's version is
+          that you were the one being extorted.
+        politician: "Pete Hegseth"
+        position: "U.S. Secretary of Defense"
+        articleUrl: "https://apnews.com/article/hegseth-sex-assault-payment-trump-6674cc8cfee654c374725948e01ff666"
+        articleSource: "The Associated Press"
+
+      - id: ff-scott
+        headline: "SENATOR'S OLD HOSPITAL CHAIN PLEADED GUILTY TO 14 FELONIES; HE TOOK THE FIFTH 75 TIMES"
+        text: >
+          The hospital company you ran pleaded guilty to 14 felonies and paid
+          over $600 million, the largest healthcare fraud settlement in U.S.
+          history at the time. You got pushed out with a $9.88 million severance,
+          never got personally charged, and later took the Fifth 75 times in a
+          deposition.
+        politician: "Rick Scott"
+        position: "U.S. Senator from Florida"
+        articleUrl: "https://archive.nytimes.com/www.nytimes.com/library/financial/032197columbia-hca-investigate.html"
+        articleSource: "The New York Times"
+
+      - id: ff-bresnahan
+        headline: "RAN AGAINST STOCK TRADING, THEN DUMPED $130K IN MEDICAID STOCK A WEEK BEFORE CUTTING MEDICAID"
+        text: >
+          You campaigned against congressional stock trading, then made hundreds
+          of trades worth millions once elected, including selling $130,000 in
+          Medicaid managed-care stock exactly one week before voting to cut
+          Medicaid. Your excuse is that a financial adviser was doing the
+          trading, not you personally.
+        politician: "Rob Bresnahan Jr."
+        position: "U.S. Representative for Pennsylvania's 8th Congressional District"
+        articleUrl: "https://www.nytimes.com/2025/04/05/us/politics/congress-stock-trading-ban.html?unlocked_article_code=1.91A.siRM.tCxigUsiLsvX&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-desantis
+        headline: "$10M FROM A MEDICAID SETTLEMENT FLOWED THROUGH THE FIRST LADY'S CHARITY TO A POLITICAL PAC"
+        text: >
+          Your wife's charity received $10 million from a Medicaid fraud
+          settlement, then passed most of it through two other nonprofits until
+          it landed in a political committee run by your own chief of staff,
+          which spent it fighting a ballot measure you'd already campaigned
+          against. A grand jury called it misappropriation of taxpayer funds and
+          then declined to charge anyone.
+        politician: "Ron DeSantis"
+        position: "Governor of Florida"
+        articleUrl: "https://www.nytimes.com/2025/10/15/us/florida-charity-casey-desantis.html?unlocked_article_code=1.91A.47uD.LLNV6-sdLLyt&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ff-zinke
+        headline: "INTERIOR SECRETARY TOOK A $12,375 OIL-EXEC JET INSTEAD OF A $300 FLIGHT"
+        text: >
+          You chartered a private jet from an oil executive for $12,375 when the
+          commercial flight would have cost about $300, then billed taxpayers
+          another $14,000 in helicopter rides, including one to watch your own
+          successor get sworn in. The inspector general said the jet trip wasn't
+          even for official business.
+        politician: "Ryan Zinke"
+        position: "U.S. Representative for Montana's 1st Congressional District"
+        articleUrl: "https://www.cnn.com/2017/10/04/politics/ryan-zinke-vegas-golden-knights/index.html"
+        articleSource: "CNN"
+
+      - id: ff-sanders
+        headline: "GOVERNOR'S OFFICE PAID $19,029 IN STATE FUNDS FOR AN $11,575 LECTERN"
+        text: >
+          Your office spent $19,029 in state money on a lectern, only for someone
+          to scribble a "to be reimbursed" note on the invoice right after a
+          public records request revealed the purchase. It later came out the
+          lectern actually cost $11,575, meaning someone was skimming the rest.
+        politician: "Sarah Huckabee Sanders"
+        position: "Governor of Arkansas"
+        articleUrl: "https://apnews.com/article/lectern-huckabee-sanders-arkansas-audit-invoice-dba58dd4f1c6cc8bd994052aa98798f5"
+        articleSource: "The Associated Press"
+
+      - id: ff-bessent
+        headline: "TREASURY SECRETARY CALLED TWO VACATION HOMES HIS 'PRINCIPAL RESIDENCE' AT ONCE"
+        text: >
+          You told two different mortgage lenders that two different vacation
+          properties were your "principal residence" at the same time you were
+          actually living in Manhattan. Your lawyer's response was that calling it
+          contradictory is nonsensical, which is one way to put it.
+        politician: "Scott Bessent"
+        position: "U.S. Secretary of the Treasury"
+        articleUrl: "https://www.reuters.com/business/finance/us-treasurys-bessent-made-contradictory-mortgage-pledges-bloomberg-reports-2025-09-17/"
+        articleSource: "Reuters"
+
+      - id: ff-blanche
+        headline: "JUDGE CALLS THE AG'S SETTLEMENT 'A FRAUD ON THE COURT,' REFERS HIM TO THE BAR"
+        text: >
+          A federal judge looked at a settlement you negotiated and called it
+          collusion and a fraud on the court, in writing, then forwarded her
+          opinion straight to the state bar. That's on top of ethics complaints
+          from 101 current and former federal judges.
+        politician: "Todd Blanche"
+        position: "U.S. Attorney General"
+        articleUrl: "https://www.cbsnews.com/news/judge-trump-justice-department-irs-lawsuit-anti-weaponization-fund-settlement/"
+        articleSource: "CBS News"
+
+      - id: ff-buchanan
+        headline: "FOUR AGENCIES PROBED A CAR-DEALER STRAW-DONOR SCHEME AROUND THE CONGRESSMAN"
+        text: >
+          You allegedly had your car dealership employees make campaign
+          contributions and then quietly reimbursed them to get around federal
+          limits, and pressured a former business partner into signing a false
+          statement about it to the FEC. Four different investigative bodies
+          looked at it over the years and none of them could pin it directly on
+          you.
+        politician: "Vern Buchanan"
+        position: "U.S. Representative for Florida's 16th Congressional District"
+        articleUrl: "https://www.cnn.com/2012/06/22/politics/congress-buchanan-allegations/"
+        articleSource: "CNN"
+
+      - id: ff-zeldin
+        headline: "EPA CHIEF HOLDS TWO 'PRIMARY RESIDENCE' MORTGAGES IN TWO STATES"
+        text: >
+          You've got two different mortgages, in two different states, both filed
+          as your primary residence, from an administration that refers other
+          people's mortgage discrepancies for fraud investigation.
+        politician: "Lee Zeldin"
+        position: "Administrator of the Environmental Protection Agency"
+        articleUrl: "https://www.propublica.org/article/trump-cabinet-mortgage-fraud"
+        articleSource: "ProPublica"
+
+      - id: ff-santos-dog
+        headline: "CONGRESSMAN POCKETED $3,000 RAISED FOR A DYING VETERAN'S SERVICE DOG"
+        text: >
+          A dying veteran's service dog needed surgery, someone crowdfunded
+          $3,000 for it through a charity you'd invented on the spot, the dog
+          died anyway, and you pocketed the money and denied the whole thing
+          ever happened.
+        politician: "George Santos"
+        position: "Former U.S. Representative for New York's 3rd Congressional District"
+        articleUrl: "https://www.npr.org/2023/01/22/1150136390/george-santos-dog-gofundme-anthony-devolder"
+
+      - id: ff-santos-prediction-markets
+        headline: "PAID PREDICTION-MARKET PITCHMAN BET AGAINST HIMSELF, WON $17K, FINED $105K"
+        text: >
+          You became a paid spokesman for one prediction market while personally
+          betting on another that you would skip the State of the Union, cashed
+          out $17,000, and got hit with $105,000 in combined fines from
+          regulators for the trouble.
+        politician: "George Santos"
+        position: "Former U.S. Representative for New York's 3rd Congressional District"
+        articleUrl: "https://apnews.com/article/george-santos-polymarket-kalshi-prediction-market-dcc34f4d927d074fe4e1bedeff04b64f"
+
+      - id: ff-tuberville
+        headline: "SENATOR'S HEDGE-FUND PARTNER GOT 10 YEARS FOR A $5.2M FRAUD; INVESTORS SUED HIM TOO"
+        text: >
+          Your 50-50 business partner pleaded guilty to fraudulently using $5.2
+          million of investor money and got 10 years in prison for it. You were
+          never charged and say you were a victim too, out $450,000 yourself,
+          though you did quietly settle the investors' lawsuit against you.
+        politician: "Tommy Tuberville"
+        position: "U.S. Senator from Alabama and candidate for Governor of Alabama"
+        articleUrl: "https://www.nytimes.com/2020/07/05/us/politics/tommy-tuberville-senate-hedge-fund.html?unlocked_article_code=1._VA.OwCk.hHfoYs67XjgT&smid=url-share"
+
+      - id: ff-gabbard
+        headline: "DNI CLAIMED A TEXAS HOMESTEAD TAX BREAK WHILE VOTING AS A HAWAII RESIDENT"
+        text: >
+          You claimed a homestead tax exemption on a Texas home while voting that
+          same year as a Hawaii resident. Your lawyers' response was simply to
+          insist you were, are, and always will be a Hawaii resident.
+        politician: "Tulsi Gabbard"
+        position: "Former Director of National Intelligence"
+        articleUrl: "https://electionlawblog.org/2025/tulsi-gabbard-declared-her-residency-in-texas-then-she-vote-in-hawaii/"
 
   # ---------------------------------------------------------------------------
   - id: conflict-of-interest
     name: Conflict of Interest
     scandals:
-      - id: ci-committee-holdings
-        headline: "CHAIRS THE ENERGY PANEL, OWNS THE PIPELINE STOCK"
+      - id: ci-wilson
+        headline: "AG SECRETLY HELPED HIS $220,000 CONSULTANT FIGHT A CORRUPTION PROBE HE'D RECUSED FROM"
         text: >
-          Disclosure forms show six-figure positions in three firms with
-          business directly before the subcommittee the member leads.
-        politician: "Placeholder A. Interbrook"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/committee-holdings"
-        articleSource: "Placeholder Policy Wire"
-      - id: ci-spouse-lobbyist
-        headline: "SPOUSE LOBBIES THE VERY AGENCY THE MEMBER FUNDS"
+          You officially recused yourself from a corruption probe touching your
+          own $220,000 political consultant, then secretly helped him draft his
+          defense anyway and tried to fire the special prosecutor investigating
+          him. The state Supreme Court shut that down 4-1.
+        politician: "Alan Wilson"
+        position: "Attorney General of South Carolina and candidate for Governor of South Carolina"
+        articleUrl: "https://apnews.com/general-news-5f25de6419804f18abb2bdd53cd39651"
+        articleSource: "The Associated Press"
+
+      - id: ci-kemp-massage-envy
+        headline: "SECRETARY OF STATE'S OFFICE DROPPED ASSAULT CASES AS THE COMPANY'S OWNERS GAVE TO HIS CAMPAIGN"
         text: >
-          The member sits on the appropriations panel that sets the budget for
-          a department where their spouse is a registered outside lobbyist.
-        politician: "Placeholder B. Interbrook"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/spouse-lobbyist"
-        articleSource: "The Placeholder Beacon"
-      - id: ci-earmark-client
-        headline: "STEERED A $30M EARMARK TO A FORMER LAW CLIENT"
+          Sexual assault accusations against Massage Envy therapists landed on
+          your desk as secretary of state right around the time the company's
+          owners donated to your campaign, and your office declined to pursue
+          them. Even a fellow Republican state senator thought it was worth a
+          look.
+        politician: "Brian Kemp"
+        position: "Governor of Georgia"
+        articleUrl: "https://www.wabe.org/gop-senator-called-unstable-wants-apology-before-backing-kemp/"
+        articleSource: "WABE"
+
+      - id: ci-thomas
+        headline: "JUSTICE HEARD ELECTION CASES WHILE HIS WIFE TEXTED THE WHITE HOUSE TO OVERTURN THE RESULT"
         text: >
-          The recipient nonprofit was represented by the member's old firm, and
-          the grant application named the member as a reference.
-        politician: "Placeholder C. Interbrook"
-        position: "State Governor (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/earmark-client"
-        articleSource: "Placeholder Investigations"
-      - id: ci-regulator-jet
-        headline: "FLEW ON A REGULATED COMPANY'S JET, THEN SOFTENED THE RULE"
+          Your wife was texting the White House chief of staff urging him to help
+          overturn a presidential election, and then you sat on the Supreme Court
+          cases about that same election. Twenty-four members of Congress asked
+          you to recuse yourself.
+        politician: "Clarence Thomas"
+        position: "Associate Justice of the U.S. Supreme Court"
+        articleUrl: "https://www.cnbc.com/2022/03/29/democrats-urge-supreme-courts-clarence-thomas-to-recuse-himself-from-election-cases.html"
+        articleSource: "CNBC"
+
+      - id: ci-youngkin
+        headline: "GOVERNOR KEPT DIRECT STOCK IN COMPANIES HE REGULATED, BLIND-TRUSTED ONLY PART OF $440M"
         text: >
-          Flight logs place the member on a corporate aircraft the week before
-          a markup that stripped the penalty the company had opposed.
-        politician: "Placeholder D. Interbrook"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/regulator-jet"
-        articleSource: "The Placeholder Exchange"
-      - id: ci-university-contract
-        headline: "UNIVERSITY GAVE SON A JOB; WEEK LATER, A GRANT LANDED"
+          You held onto direct stock in companies doing business in Virginia
+          while you were the governor regulating Virginia, and only put part of
+          your $440 million fortune into a blind trust. You also promised to
+          release your tax return summaries before the election and then released
+          them only after you'd already won.
+        politician: "Glenn Youngkin"
+        position: "Former Governor of Virginia"
+        articleUrl: "https://www.vpm.org/news/2021-12-03/youngkins-wealth-helped-win-him-office-now-its-testing-virginias-lax-ethics/"
+        articleSource: "VPM"
+
+      - id: ci-ernst
+        headline: "ARMED SERVICES SENATOR ALLEGEDLY DATED THE MILITARY OFFICIALS WHOSE JOB WAS LOBBYING HER"
         text: >
-          The timing of a no-interview hire and a competitive research award
-          has prompted an inspector-general referral.
-        politician: "Placeholder E. Interbrook"
-        position: "State Senator (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/university-contract"
-        articleSource: "Placeholder Campus News"
-      - id: ci-blind-trust
-        headline: "'BLIND TRUST' EMAILED HIM ABOUT WHICH STOCKS TO BUY"
+          While sitting on the committee that oversees the Navy and Air Force,
+          you allegedly had relationships with a Navy legislative affairs
+          official and an Air Force general whose job was lobbying you and your
+          colleagues. Your office called the whole story a slanderous lie.
+        politician: "Joni Ernst"
+        position: "U.S. Senator from Iowa"
+        articleUrl: "https://www.propublica.org/article/joni-ernst-congress-military-relationships"
+        articleSource: "ProPublica"
+
+      - id: ci-patel
+        headline: "FBI DIRECTOR SICCED THE BUREAU ON A REPORTER WHO COVERED HIS GIRLFRIEND'S SWAT DETAIL"
         text: >
-          Messages obtained in discovery show the trustee seeking the member's
-          sign-off on individual trades.
-        politician: "Placeholder F. Interbrook"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/blind-trust"
-        articleSource: "Placeholder Watchdog"
-      - id: ci-zoning-vote
-        headline: "VOTED TO REZONE THE BLOCK WHERE HE OWNS THREE LOTS"
+          A journalist reported that you'd assigned an FBI SWAT team to protect
+          your girlfriend, so you had the Bureau look into the journalist. Even
+          people inside the Justice Department called it retaliation with no legal
+          basis.
+        politician: "Kash Patel"
+        position: "Director of the Federal Bureau of Investigation"
+        articleUrl: "https://www.nytimes.com/2026/04/22/us/politics/fbi-times-reporter.html?unlocked_article_code=1.91A.gxwO.abqqM2ODNlv5&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ci-chavez-deremer
+        headline: "IG COMPLAINT: LABOR SECRETARY HAD AN AFFAIR WITH A MEMBER OF HER SECURITY DETAIL"
         text: >
-          The council member did not recuse, and the upzoning roughly doubled
-          the appraised value of the parcels.
-        politician: "Placeholder G. Interbrook"
-        position: "City Council Member (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/zoning-vote"
-        articleSource: "Placeholder City Paper"
-      - id: ci-defense-supplier
-        headline: "PUSHED A WEAPONS PROGRAM HIS FAMILY TRUST SUPPLIES BOLTS FOR"
+          An inspector general complaint accused you of having an affair with a
+          member of your own security detail, and separately, police investigated
+          your husband for inappropriately touching two women in your own
+          building and ended up barring him from it. You resigned a few months
+          later.
+        politician: "Lori Chavez-DeRemer"
+        position: "Former U.S. Secretary of Labor"
+        articleUrl: "https://www.nytimes.com/2026/01/23/us/politics/labor-secretary-security-staff-investigation.html?unlocked_article_code=1.91A.nAPa.i-LmyMb5fPnh&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ci-scott
+        headline: "GOVERNOR INVESTED IN THE FIRM HIS STATE GAVE A $287 MILLION TOLL CONTRACT, THEN DEFENDED IT"
         text: >
-          A machine-parts firm partly held by a family trust is a subcontractor
-          on the exact platform the member added money for.
-        politician: "Placeholder H. Interbrook"
-        position: "U.S. Senator (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/defense-supplier"
-        articleSource: "Placeholder Defense Report"
-      - id: ci-insurance-bill
-        headline: "WROTE THE INSURANCE BILL, KEPT THE INSURANCE BROKERAGE"
+          You personally invested in the company your own state government handed
+          a $287 million toll-system contract to, then publicly defended that
+          company when its billing system fell apart. You and your wife also had
+          money in a rail project whose taxpayer funding you happened to support.
+        politician: "Rick Scott"
+        position: "U.S. Senator from Florida"
+        articleUrl: "https://www.miamiherald.com/news/politics-government/state-politics/article215916110.html"
+        articleSource: "Miami Herald"
+
+      - id: ci-williams
+        headline: "CAR-DEALER CONGRESSMAN WROTE A DEALERSHIP EXEMPTION INTO A SAFETY-RECALL RENTAL BAN"
         text: >
-          The member's privately held agency stood to gain from a mandate in
-          legislation the member personally drafted.
-        politician: "Placeholder I. Interbrook"
-        position: "State Representative (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/insurance-bill"
-        articleSource: "The Placeholder Ledger"
-      - id: ci-foreign-consulting
-        headline: "CONSULTED FOR A FOREIGN STATE-OWNED FIRM WHILE IN OFFICE"
+          You own a car dealership, and you personally inserted an amendment
+          exempting dealerships from a ban on renting out cars under active safety
+          recalls. When investigators came asking about it, you simply refused to
+          cooperate.
+        politician: "Roger Williams"
+        position: "U.S. Representative for Texas's 25th Congressional District"
+        articleUrl: "https://conduct.house.gov/reports/investigations/oce-referral-regarding-rep-roger-williams"
+        articleSource: "House Committee on Ethics"
+
+      - id: ci-reeves
+        headline: "GOVERNOR FIRED THE LAWYER CLAWING BACK WELFARE FUNDS AS DONORS LOBBIED HIM OVER THE PROBE"
         text: >
-          A quietly renewed advisory contract paid a monthly retainer from an
-          overseas government's energy company.
-        politician: "Placeholder J. Interbrook"
-        position: "U.S. Representative (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/foreign-consulting"
-        articleSource: "Placeholder Foreign Affairs Desk"
-      - id: ci-hospital-board
-        headline: "SITS ON THE HOSPITAL BOARD, SET ITS MEDICAID RATES"
+          You fired the lawyer who was leading the effort to claw back misspent
+          welfare money, right around the time a friend of yours with a $1.4
+          million welfare-funded fitness contract and Brett Favre were lobbying
+          you over a welfare-funded volleyball stadium. Both had reasons to want
+          that investigation to slow down.
+        politician: "Tate Reeves"
+        position: "Governor of Mississippi"
+        articleUrl: "https://mississippitoday.org/2023/08/21/tate-reeves-welfare-scandal-involvement/"
+        articleSource: "Mississippi Today"
+
+      - id: ci-moore-pet-projects
+        headline: "SPEAKER STEERED $1.5M TO THE COUNTY AREA WHERE HIS CAMPAIGN TREASURER AND DONORS LIVE"
         text: >
-          The member holds a paid board seat at the hospital system most
-          affected by a reimbursement formula they sponsored.
-        politician: "Placeholder K. Interbrook"
-        position: "State Senator (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/hospital-board"
-        articleSource: "Placeholder Health Wire"
-      - id: ci-broadband-grant
-        headline: "AWARDED BROADBAND MONEY TO A CO-OP HE'S A MEMBER OF"
+          As Speaker of the North Carolina House, you directed a $1.5 million
+          state grant to the part of your home county where your own campaign
+          treasurer and donors happen to live, then followed it up with $500,000
+          for a baseball tournament the county had been hosting for years without
+          any state help at all.
+        politician: "Tim Moore"
+        position: "U.S. Representative for North Carolina's 14th Congressional District"
+        articleUrl: "https://ncnewsline.com/2016/08/11/house-speaker-tim-moores-recent-1-5-million-pet-project-could-directly-benefit-campaign-treasurer-contributors/"
+        articleSource: "NC Newsline"
+
+      - id: ci-blanche-crypto
+        headline: "AG DISBANDED THE DOJ CRYPTO-CRIME UNIT WHILE HOLDING SIX FIGURES IN CRYPTO"
         text: >
-          The rural cooperative that won the grant lists the official among its
-          voting members and lease-paying landowners.
-        politician: "Placeholder L. Interbrook"
-        position: "County Commissioner (fictional placeholder)"
-        articleUrl: "https://example.com/conflict/broadband-grant"
-        articleSource: "Placeholder Rural Report"
+          You personally hold several hundred thousand dollars in cryptocurrency,
+          and one of your first moves in office was to disband the Justice
+          Department team enforcing crypto crimes.
+        politician: "Todd Blanche"
+        position: "U.S. Attorney General"
+        articleUrl: "https://www.nytimes.com/2025/04/08/us/politics/doj-disbands-crypto-unit.html?unlocked_article_code=1.91A.Gl69.JVvvXEtNW0kI&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: ci-blanche-recusal
+        headline: "DOJ ETHICS CHIEF TOLD BLANCHE TO RECUSE FROM TRUMP MATTERS — THEN GOT FIRED"
+        text: >
+          Two weeks into the job, the department's own top ethics lawyer told you
+          that having personally been Trump's defense attorney meant you needed
+          to recuse from anything touching Trump. That ethics lawyer got fired a
+          few months later, and whether you ever actually recused remains
+          unclear.
+        politician: "Todd Blanche"
+        position: "U.S. Attorney General"
+        articleUrl: "https://www.cnn.com/2025/07/14/politics/justice-department-ethics-official-fired"
+        articleSource: "CNN"
+
+      - id: ci-justice
+        headline: "GOVERNOR BANNED STATE SPENDING AT HIS OWN RESORT; TWO DOZEN AGENCIES SPENT $100,000 THERE"
+        text: >
+          You became governor while owning a luxury resort and announced that
+          state agencies weren't going to spend money there because even the
+          "slightest whiff" of a conflict wouldn't fly. Then more than two dozen
+          agencies in the government you ran proceeded to spend over $100,000 at
+          your resort anyway.
+        politician: "Jim Justice"
+        position: "U.S. Senator from West Virginia"
+        articleUrl: "https://www.propublica.org/article/west-virginia-greenbrier-governor-jim-justice-little-trump"
+        articleSource: "ProPublica"
+
+      - id: ci-pillen
+        headline: "NEBRASKA'S BIGGEST HOG FARMER IS ALSO THE GOVERNOR OVER THE AGENCY THAT INSPECTS HOG FARMS"
+        text: >
+          You are the state's largest hog farmer and also the governor over the
+          agency that inspects hog farms, and 16 of your family's operations have
+          logged groundwater nitrate above the federal drinking-water limit, one
+          of them at 45 times the limit. Asked what it planned to change about
+          any of it, the agency answered "none."
+        politician: "Jim Pillen"
+        position: "Governor of Nebraska"
+        articleUrl: "https://flatwaterfreepress.org/pillens-water-high-nitrate-detected-on-hog-farms-owned-by-nebraskas-governor/"
+        articleSource: "Flatwater Free Press"
+
+      - id: ci-cruz
+        headline: "SENATOR'S PODCAST DISTRIBUTOR SENT $961,435 TO THE SUPER PAC BACKING HIS REELECTION"
+        text: >
+          You host a podcast you insist you are not paid for, and its distributor
+          sent $961,435 to the super PAC working to reelect you. You were the top
+          Republican on the committee that regulates broadcasters when the checks
+          were going out, and you chair it now.
+        politician: "Ted Cruz"
+        position: "U.S. Senator from Texas"
+        articleUrl: "https://www.texastribune.org/2025/02/21/ted-cruz-podcast-super-pac-complaint-dismissed-fec"
+        articleSource: "The Texas Tribune"
+
+      - id: ci-mullin
+        headline: "ARMED SERVICES SENATOR BOUGHT CHEVRON AND RAYTHEON STOCK FIVE DAYS BEFORE THE MADURO RAID"
+        text: >
+          Five days before U.S. forces stormed Caracas and seized Maduro, you
+          bought Chevron and Raytheon stock while sitting on the Senate Armed
+          Services Committee. Both went up.
+        politician: "Markwayne Mullin"
+        position: "U.S. Secretary of Homeland Security and former U.S. Senator from Oklahoma"
+        articleUrl: "https://www.barchart.com/story/news/37139764/sen-markwayne-mullin-bought-chevron-and-raytheon-stock-days-before-u-s-venezuela-operation"
+        articleSource: "Barchart"
+
+      - id: ci-carter
+        headline: "CONGRESS'S ONLY PHARMACIST SIGNED HIS PHARMACIES TO HIS WIFE, THEN CHAMPIONED PHARMACY BILLS"
+        text: >
+          You owned a chain of pharmacies for thirty years, signed them over to
+          your wife right around the time you got elected, and then became
+          Congress's loudest voice for the pharmacy industry's top legislative
+          priority. The ethics clearance you point to was, by your own staff's
+          account, delivered verbally and never written down.
+        politician: "Buddy Carter"
+        position: "U.S. Representative for Georgia's 1st Congressional District"
+        articleUrl: "https://www.ajc.com/blog/politics/buddy-carter-faces-conflict-interest-questions-over-pharmacy-bills/cS6MRQq7C7V2F4WVWURLbO/"
+        articleSource: "The Atlanta Journal-Constitution"
+
+      - id: ci-lutnick
+        headline: "COMMERCE SECRETARY 'DIVESTED' BY SELLING HIS FIRM TO HIS KIDS; TETHER LOANED THEIR TRUST A DAY LATER"
+        text: >
+          You divested from your own firm by selling it to your four children,
+          and a credit filing shows the world's largest stablecoin company lent
+          money to their trust exactly one day later. You still won't commit to
+          recusing yourself from the administration's crypto policy.
+        politician: "Howard Lutnick"
+        position: "U.S. Secretary of Commerce"
+        articleUrl: "https://www.bloomberg.com/news/articles/2026-04-30/two-senators-seek-cantor-fitzgerald-loan-documents-from-lutnick-tether"
+        articleSource: "Bloomberg"
+
+      - id: ci-alito
+        headline: "JUSTICE FLEW ON A BILLIONAIRE'S JET TO ALASKA, THEN HEARD HIS $2.4 BILLION CASE"
+        text: >
+          You took a billionaire's private jet to a luxury Alaska fishing lodge,
+          left it off your disclosure forms, and then declined to step aside from
+          his $2.4 billion case in front of you. Your defense was that the seat
+          would have flown empty anyway.
+        politician: "Samuel Alito"
+        position: "Associate Justice of the U.S. Supreme Court"
+        articleUrl: "https://www.propublica.org/article/samuel-alito-luxury-fishing-trip-paul-singer-scotus-supreme-court"
+        articleSource: "ProPublica"
+
+      - id: ci-kennedy
+        headline: "HHS SECRETARY HELD A CUT OF THE LAWSUITS AGAINST A VACCINE MAKER, THEN PASSED IT TO HIS SON"
+        text: >
+          You run the department that regulates vaccines while holding a cut of
+          the lawsuits against a vaccine maker, and when senators objected your
+          fix was to hand that cut to your son, who works at the same law firm.
+          Merck settled the cases for $50 million a year later.
+        politician: "Robert F. Kennedy Jr."
+        position: "U.S. Secretary of Health and Human Services"
+        articleUrl: "https://www.npr.org/sections/shots-health-news/2025/01/22/nx-s1-5271582/rfk-hpv-vaccine-merck"
+        articleSource: "NPR"
+
+      - id: ci-little
+        headline: "LAND BOARD CHAIRED BY THE GOVERNOR AUCTIONED 160 ACRES TO A DONOR — THE ONLY BIDDER"
+        text: >
+          You chair the board that voted to auction off 160 acres of state land
+          that happened to border a billionaire donor's property, and he turned
+          out to be the only bidder. The family that had grazed cattle there for
+          thirty years at $950 a year got to watch it go for $5 million.
+        politician: "Brad Little"
+        position: "Governor of Idaho"
+        articleUrl: "https://www.eastidahonews.com/2025/11/state-of-idaho-once-again-approves-selling-160-acres-of-state-land-near-the-tetons/"
+        articleSource: "East Idaho News"
+
+      - id: ci-mcmaster
+        headline: "GOVERNOR MOVED TO REPLACE BOARD MEMBERS WHO QUESTIONED $8,100-A-MONTH PAYMENTS TO HIS FIRM"
+        text: >
+          Two Ports Authority board members started asking why the agency was
+          paying your own political consulting firm $8,100 a month, so you
+          nominated their replacements. The board only got its new members
+          confirmed after it stopped writing those checks.
+        politician: "Henry McMaster"
+        position: "Governor of South Carolina"
+        articleUrl: "https://www.postandcourier.com/news/corruption-probe-prompts-south-carolina-lawmakers-to-delay-vote-on-gov-mcmasters-ports-authority-nominees/article_acd4469a-0f0f-11e7-9f59-7f82a7c785e1.html"
+
+      - id: ci-graves
+        headline: "CHAIRMAN INVITED HIS WIFE'S BUSINESS PARTNER TO TESTIFY FOR BIOFUEL SUBSIDIES"
+        text: >
+          You invited your wife's own business partner to testify in favor of
+          biofuel subsidies at a hearing you ran, without mentioning that little
+          detail to anyone. The ethics committee shrugged and closed the case,
+          saying there wasn't even a rule against it.
+        politician: "Sam Graves"
+        position: "U.S. Representative for Missouri's 6th Congressional District"
+        articleUrl: "https://thehill.com/homenews/house/55501-office-of-congressional-ethics-fires-back-at-house-ethics-committee-over-inquest/"
 
   # ---------------------------------------------------------------------------
   - id: october-surprise
     name: October Surprise
     scandals:
-      - id: os-sealed-divorce
-        headline: "SEALED DIVORCE FILE UNSEALED 19 DAYS BEFORE THE ELECTION"
+      - id: os-gray
+        headline: "SECRETARY OF STATE'S 'EMPLOYER' ON HIS DISCLOSURE WAS A COMPANY THE STATE DISSOLVED IN 2003"
         text: >
-          A judge released records the campaign had fought for months to keep
-          closed, citing overwhelming public interest.
-        politician: "Placeholder A. Lastminute"
-        position: "U.S. Senate candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/sealed-divorce"
-        articleSource: "The Placeholder Times"
-      - id: os-warehouse-tape
-        headline: "WAREHOUSE SECURITY TAPE CONTRADICTS THE ALIBI"
+          You listed your dad's company as your employer on your official
+          financial disclosure, except the state had dissolved that company years
+          before you say you started working there. When reporters asked about it,
+          you didn't answer.
+        politician: "Chuck Gray"
+        position: "Wyoming Secretary of State and candidate for Wyoming's at-large congressional district"
+        articleUrl: "https://wyofile.com/secretary-of-state-hopefuls-vary-on-compliance-with-desired-office/"
+        articleSource: "WyoFile"
+
+      - id: os-hyde-smith
+        headline: "SENATOR SAID SHE'D BE 'ON THE FRONT ROW' FOR A 'PUBLIC HANGING'"
         text: >
-          Footage timestamped the night in question surfaced in late October,
-          showing a vehicle registered to the campaign at the site.
-        politician: "Placeholder B. Lastminute"
-        position: "Gubernatorial candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/warehouse-tape"
-        articleSource: "Placeholder Broadcasting"
-      - id: os-whistleblower-memo
-        headline: "STAFF WHISTLEBLOWER RELEASES A DATED INTERNAL MEMO"
+          You told a crowd you'd be front row for a "public hanging" if a
+          supporter invited you to one, in a state with a well-documented history
+          of lynching. You called the backlash ridiculous.
+        politician: "Cindy Hyde-Smith"
+        position: "U.S. Senator from Mississippi"
+        articleUrl: "https://mississippitoday.org/2018/11/11/cindy-hyde-smith-blasted-for-public-hanging-comments-she-calls-criticism-ridiculous/"
+        articleSource: "Mississippi Today"
+
+      - id: os-higgins
+        headline: "CONGRESSMAN FILMED A HOMELAND-SECURITY VIDEO INSIDE AN AUSCHWITZ GAS CHAMBER"
         text: >
-          A former scheduler provided reporters a memo appearing to show the
-          candidate was briefed on the problem a year earlier than claimed.
-        politician: "Placeholder C. Lastminute"
-        position: "U.S. House candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/whistleblower-memo"
-        articleSource: "Placeholder Investigations"
-      - id: os-foreign-wire
-        headline: "BANK FLAGGED A LATE-OCTOBER WIRE FROM OVERSEAS"
+          You filmed a homeland security pitch to camera while standing inside an
+          actual Auschwitz gas chamber. Even the Auschwitz museum itself publicly
+          condemned you for it.
+        politician: "Clay Higgins"
+        position: "U.S. Representative for Louisiana's 3rd Congressional District"
+        articleUrl: "https://www.newsweek.com/clay-higgins-terrorism-kill-them-all-621066"
+        articleSource: "Newsweek"
+
+      - id: os-issa
+        headline: "CONGRESSMAN PROXY-VOTED 'UNABLE TO ATTEND' WHILE ATTENDING CPAC IN PERSON"
         text: >
-          A compliance report leaked days before the vote describes a transfer
-          from an offshore account tied to a foreign business partner.
-        politician: "Placeholder D. Lastminute"
-        position: "U.S. Senate candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/foreign-wire"
-        articleSource: "Placeholder Financial Times"
-      - id: os-old-radio-clip
-        headline: "1990s RADIO CLIP RESURFACES, CAMPAIGN CALLS IT 'A JOKE'"
+          You used the pandemic proxy-voting rules, meant for members who
+          genuinely couldn't be there, to have a colleague vote for you while you
+          personally attended CPAC.
+        politician: "Darrell Issa"
+        position: "U.S. Representative for California's 48th Congressional District"
+        articleUrl: "https://www.cnn.com/2021/02/26/politics/cpac-house-republicans-proxy-voting/index.html"
+        articleSource: "CNN"
+
+      - id: os-michael
+        headline: "PENTAGON NOMINEE, AS AN UBER EXEC, PITCHED SPENDING $1M TO DIG INTO REPORTERS' PRIVATE LIVES"
         text: >
-          Audio from a call-in show circulated widely in the final week, drawing
-          condemnations from both parties.
-        politician: "Placeholder E. Lastminute"
-        position: "Gubernatorial candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/old-radio-clip"
-        articleSource: "Placeholder Media Desk"
-      - id: os-indictment-unsealed
-        headline: "GRAND JURY INDICTMENT OF A TOP AIDE UNSEALED OCT. 28"
+          You told a room full of people, including a journalist, that your
+          company should spend a million dollars digging into the personal lives
+          of reporters who wrote critically about it.
+        politician: "Emil Michael"
+        position: "Under Secretary of Defense for Research and Engineering"
+        articleUrl: "https://www.nytimes.com/2014/11/19/technology/uber-a-start-up-going-so-fast-it-could-miss-a-turn.html?unlocked_article_code=1.91A.UQAB.zBZ6HQjj0liD&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-landry
+        headline: "AG BURIED A HARASSMENT COMPLAINT, THEN PUBLICLY NAMED THE WHISTLEBLOWER IN A MEMO"
         text: >
-          Prosecutors said the timing was dictated by the calendar of the court,
-          not the campaign; the aide resigned within hours.
-        politician: "Placeholder F. Lastminute"
-        position: "U.S. House candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/indictment-unsealed"
-        articleSource: "The Placeholder Ledger"
-      - id: os-donor-raid
-        headline: "FEDERAL AGENTS RAID THE CAMPAIGN'S BIGGEST DONOR"
+          An employee reported sexual harassment by his supervisor, and you
+          allegedly buried the records and retaliated against him for it, then
+          sued to keep reporters from seeing any of it. Once the supervisor
+          finally resigned, you released a memo that publicly outed the
+          whistleblower by name.
+        politician: "Jeff Landry"
+        position: "Governor of Louisiana"
+        articleUrl: "https://www.theadvocate.com/baton_rouge/news/courts/article_2bde1d4a-6811-11eb-8c89-3ff7de428e57.htm"
+        articleSource: "The Advocate"
+
+      - id: os-jordan
+        headline: "EX-WRESTLERS SAY THE COACH KNEW THE TEAM DOCTOR WAS ABUSING THEM AND STAYED SILENT"
         text: >
-          Search warrants executed at a bundler's offices in late October name
-          the campaign's compliance filings among the materials sought.
-        politician: "Placeholder G. Lastminute"
-        position: "U.S. Senate candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/donor-raid"
-        articleSource: "Placeholder Watchdog"
-      - id: os-deposition-video
-        headline: "DEPOSITION VIDEO LEAKS: 'I DON'T RECALL' 71 TIMES"
+          You coached wrestling for eight years while the team doctor was
+          sexually abusing your athletes, and several of your own former
+          wrestlers say you knew and never reported it.
+        politician: "Jim Jordan"
+        position: "U.S. Representative for Ohio's 4th Congressional District"
+        articleUrl: "https://apnews.com/article/north-america-us-news-ap-top-news-michael-drake-wv-state-wire-8100ceaf06c44dc2a85bea4c5daff04f"
+        articleSource: "The Associated Press"
+
+      - id: os-lombardo
+        headline: "BODYCAM SHOWS GOVERNOR NAME-DROPPING HIMSELF AT A TRAFFIC STOP, DRIVING OFF WITHOUT A TICKET"
         text: >
-          A civil deposition recorded over the summer was posted online days
-          before voting, quickly cut into viral clips.
-        politician: "Placeholder H. Lastminute"
-        position: "Gubernatorial candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/deposition-video"
-        articleSource: "Placeholder Broadcasting"
-      - id: os-ghost-employees
-        headline: "STATE PAYROLL SHOWS 'EMPLOYEES' WHO NEVER CLOCKED IN"
+          A cop pulled you over for a driving infraction, and bodycam footage
+          shows you dropping your own name during the stop. You walked away with
+          no citation.
+        politician: "Joe Lombardo"
+        position: "Governor of Nevada"
+        articleUrl: "https://nevadacurrent.com/2026/07/14/hes-joe-lombardo/"
+        articleSource: "Nevada Current"
+
+      - id: os-patel
+        headline: "FBI DIRECTOR TWEETED 'SUSPECT IN CUSTODY' MID-MANHUNT — THE MANHUNT WAS STILL ON"
         text: >
-          An eve-of-election audit identified nine positions drawing salary
-          with no work product, all hired by the candidate's office.
-        politician: "Placeholder I. Lastminute"
-        position: "State Treasurer candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/ghost-employees"
-        articleSource: "The Placeholder Auditor"
-      - id: os-charity-audit
-        headline: "AG OPENS PROBE INTO THE CANDIDATE'S CHARITY — IN OCTOBER"
+          You announced on social media that a suspect was in custody while the
+          state officials on the ground were saying the manhunt was still going.
+          The next morning you reportedly berated your own staff over how the
+          case had been handled.
+        politician: "Kash Patel"
+        position: "Director of the Federal Bureau of Investigation"
+        articleUrl: "https://www.nytimes.com/2025/09/12/us/charlie-kirk-law-enforcement-fbi-capture.html?unlocked_article_code=1.91A.ZNfb.evyDZlDQgYmF&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-paxton
+        headline: "STATE BAR SUED THE AG FOR DISHONESTY OVER HIS 2020 ELECTION EFFORT, SOUGHT DISBARMENT"
         text: >
-          The attorney general's office confirmed an inquiry into the family
-          foundation's grantmaking one week before polls opened.
-        politician: "Placeholder J. Lastminute"
-        position: "U.S. House candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/charity-audit"
-        articleSource: "Placeholder Nonprofit Monitor"
-      - id: os-text-dump
-        headline: "TEXT MESSAGE DUMP APPEARS ON A BURNER WEBSITE"
+          Your own state bar sued you for dishonesty in your effort to overturn
+          the 2020 election in other states and asked for you to be disbarred. It
+          only went away because a court ruled it had no jurisdiction to even
+          hear the case.
+        politician: "Ken Paxton"
+        position: "Attorney General of Texas and U.S. Senate candidate"
+        articleUrl: "https://www.texastribune.org/2022/05/25/texas-bar-ken-paxton-2020-election/"
+        articleSource: "The Texas Tribune"
+
+      - id: os-reynolds
+        headline: "GOVERNOR CHARGED WITH DUI TWICE IN TWO YEARS; THE SECOND WAS PLEADED DOWN TO A MISDEMEANOR"
         text: >
-          Thousands of messages, apparently from a former campaign phone, were
-          posted anonymously with a countdown clock to Election Day.
-        politician: "Placeholder K. Lastminute"
-        position: "U.S. Senate candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/text-dump"
-        articleSource: "Placeholder Investigations"
-      - id: os-contractor-affidavit
-        headline: "CONTRACTOR SIGNS AFFIDAVIT ON THE UNPERMITTED ADDITION"
+          You got charged with DUI twice within two years, and the second time,
+          which should have been a harsher second-offense charge, got quietly
+          reduced to a misdemeanor.
+        politician: "Kim Reynolds"
+        position: "Governor of Iowa"
+        articleUrl: "https://apnews.com/article/9a546f80c52fbec551d8dc70aca7d270"
+        articleSource: "The Associated Press"
+
+      - id: os-boebert
+        headline: "SKIPPED COURT TWICE, TOLD DEPUTIES SHE HAD 'FRIENDS AT FOX NEWS'"
         text: >
-          A builder came forward in the last week alleging work on the
-          candidate's home was done off the books and under-declared.
-        politician: "Placeholder L. Lastminute"
-        position: "Gubernatorial candidate (fictional placeholder)"
-        articleUrl: "https://example.com/october-surprise/contractor-affidavit"
-        articleSource: "Placeholder Local News"
+          You got cited for disorderly conduct, skipped your court date twice,
+          and reportedly told the deputies you had friends at Fox News who'd hear
+          about it. A couple years later you got arrested again for skipping a
+          different court date.
+        politician: "Lauren Boebert"
+        position: "U.S. Representative for Colorado's 4th Congressional District"
+        articleUrl: "https://coloradonewsline.com/2020/08/13/report-lauren-boebert-warned-arresting-deputies-she-had-friends-at-fox-news/"
+        articleSource: "Colorado Newsline"
+
+      - id: os-mcmahon
+        headline: "EDUCATION SECRETARY IS A NAMED DEFENDANT IN A WWE 'RING BOYS' ABUSE LAWSUIT"
+        text: >
+          You're a named defendant in a lawsuit alleging you and your husband
+          fostered a culture at WWE that enabled the sexual abuse of teenage ring
+          boys in the 1990s.
+        politician: "Linda McMahon"
+        position: "U.S. Secretary of Education"
+        articleUrl: "https://www.nytimes.com/2024/12/08/us/linda-mcmahon-sexual-abuse-lawsuit.html?unlocked_article_code=1.91A.OJea.TLNN8jAgq3yK&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-murrill
+        headline: "GRAND JURY INDICTS THE AG ON 16 FELONY COUNTS OVER LETTERS SHE SENT LOCAL OFFICIALS"
+        text: >
+          A grand jury indicted you on 16 felony counts, public intimidation and
+          malfeasance in office, over letters you personally sent during a
+          dispute with local officials, and set your bond at $400,000.
+        politician: "Liz Murrill"
+        position: "Attorney General of Louisiana"
+        articleUrl: "https://apnews.com/article/louisiana-attorney-general-murrill-stay-indictment-12b275d425a1231791856c8b5c951959"
+        articleSource: "The Associated Press"
+
+      - id: os-miller
+        headline: "EX-PRESS SECRETARY NAMED THE CONGRESSMAN AS HER ABUSER; NOW SHE'S SEEKING A RESTRAINING ORDER"
+        text: >
+          A former White House press secretary wrote in her memoir that a partner
+          physically abused her while she worked there, and named you. You sued
+          her for defamation, then dropped the suit yourself, and now she's back
+          in court seeking a restraining order alleging you broke the settlement
+          anyway.
+        politician: "Max Miller"
+        position: "U.S. Representative for Ohio's 7th Congressional District"
+        articleUrl: "https://www.ms.now/news/stephanie-grisham-files-temporary-restraining-order-against-rep-max-miller"
+        articleSource: "MS NOW"
+
+      - id: os-oz
+        headline: "TV DOCTOR PUSHED HYDROXYCHLOROQUINE 25+ TIMES WHILE HOLDING $630,000 IN RELATED STOCK"
+        text: >
+          You promoted a COVID treatment on national TV more than 25 times before
+          the FDA pulled its authorization, all while personally holding over
+          $630,000 in stock tied to companies that made or distributed it.
+        politician: "Mehmet Oz"
+        position: "Administrator of the Centers for Medicare & Medicaid Services"
+        articleUrl: "https://www.cnbc.com/2022/09/07/dr-oz-has-ties-to-hydroxychloroquine-companies-as-he-backs-covid-treatment.html"
+        articleSource: "CNBC"
+
+      - id: os-lawler
+        headline: "CONGRESSMAN'S ST. PATRICK'S DAY DUI: HIS TEAM DISPUTED THE ARREST TIME, NOT THE ARREST"
+        text: >
+          You got arrested for drunk driving on St. Patrick's Day while running
+          the state GOP. Your team's main pushback wasn't about the arrest, it
+          was insisting the police blotter had the time of day wrong.
+        politician: "Mike Lawler"
+        position: "U.S. Representative for New York's 17th Congressional District"
+        articleUrl: "https://www.nytimes.com/2026/07/15/nyregion/lawler-dui-arrest.html?unlocked_article_code=1.-FA.MFmb.TZailDMDPdNF&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-gosar
+        headline: "CENSURED FOR AN ANIME VIDEO OF HIMSELF KILLING A COLLEAGUE — THEN RE-POSTED IT"
+        text: >
+          You posted an edited video of yourself killing a colleague and
+          attacking the president, got censured by the full House over it, and
+          then retweeted the same video minutes after the vote.
+        politician: "Paul Gosar"
+        position: "U.S. Representative for Arizona's 9th Congressional District"
+        articleUrl: "https://www.nytimes.com/2021/11/17/us/politics/paul-gosar-video.html?unlocked_article_code=1.-FA.tUr4.u-rAdZx21J2O&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-kennedy-heroin
+        headline: "HHS SECRETARY PLEADED GUILTY TO A HEROIN FELONY AFTER COLLAPSING ON A PLANE"
+        text: >
+          You got arrested for heroin possession after getting sick on a plane,
+          pleaded guilty to a felony, and have said the arrest ended 14 years of
+          heroin use that started when you were 15.
+        politician: "Robert F. Kennedy Jr."
+        position: "U.S. Secretary of Health and Human Services"
+        articleUrl: "https://www.nytimes.com/1984/02/18/us/robert-kennedy-jr-admits-he-is-guilty-in-possessing-heroin.html?unlocked_article_code=1.-FA.WsGW.MJNVPGJ1DlS9&smid=url-share"
+        articleSource: "The New York Times"
+
+      - id: os-kennedy-babysitter
+        headline: "HHS SECRETARY'S FORMER BABYSITTER SAYS HE GROPED HER REPEATEDLY"
+        text: >
+          Your kids' babysitter says you groped her multiple times. You called
+          the story garbage in public, then privately texted her that you didn't
+          remember it while apologizing generally for any hurt caused.
+        politician: "Robert F. Kennedy Jr."
+        position: "U.S. Secretary of Health and Human Services"
+        articleUrl: "https://www.bbc.com/news/articles/c6p27evjz49o"
+        articleSource: "BBC News"
+
+      - id: os-gabbard
+        headline: "LAWMAKER'S PRIVATELY FUNDED SYRIA TRIP INCLUDED TWO MEETINGS WITH ASSAD"
+        text: >
+          You took a privately funded trip to Syria and ended up in two unplanned
+          meetings with Bashar al-Assad, funded by a group sympathetic to his
+          regime. You reimbursed the trip yourself only after the funding became
+          a story.
+        politician: "Tulsi Gabbard"
+        position: "Former Director of National Intelligence"
+        articleUrl: "https://apnews.com/article/gabbard-syria-assad-trump-b7518871e72a5e19c618c5ff52dedfd2"
+        articleSource: "The Associated Press"
+
+      - id: os-uthmeier
+        headline: "AG HELD IN CONTEMPT FOR ENFORCING AN IMMIGRATION LAW A JUDGE HAD BLOCKED"
+        text: >
+          A federal judge blocked a state immigration law, and you kept
+          directing police to enforce it anyway, then went on TV to talk about
+          doing it. The judge held you in civil contempt for it.
+        politician: "James Uthmeier"
+        position: "Attorney General of Florida"
+        articleUrl: "https://www.nbcnews.com/politics/immigration/judge-florida-attorney-general-james-uthmeier-contempt-court-order-rcna213622"
+
+      - id: os-miller-meeks
+        headline: "US REPRESENTATIVE SHUFFLED VOTER REGISTRATIONS ACROSS THREE ADDRESSES AFTER REDISTRICTING"
+        text: >
+          Redistricting moved you out of your own district, so you registered to
+          vote at a house owned by a state senator, kept claiming a homestead
+          credit on your old house as if you still lived there, and then rented a
+          different apartment right before the next primary to register somewhere
+          else again.
+        politician: "Mariannette Miller-Meeks"
+        position: "U.S. Representative for Iowa's 1st Congressional District"
+        articleUrl: "https://www.kcrg.com/2024/09/24/ethics-complaint-alleges-rep-miller-meeks-voting-davenport-despite-living-ottumwa/"
+
+      - id: os-mcnally
+        headline: "LT. GOVERNOR'S VERIFIED INSTAGRAM LIKED A 20-YEAR-OLD MAN'S SUGGESTIVE PHOTOS; HE WON'T STOP"
+        text: >
+          You used your verified Instagram to like and comment on sexually
+          suggestive photos of a 20-year-old man, and when it became public, your
+          office confirmed it and said you had no plans to stop.
+        politician: "Randy McNally"
+        position: "Lieutenant Governor of Tennessee and Speaker of the Tennessee State Senate"
+        articleUrl: "https://www.newschannel5.com/news/it-is-hypocritical-and-contradicting-social-media-male-model-linked-to-tn-lt-gov-randy-mcnally-speaks-out"
