@@ -14,7 +14,11 @@ export default function App() {
   return (
     <div className="min-h-full bg-gop-blue">
       {state.phase === "setup" ? (
-        <SetupScreen dispatch={dispatch} gameIndex={state.gamesStarted} />
+        <SetupScreen
+          dispatch={dispatch}
+          gameIndex={state.gamesStarted}
+          previousPlayerNames={state.previousPlayerNames}
+        />
       ) : null}
 
       {state.phase === "round-intro" ? (

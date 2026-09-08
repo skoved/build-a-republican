@@ -30,6 +30,7 @@ export function createInitialState(): GameState {
     usedScandalIds: [],
     completedGames: 0,
     gamesStarted: 0,
+    previousPlayerNames: [],
   };
 }
 
@@ -144,6 +145,7 @@ export function reducer(state: GameState, action: Action): GameState {
         rounds: [],
         current: null,
         gamesStarted: gameIndex + 1,
+        previousPlayerNames: players.map((p) => p.playerName),
       };
     }
 
@@ -250,8 +252,9 @@ export function reducer(state: GameState, action: Action): GameState {
 
     case "PLAY_AGAIN": {
       // Keep usedScandalIds so a fresh game avoids scandals already seen,
-      // completedGames so replays keep advancing the bonus candidate, and
-      // gamesStarted so the next game draws the next block of candidate names.
+      // completedGames so replays keep advancing the bonus candidate,
+      // gamesStarted so the next game draws the next block of candidate names,
+      // and previousPlayerNames so the setup screen pre-fills the same table.
       // The deck is re-chosen on the setup screen by which start button is
       // clicked.
       return {
@@ -263,6 +266,7 @@ export function reducer(state: GameState, action: Action): GameState {
         usedScandalIds: state.usedScandalIds,
         completedGames: state.completedGames,
         gamesStarted: state.gamesStarted,
+        previousPlayerNames: state.previousPlayerNames,
       };
     }
 

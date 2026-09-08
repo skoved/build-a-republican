@@ -95,6 +95,11 @@ describe("setup", () => {
     expect(state.players.every((p) => p.swapsRemaining === SWAPS_PER_GAME)).toBe(true);
   });
 
+  it("records the seat names for pre-filling the next setup", () => {
+    expect(startedGame(SEATS).previousPlayerNames).toEqual(["Ada", "Ben", "Cal"]);
+    expect(startedGame(SEATS_4).previousPlayerNames).toEqual(["Ada", "Ben", "Cal", "Dot"]);
+  });
+
   it("ignores setup when a seat is blank", () => {
     const state = reducer(createInitialState(), {
       type: "SUBMIT_SETUP",
@@ -331,6 +336,8 @@ describe("full game + replays", () => {
     expect(again.completedGames).toBe(finished.completedGames);
     expect(again.gamesStarted).toBe(finished.gamesStarted);
     expect(finished.gamesStarted).toBe(1);
+    expect(finished.previousPlayerNames).toEqual(["Ada", "Ben", "Cal"]);
+    expect(again.previousPlayerNames).toEqual(finished.previousPlayerNames);
   });
 
   it("resets a category's history when it can no longer fill a round", () => {
@@ -390,6 +397,7 @@ describe("bonus candidates", () => {
   it("starts a session with no completed games", () => {
     expect(createInitialState().completedGames).toBe(0);
     expect(createInitialState().gamesStarted).toBe(0);
+    expect(createInitialState().previousPlayerNames).toEqual([]);
   });
 
   it("counts each finished standard-deck game", () => {

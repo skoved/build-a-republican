@@ -9,13 +9,19 @@ interface Props {
   dispatch: AppDispatch;
   /** How many games have started this session — indexes the candidate-name pool. */
   gameIndex: number;
+  /** Names from the previous game, in seat order — pre-fills the form on replay. */
+  previousPlayerNames: string[];
 }
 
 const emptySeat = (): SetupSeat => ({ playerName: "" });
 const EMPTY_SEATS: SetupSeat[] = Array.from({ length: MIN_PLAYERS }, emptySeat);
 
-export default function SetupScreen({ dispatch, gameIndex }: Props) {
-  const [seats, setSeats] = useState<SetupSeat[]>(EMPTY_SEATS);
+export default function SetupScreen({ dispatch, gameIndex, previousPlayerNames }: Props) {
+  const [seats, setSeats] = useState<SetupSeat[]>(() =>
+    previousPlayerNames.length >= MIN_PLAYERS && previousPlayerNames.length <= MAX_PLAYERS
+      ? previousPlayerNames.map((playerName) => ({ playerName }))
+      : EMPTY_SEATS,
+  );
 
   const complete = seats.every((s) => sanitizeName(s.playerName) !== "");
 

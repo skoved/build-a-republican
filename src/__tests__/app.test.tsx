@@ -53,6 +53,40 @@ describe("<App /> full playthrough", () => {
     expect(screen.getByRole("button", { name: /play again/i })).toBeTruthy();
   });
 
+  it("pre-fills setup with the last game's players and seat count on Play Again", () => {
+    render(<App />);
+
+    const nameInputs = () =>
+      screen
+        .getAllByText("Your name")
+        .map((l) => l.parentElement!.querySelector("input")! as HTMLInputElement);
+
+    fireEvent.click(screen.getByRole("button", { name: /add a fourth player/i }));
+    const names = ["Ada", "Ben", "Cal", "Dot"];
+    names.forEach((n, i) => fireEvent.change(nameInputs()[i], { target: { value: n } }));
+    fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
+
+    // Play a full 4-player game (4 keeps per round) to the end screen.
+    for (let round = 1; round <= 4; round++) {
+      fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+      for (let turn = 0; turn < 4; turn++) {
+        fireEvent.click(sealedBriefcases()[0]);
+        fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
+      }
+      fireEvent.click(
+        screen.getByRole("button", { name: /on to the next round|see the finished ballot/i }),
+      );
+    }
+
+    fireEvent.click(screen.getByRole("button", { name: /play again/i }));
+
+    // Back on setup: still 4 seats, pre-filled with the same names.
+    const refilled = nameInputs();
+    expect(refilled).toHaveLength(4);
+    expect(refilled.map((el) => el.value)).toEqual(names);
+    expect(screen.getByRole("button", { name: /back to three players/i })).toBeTruthy();
+  });
+
   it("renders a markup-looking player name as inert text, never as HTML", () => {
     render(<App />);
 

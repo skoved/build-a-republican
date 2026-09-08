@@ -91,6 +91,13 @@ export interface GameState {
    * SUBMIT_SETUP, persists across PLAY_AGAIN, reset only on page reload.
    */
   gamesStarted: number;
+  /**
+   * Human player names from the most recent SUBMIT_SETUP, in seat order.
+   * Pre-fills the setup screen on "Play again"; its length also carries the
+   * 3-or-4 seat count. `[]` before the first game; persists across PLAY_AGAIN;
+   * reset only on page reload.
+   */
+  previousPlayerNames: string[];
 }
 
 export interface SetupSeat {
