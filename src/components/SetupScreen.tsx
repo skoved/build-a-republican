@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import type { AppDispatch, SetupSeat } from "../game/types";
 import { candidateNameFor } from "../data/candidateNames";
 import { MAX_PLAYERS, MIN_PLAYERS } from "../data/scandals";
+import { MAX_NAME_LENGTH, sanitizeName } from "../lib/sanitizeName";
 import TrumpMark from "./TrumpMark";
 
 interface Props {
@@ -16,7 +17,7 @@ const EMPTY_SEATS: SetupSeat[] = Array.from({ length: MIN_PLAYERS }, emptySeat);
 export default function SetupScreen({ dispatch, gameIndex }: Props) {
   const [seats, setSeats] = useState<SetupSeat[]>(EMPTY_SEATS);
 
-  const complete = seats.every((s) => s.playerName.trim() !== "");
+  const complete = seats.every((s) => sanitizeName(s.playerName) !== "");
 
   function update(index: number, patch: Partial<SetupSeat>) {
     setSeats((prev) => prev.map((s, i) => (i === index ? { ...s, ...patch } : s)));
@@ -86,7 +87,7 @@ export default function SetupScreen({ dispatch, gameIndex }: Props) {
                 className="mt-1 w-full rounded border border-brass/40 bg-paper px-2 py-1.5 font-serif text-ink outline-none focus:border-gop-red"
                 value={seat.playerName}
                 onChange={(e) => update(i, { playerName: e.target.value })}
-                maxLength={24}
+                maxLength={MAX_NAME_LENGTH}
                 autoComplete="off"
               />
             </label>

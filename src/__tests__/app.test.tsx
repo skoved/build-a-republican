@@ -53,6 +53,32 @@ describe("<App /> full playthrough", () => {
     expect(screen.getByRole("button", { name: /play again/i })).toBeTruthy();
   });
 
+  it("renders a markup-looking player name as inert text, never as HTML", () => {
+    render(<App />);
+
+    const payload = "<img src=x onerror=1>"; // 21 chars, fits the input cap
+    const yourName = screen
+      .getAllByText("Your name")
+      .map((l) => l.parentElement!.querySelector("input")!);
+    [payload, "Ben", "Cal"].forEach((n, i) =>
+      fireEvent.change(yourName[i], { target: { value: n } }),
+    );
+    fireEvent.click(screen.getByRole("button", { name: /open the first briefcases/i }));
+    fireEvent.click(screen.getByRole("button", { name: /deal the briefcases/i }));
+
+    // Turn banner shows the name as literal text; nothing was injected.
+    expect(screen.getByText(payload, { exact: false }).textContent).toContain(payload);
+    expect(document.querySelector("img")).toBeNull();
+
+    // Play round 1 to the summary and re-check on the "built by" line.
+    for (let turn = 0; turn < 3; turn++) {
+      fireEvent.click(sealedBriefcases()[0]);
+      fireEvent.click(screen.getByRole("button", { name: /^keep this scandal$/i }));
+    }
+    expect(screen.getByText(`built by ${payload}`, { exact: false })).toBeTruthy();
+    expect(document.querySelector("img")).toBeNull();
+  });
+
   it("opens a briefcase immediately on click, with no confirmation step", () => {
     render(<App />);
     fillSetupAndStart();

@@ -38,7 +38,7 @@ export default function TurnBanner({
       <p className="dateline text-base uppercase tracking-[0.2em] text-brass sm:text-xl">
         Round {roundNumber} of 4 · {categoryName}
       </p>
-      <p className="mt-1 font-display text-xl font-bold sm:text-2xl">
+      <p className="mt-1 break-words font-display text-xl font-bold sm:text-2xl">
         <span className="text-brass">{activePlayerName}</span>&rsquo;s turn
       </p>
       <p className="mt-0.5 font-serif text-sm text-paper/80">

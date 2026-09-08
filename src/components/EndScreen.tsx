@@ -51,7 +51,9 @@ export default function EndScreen({ state, dispatch }: Props) {
                 Candidate {i + 1}
               </p>
               <h2 className="headline mt-1 text-2xl text-brass">{player.politicianName}</h2>
-              <p className="font-serif text-xs text-paper/60">built by {player.playerName}</p>
+              <p className="break-words font-serif text-xs text-paper/60">
+                built by {player.playerName}
+              </p>
             </div>
             <div className="mt-3 space-y-2">
               {scandals.map(({ categoryIndex, scandal }) => (

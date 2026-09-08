@@ -8,6 +8,7 @@ import {
   scandalIdsForCategory,
   SWAPS_PER_GAME,
 } from "../data/scandals";
+import { sanitizeName } from "../lib/sanitizeName";
 import type {
   Action,
   Briefcase,
@@ -36,7 +37,7 @@ function seatsAreComplete(action: Extract<Action, { type: "SUBMIT_SETUP" }>) {
   return (
     action.seats.length >= MIN_PLAYERS &&
     action.seats.length <= MAX_PLAYERS &&
-    action.seats.every((s) => s.playerName.trim() !== "")
+    action.seats.every((s) => sanitizeName(s.playerName) !== "")
   );
 }
 
@@ -131,7 +132,7 @@ export function reducer(state: GameState, action: Action): GameState {
       const gameIndex = state.gamesStarted;
       const players: Player[] = action.seats.map((seat, i) => ({
         id: i as PlayerId,
-        playerName: seat.playerName.trim(),
+        playerName: sanitizeName(seat.playerName),
         politicianName: candidateNameFor(gameIndex, i),
         swapsRemaining: SWAPS_PER_GAME,
       }));

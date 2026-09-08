@@ -104,6 +104,33 @@ describe("setup", () => {
     expect(state.players).toHaveLength(0);
   });
 
+  it("ignores setup when a name is only invisible characters", () => {
+    const invisible = String.fromCodePoint(0x200b) + String.fromCodePoint(0x202e);
+    const state = reducer(createInitialState(), {
+      type: "SUBMIT_SETUP",
+      seats: [SEATS[0], SEATS[1], { playerName: invisible }],
+    });
+    expect(state.phase).toBe("setup");
+    expect(state.players).toHaveLength(0);
+  });
+
+  it("sanitizes player names into stored state", () => {
+    const rlo = String.fromCodePoint(0x202e);
+    const state = reducer(createInitialState(), {
+      type: "SUBMIT_SETUP",
+      seats: [
+        { playerName: `  ${rlo}Ada${rlo}  ` },
+        { playerName: "x".repeat(100) },
+        { playerName: "<script>alert(1)</script>" },
+      ],
+    });
+    expect(state.phase).toBe("round-intro");
+    expect(state.players[0].playerName).toBe("Ada");
+    expect(state.players[1].playerName).toHaveLength(24);
+    // Markup is stored verbatim as text (trimmed/capped) — it is data, never HTML.
+    expect(state.players[2].playerName).toBe("<script>alert(1)</script>".slice(0, 24));
+  });
+
   it("accepts a 4-player table", () => {
     const state = startedGame(SEATS_4);
     expect(state.phase).toBe("round-intro");

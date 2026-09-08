@@ -123,3 +123,16 @@ vercel --prod     # promote to production
 
 To change scandals after deploy: edit `scandals.yaml`, commit/push (or re-run
 `vercel --prod`). A malformed file fails the build before it can go live.
+
+## Security notes
+
+- Player-entered names are normalized by
+  [`src/lib/sanitizeName.ts`](./src/lib/sanitizeName.ts): NFC, control /
+  zero-width / bidi-override characters stripped, whitespace collapsed, capped
+  at 24 chars. React escapes them at every render site anyway — this just keeps
+  stored names to plain single-line text.
+- [`vercel.json`](./vercel.json) sets a strict `Content-Security-Policy`
+  (`script-src 'self'`, `object-src`/`base-uri`/`frame-ancestors`/`form-action`
+  `'none'`) plus `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`,
+  `Permissions-Policy`, and HSTS. Only Google Fonts is allowlisted for
+  styles/fonts. These apply to the Vercel deployment, not `npm run dev`.

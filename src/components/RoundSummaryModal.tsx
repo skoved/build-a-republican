@@ -42,7 +42,7 @@ export default function RoundSummaryModal({ state, dispatch }: Props) {
               <h3 className="headline text-center text-lg text-brass">
                 {player.politicianName}
               </h3>
-              <p className="mb-3 text-center font-serif text-xs text-paper/60">
+              <p className="mb-3 break-words text-center font-serif text-xs text-paper/60">
                 built by {player.playerName}
               </p>
               <div className="space-y-2">
