@@ -143,8 +143,8 @@ categories:
           to tell them how rich you were.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.washingtonpost.com/politics/2018/04/20/trump-used-fake-persona-inflate-his-wealth-according-former-forbes-writer/"
-        articleSource: "The Washington Post"
+        articleUrl: "https://www.cbsnews.com/news/did-donald-trump-pose-as-someone-else-in-this-1991-interview-to-defend-himself/"
+        articleSource: "CBS News"
 
       - id: t-ff-casino-dealers
         headline: "CASINO REMOVED BLACK AND FEMALE DEALERS TO PLEASE A HIGH ROLLER"
@@ -155,8 +155,8 @@ categories:
           fine.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.washingtonpost.com/investigations/trumps-bad-bet-how-too-much-debt-drove-his-biggest-casino-aground/2016/01/18/f67cedc2-9ac8-11e5-8917-653b65c809eb_story.html"
-        articleSource: "The Washington Post"
+        articleUrl: "https://www.yahoo.com/news/video-shows-trump-with-mob-figure-he-denied-knowing-090025964.html"
+        articleSource: "Yahoo News"
 
       - id: t-ff-soho-sales
         headline: "CONDO BUYERS WERE TOLD A BUILDING WAS 60% SOLD WHEN IT WAS CLOSER TO 16%"
@@ -181,7 +181,7 @@ categories:
           judgment against you.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.nytimes.com/2019/01/15/us/politics/trump-acn-lawsuit.html"
+        articleUrl: "https://www.nytimes.com/2018/10/29/nyregion/trump-acn-lawsuit.html?unlocked_article_code=1.AFE.kson.FDQr29yLFEV_&smid=url-share"
         articleSource: "The New York Times"
 
       - id: t-ff-trump-institute
@@ -193,7 +193,7 @@ categories:
           decade-old real-estate book. Your lawyer said you didn't know.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.nytimes.com/2016/06/30/us/politics/donald-trump-institute.html"
+        articleUrl: "https://www.nytimes.com/2016/06/30/us/politics/donald-trump-institute-plagiarism.html?unlocked_article_code=1.AFE.884w.6kanjhXIUj6z&smid=url-share"
         articleSource: "The New York Times"
 
       - id: t-ff-unpaid-contractors
@@ -221,7 +221,7 @@ categories:
           taxes. Your lawyer denied fraud or tax evasion.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.nytimes.com/interactive/2018/10/02/us/politics/donald-trump-tax-schemes-fred-trump.html"
+        articleUrl: "https://www.nytimes.com/2018/10/04/us/politics/donald-trump-fred-trump-tax-schemes.html?unlocked_article_code=1.AFE.YNBg.dkM_kd1xSQZr&smid=url-share"
         articleSource: "The New York Times"
 
       - id: t-ff-fred-trump-valuations
@@ -235,7 +235,7 @@ categories:
           transactions were legal and handled by tax professionals.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.nytimes.com/interactive/2018/10/02/us/politics/donald-trump-tax-schemes-fred-trump.html"
+        articleUrl: "https://www.nytimes.com/2018/10/04/us/politics/donald-trump-fred-trump-tax-schemes.html?unlocked_article_code=1.AFE.YNBg.dkM_kd1xSQZr&smid=url-share"
         articleSource: "The New York Times"
 
   # ---------------------------------------------------------------------------
@@ -252,7 +252,7 @@ categories:
           election. You were impeached over it and acquitted by the Senate.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.gao.gov/products/b-331564"
+        articleUrl: "https://www.npr.org/2019/09/25/764164340/trump-asked-ukrainian-president-for-a-favor-on-biden-doj-says-no-charges"
         articleSource: "U.S. Government Accountability Office"
 
       - id: t-ci-old-post-office
@@ -264,8 +264,8 @@ categories:
           the government you controlled.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.gsaig.gov/content/gsa%E2%80%99s-management-old-post-office-building-lease"
-        articleSource: "GSA Office of Inspector General"
+        articleUrl: "https://www.nytimes.com/2026/01/28/us/politics/trump-hotel-old-post-office.html?unlocked_article_code=1.AFE.JbWR.FntJ-X_mVbif&smid=url-share"
+        articleSource: "The New York Times"
 
       - id: t-ci-china-trademarks
         headline: "CHINA APPROVED DOZENS OF TRUMP TRADEMARKS AFTER HE BECAME PRESIDENT"
@@ -332,8 +332,8 @@ categories:
           lucrative Russian real-estate deal.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.factcheck.org/2018/11/trumps-sketchy-cohen-claims/"
-        articleSource: "FactCheck.org"
+        articleUrl: "https://apnews.com/article/north-america-donald-trump-ap-top-news-elections-moscow-d80b3f2ba0c546ef9abb0e5c81277f89"
+        articleSource: "The Associated Press"
 
       - id: t-ci-milton-pardon
         headline: "PARDONED A BILLIONAIRE WHO HAD DONATED HEAVILY TO POLITICAL EFFORTS BACKING HIM"
@@ -361,8 +361,8 @@ categories:
           inside" the human body.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-vice-president-pence-members-coronavirus-task-force-press-briefing-31/"
-        articleSource: "The White House (archived)"
+        articleUrl: "https://www.bbc.com/news/world-us-canada-52407177"
+        articleSource: "BBC News"
 
       - id: t-os-lavrov-intel
         headline: "REVEALED HIGHLY SENSITIVE INTELLIGENCE TO RUSSIAN OFFICIALS IN THE OVAL OFFICE"
@@ -375,8 +375,8 @@ categories:
           information.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.washingtonpost.com/world/national-security/trump-revealed-highly-classified-information-to-russian-foreign-minister-and-ambassador/2017/05/15/530c172a-3960-11e7-9e48-c4f199710b69_story.html"
-        articleSource: "The Washington Post"
+        articleUrl: "https://www.reuters.com/article/world/trump-revealed-intelligence-secrets-to-russians-in-oval-office-officials-idUSKCN18B2MM/"
+        articleSource: "Reuters"
 
       - id: t-os-helsinki
         headline: "HELSINKI: SIDED WITH PUTIN OVER HIS OWN INTELLIGENCE COMMUNITY"
@@ -388,8 +388,8 @@ categories:
           conference, he acknowledges that he wanted you to win the election.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-president-putin-russian-federation-joint-press-conference/"
-        articleSource: "The White House (archived)"
+        articleUrl: "https://www.cnn.com/2018/07/16/politics/donald-trump-putin-helsinki-summit"
+        articleSource: "CNN"
 
       - id: t-os-family-separation
         headline: "SEPARATED THOUSANDS OF CHILDREN WITH NO ADEQUATE WAY TO REUNITE THEM"
@@ -402,8 +402,8 @@ categories:
           even known.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://oig.hhs.gov/oei/reports/oei-BL-18-00511.pdf"
-        articleSource: "HHS Office of Inspector General"
+        articleUrl: "https://www.nbcnews.com/politics/immigration/emails-show-trump-admin-had-no-way-link-separated-migrant-n1000746"
+        articleSource: "NBC News"
 
       - id: t-os-blackwater-pardons
         headline: "PARDONED FOUR BLACKWATER CONTRACTORS CONVICTED OVER KILLING IRAQI CIVILIANS"
@@ -426,8 +426,8 @@ categories:
           finding.
         politician: "Donald J. Trump"
         position: "45th & 47th President of the United States"
-        articleUrl: "https://www.axios.com/2019/08/25/trump-nuclear-bombs-hurricanes"
-        articleSource: "Axios"
+        articleUrl: "https://www.cnn.com/2019/08/26/politics/donald-trump-nuclear-bombs-hurricanes"
+        articleSource: "CNN"
 
       - id: t-os-jan6-clemency
         headline: "BLANKET JAN. 6 CLEMENCY SWEPT IN DEFENDANTS WITH SEPARATE CHILD-SEX CASES"
