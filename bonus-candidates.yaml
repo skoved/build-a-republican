@@ -50,8 +50,8 @@ candidates:
           general, and eventually agreed to pay $25 million to settle the cases.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://ag.ny.gov/press-release/2016/ag-schneiderman-statement-25-million-settlement-trump-university"
-        articleSource: "New York State Attorney General"
+        articleUrl: "https://www.politico.com/story/2017/03/trump-university-settlement-approved-gonzalo-curiel-236756"
+        articleSource: "Politico"
       - headline: "TRIED TO PUT THE G7 SUMMIT AT HIS OWN MIAMI GOLF RESORT, RETREATED IN TWO DAYS"
         text: >
           You became President of the United States, got to decide where America
@@ -73,7 +73,7 @@ candidates:
           underlying medical records.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://www.nytimes.com/2018/12/26/us/politics/trump-vietnam-draft-exemption.html"
+        articleUrl: "https://www.nytimes.com/2018/12/26/us/politics/trump-vietnam-draft-exemption.html?unlocked_article_code=1.AFE.UT5A.u5Gkpzu81RYH&smid=url-share"
         articleSource: "The New York Times"
 
   - name: "Robert E. Lee"
@@ -88,8 +88,8 @@ candidates:
           denied it and appealed, but the judgment was upheld.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1%3A2022cv10016/590045/212/"
-        articleSource: "Justia (court records)"
+        articleUrl: "https://apnews.com/article/trump-rape-carroll-trial-fe68259a4b98bb3947d42af9ec83d7db"
+        articleSource: "The Associated Press"
       - headline: "MADE HIS OWN CHARITY PAY $10,000 FOR A PORTRAIT OF HIMSELF, HUNG IT AT HIS RESORT"
         text: >
           You went to a charity auction, bought a $10,000 painting of yourself,
@@ -97,8 +97,8 @@ candidates:
           your charity's painting of yourself at your own for-profit golf resort.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://ag.ny.gov/press-release/2019/court-orders-trump-pay-2-million-illegally-using-trump-foundation-funds"
-        articleSource: "New York State Attorney General"
+        articleUrl: "https://www.theguardian.com/us-news/2018/oct/25/trump-charity-painting-auction-court-case-finanical-violations-claims"
+        articleSource: "The Guardian"
       - headline: "ADMINISTRATION ACCEPTED A ~$400 MILLION LUXURY 747 FROM QATAR FOR AIR FORCE ONE"
         text: >
           The government of Qatar gave your administration a luxury Boeing 747
@@ -143,8 +143,8 @@ candidates:
           properties you own, including one rate of $1,185 per room per night.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://oversightdemocrats.house.gov/news/press-releases/chairwoman-maloney-releases-new-information-showing-trump-owned-properties"
-        articleSource: "House Committee on Oversight and Reform"
+        articleUrl: "https://abcnews.com/US/trump-organization-charged-secret-service-14m-stay-properties/story?id=91640350"
+        articleSource: "ABC News"
       - headline: "INAUGURAL FUND PAID HIS HOTEL $175,000 FOR A BALLROOM ANOTHER GROUP GOT FOR $5,000"
         text: >
           Your inauguration raised nonprofit money and then spent more than $1
@@ -156,8 +156,8 @@ candidates:
           admission of wrongdoing.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://oag.dc.gov/release/ag-racine-sues-presidential-inaugural-committee"
-        articleSource: "Office of the Attorney General for the District of Columbia"
+        articleUrl: "https://www.propublica.org/article/trump-inc-podcast-trumps-inauguration-paid-trumps-company-with-ivanka-in-the-middle"
+        articleSource: "ProPublica"
       - headline: "LOST IN 2020, THEN ASKED GEORGIA'S SECRETARY OF STATE TO 'FIND 11,780 VOTES'"
         text: >
           You lost a presidential election and then tried multiple avenues to
@@ -168,5 +168,5 @@ candidates:
           certificates.
         politician: "Name withheld"
         position: "Position withheld"
-        articleUrl: "https://sos.ga.gov/page/raffensperger-trump-phone-call-transcript"
-        articleSource: "Georgia Secretary of State"
+        articleUrl: "https://apnews.com/article/donald-trump-joe-biden-arts-and-entertainment-elections-georgia-2b27f4c92919556bf6548117648693b7"
+        articleSource: "The Associated Press"
