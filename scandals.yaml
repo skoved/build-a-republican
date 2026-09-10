@@ -176,6 +176,7 @@ categories:
         politician: "Brandon Herrera"
         position: "Candidate for Texas's 23rd Congressional District"
         articleUrl: "https://people.com/texas-congressional-frontrunner-bragged-about-owning-mein-kampf-in-english-in-newly-resurfaced-clip-11921432"
+        articleSource: "People"
 
       - id: pc-gonzales
         headline: "CONGRESSMAN'S STAFFER AFFAIR GOES PUBLIC; HOUSE ETHICS OPENS AN INVESTIGATION"
@@ -186,6 +187,7 @@ categories:
         politician: "Tony Gonzales"
         position: "Former U.S. Representative for Texas's 23rd Congressional District"
         articleUrl: "https://www.ksat.com/news/ksat-investigates/2025/11/10/congressional-staffer-for-us-rep-gonzales-dies-by-self-immolation-bexar-county-mes-office-rules/"
+        articleSource: "KSAT"
 
       - id: pc-santos
         headline: "CONGRESSMAN'S RESUME UNRAVELS: FAKE WALL STREET CAREER, BRAZILIAN DRAG PAST, 'JEW-ISH'"
@@ -197,6 +199,7 @@ categories:
         politician: "George Santos"
         position: "Former U.S. Representative for New York's 3rd Congressional District"
         articleUrl: "https://www.cityandstateny.com/personality/2023/05/george-santos-lies-ranked/383446/"
+        articleSource: "City & State"
 
       - id: pc-mills-muslim
         headline: "CONGRESSMAN FORCED TO DENY HE IS MUSLIM AT A PRIMARY DEBATE AS THE BASE REFUSES TO BELIEVE HIM"
@@ -208,6 +211,7 @@ categories:
         politician: "Cory Mills"
         position: "U.S. Representative for Florida's 7th Congressional District"
         articleUrl: "https://headlineusa.com/is-rep-cory-mills-a-secret-muslim/"
+        articleSource: "Headline USA"
 
       - id: pc-collins
         headline: "MODERATE SENATOR MARRIED A LONGTIME REPUBLICAN OPERATIVE BEFORE HIS AILING WIFE DIED"
@@ -219,6 +223,7 @@ categories:
         politician: "Susan Collins"
         position: "U.S. Senator from Maine"
         articleUrl: "https://www.dailykos.com/stories/2026/6/7/800051638/community/susan-collins-is-a-homewrecker-lets-do-this/"
+        articleSource: "Daily Kos"
 
       - id: pc-fishback
         headline: "GOVERNOR HOPEFUL MAKES A TINDER 'TO MEET YOUNG FEMALE VOTERS,' THEN BEGS DONORS FOR TINDER PLUS"
@@ -229,6 +234,7 @@ categories:
         politician: "James Fishback"
         position: "Failed candidate for Governor of Florida"
         articleUrl: "https://nypost.com/2026/02/03/us-news/florida-gop-governor-candidate-creates-tinder-account-to-meet-young-female-voters-where-they-are-asks-for-cash-for-more-swipes/"
+        articleSource: "New York Post"
 
       - id: pc-marx
         headline: "SELF-DESCRIBED 'DEMON HUNTER' RUNNING FOR GOVERNOR PERFORMS EXORCISMS OVER THE PHONE"
@@ -241,6 +247,7 @@ categories:
         politician: "Victor Marx"
         position: "Candidate for Governor of Colorado"
         articleUrl: "https://victormarxdemonhunter.com/"
+        articleSource: "A Voter's Case File: Victor Marx"
 
   # ---------------------------------------------------------------------------
   - id: finance-and-fraud
@@ -634,6 +641,7 @@ categories:
         politician: "George Santos"
         position: "Former U.S. Representative for New York's 3rd Congressional District"
         articleUrl: "https://www.npr.org/2023/01/22/1150136390/george-santos-dog-gofundme-anthony-devolder"
+        articleSource: "NPR"
 
       - id: ff-santos-prediction-markets
         headline: "PAID PREDICTION-MARKET PITCHMAN BET AGAINST HIMSELF, WON $17K, FINED $105K"
@@ -645,6 +653,7 @@ categories:
         politician: "George Santos"
         position: "Former U.S. Representative for New York's 3rd Congressional District"
         articleUrl: "https://apnews.com/article/george-santos-polymarket-kalshi-prediction-market-dcc34f4d927d074fe4e1bedeff04b64f"
+        articleSource: "The Associated Press"
 
       - id: ff-tuberville
         headline: "SENATOR'S HEDGE-FUND PARTNER GOT 10 YEARS FOR A $5.2M FRAUD; INVESTORS SUED HIM TOO"
@@ -656,6 +665,7 @@ categories:
         politician: "Tommy Tuberville"
         position: "U.S. Senator from Alabama and candidate for Governor of Alabama"
         articleUrl: "https://www.nytimes.com/2020/07/05/us/politics/tommy-tuberville-senate-hedge-fund.html?unlocked_article_code=1._VA.OwCk.hHfoYs67XjgT&smid=url-share"
+        articleSource: "The New York Times"
 
       - id: ff-gabbard
         headline: "DNI CLAIMED A TEXAS HOMESTEAD TAX BREAK WHILE VOTING AS A HAWAII RESIDENT"
@@ -666,6 +676,7 @@ categories:
         politician: "Tulsi Gabbard"
         position: "Former Director of National Intelligence"
         articleUrl: "https://electionlawblog.org/2025/tulsi-gabbard-declared-her-residency-in-texas-then-she-vote-in-hawaii/"
+        articleSource: "Election Law Blog"
 
   # ---------------------------------------------------------------------------
   - id: conflict-of-interest
@@ -891,8 +902,8 @@ categories:
           account, delivered verbally and never written down.
         politician: "Buddy Carter"
         position: "U.S. Representative for Georgia's 1st Congressional District"
-        articleUrl: "https://www.ajc.com/blog/politics/buddy-carter-faces-conflict-interest-questions-over-pharmacy-bills/cS6MRQq7C7V2F4WVWURLbO/"
-        articleSource: "The Atlanta Journal-Constitution"
+        articleUrl: "https://www.savannahnow.com/story/news/2014/03/13/buddy-carter-attacked-conflict-interest/13633705007/"
+        articleSource: "Savannah Morning News"
 
       - id: ci-lutnick
         headline: "COMMERCE SECRETARY 'DIVESTED' BY SELLING HIS FIRM TO HIS KIDS; TETHER LOANED THEIR TRUST A DAY LATER"
@@ -952,6 +963,7 @@ categories:
         politician: "Henry McMaster"
         position: "Governor of South Carolina"
         articleUrl: "https://www.postandcourier.com/news/corruption-probe-prompts-south-carolina-lawmakers-to-delay-vote-on-gov-mcmasters-ports-authority-nominees/article_acd4469a-0f0f-11e7-9f59-7f82a7c785e1.html"
+        articleSource: "The Post and Courier"
 
       - id: ci-graves
         headline: "CHAIRMAN INVITED HIS WIFE'S BUSINESS PARTNER TO TESTIFY FOR BIOFUEL SUBSIDIES"
@@ -963,6 +975,7 @@ categories:
         politician: "Sam Graves"
         position: "U.S. Representative for Missouri's 6th Congressional District"
         articleUrl: "https://thehill.com/homenews/house/55501-office-of-congressional-ethics-fires-back-at-house-ethics-committee-over-inquest/"
+        articleSource: "The Hill"
 
   # ---------------------------------------------------------------------------
   - id: october-surprise
@@ -1217,6 +1230,7 @@ categories:
         politician: "James Uthmeier"
         position: "Attorney General of Florida"
         articleUrl: "https://www.nbcnews.com/politics/immigration/judge-florida-attorney-general-james-uthmeier-contempt-court-order-rcna213622"
+        articleSource: "NBC News"
 
       - id: os-miller-meeks
         headline: "US REPRESENTATIVE SHUFFLED VOTER REGISTRATIONS ACROSS THREE ADDRESSES AFTER REDISTRICTING"
@@ -1229,6 +1243,7 @@ categories:
         politician: "Mariannette Miller-Meeks"
         position: "U.S. Representative for Iowa's 1st Congressional District"
         articleUrl: "https://www.kcrg.com/2024/09/24/ethics-complaint-alleges-rep-miller-meeks-voting-davenport-despite-living-ottumwa/"
+        articleSource: "KRCG"
 
       - id: os-mcnally
         headline: "LT. GOVERNOR'S VERIFIED INSTAGRAM LIKED A 20-YEAR-OLD MAN'S SUGGESTIVE PHOTOS; HE WON'T STOP"
@@ -1239,3 +1254,4 @@ categories:
         politician: "Randy McNally"
         position: "Lieutenant Governor of Tennessee and Speaker of the Tennessee State Senate"
         articleUrl: "https://www.newschannel5.com/news/it-is-hypocritical-and-contradicting-social-media-male-model-linked-to-tn-lt-gov-randy-mcnally-speaks-out"
+        articleSource: "News Channel 5 Nashville"
